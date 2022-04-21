@@ -17,9 +17,10 @@ stage('Build')
 steps{
 echo "Building the Code.........."
 	script{
-	   envi = gv.environment()
+	   gv.environment()
+	   gv.sso()
 		  }
-echo "Hello my environment value is  $envi"
+echo "Hello my environment value is  $sso and $environment"
 	}
 
 }
