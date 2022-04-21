@@ -19,7 +19,9 @@ echo "Building the Code.........."
 	script{
 	   gv.environment()
 		  }
+echo "$environment"
 	}
+
 }
 stage('Test') 
 {
