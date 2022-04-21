@@ -1,5 +1,6 @@
 def environment(){
 	echo "my environment"
+	environment = 'UAT'
 }
 
 def sso(){
