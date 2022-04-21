@@ -5,27 +5,31 @@ def environment(){
 
 def sso(){
 //	echo "my sso1"
-	sso = 'MYSSO'
+	sso = 'OracleAccess Manager'
 
 }
 
 def iav(){
-	echo "my iav1"
+	//echo "my iav1"
+	iav = 'Govind'
 
 }
 
 def ontrac(){
-	echo "my ontrac1"
+	//echo "my ontrac1"
+	ontrac = 'SHIP'
 
 }
 
 def ebill(){
-	echo "my ebill1"
+	//echo "my ebill1"
+	ebill = 'CUREENTBILL'
 
 }
 
 def recipient(){
-	echo "my recipient"
+	//echo "my recipient"
+	recipient = "mohanBabu"
 
 }
 
