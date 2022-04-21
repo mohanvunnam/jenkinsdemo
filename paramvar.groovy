@@ -4,7 +4,8 @@ def environment(){
 }
 
 def sso(){
-	echo "my sso1"
+//	echo "my sso1"
+	sso = 'MYSSO'
 
 }
 
