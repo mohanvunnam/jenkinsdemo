@@ -1,5 +1,5 @@
 def environment(){
-	echo "my environment"
+	//echo "my environment"
 	environment = 'UAT'
 }
 
