@@ -18,9 +18,9 @@ steps{
 echo "Building the Code.........."
 	script{
 	   gv.environment()
-	   gv.sso()
+	   //gv.sso()
 		  }
-echo "Hello my environment value is  $sso and $environment"
+echo "Hello my environment value is  $environment"
 	}
 
 }
