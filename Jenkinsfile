@@ -19,7 +19,7 @@ echo "Building the Code.........."
 	script{
 	   gv.environment()
 		  }
-echo "$environment"
+echo "Hello my environment value is  $environment"
 	}
 
 }
