@@ -18,10 +18,11 @@ stage('test') {
     expression {
 	params.executefunctionstep == true
                }
+         }
     steps {
     echo "Loading paramerts groovy file.......... SSO is $sso  and envi is  $ENVIRONMENT"
 	 }	
-         }
+
 	      }
 
 }
