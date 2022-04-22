@@ -1,7 +1,7 @@
 pipeline{
 agent any
 parameters {
-    string(name: 'sso', defaultValue: '', description: 'which SSO we want to execute')
+    //string(name: 'sso', defaultValue: '', description: 'which SSO we want to execute')
     chioce(name: 'environment', choices: ['DVLP', 'TEST', 'UAT', 'PROD'], description: 'on which environment to execute')
     //booleanParam(name: 'executefunctionstep', defaultVaule: true, description: 'execute only if true')
 }
