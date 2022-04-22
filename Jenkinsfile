@@ -7,18 +7,22 @@ parameters {
 }
 stages 
 {
-stage('init') 
-{
-when {
+stage('hello') {
+    steps {
+        echo "Hello stage is executed"
+          }
+}
+
+stage('test') {
+    when {
     expression {
 	params.executefunctionstep == true
                }
 //steps{
 //echo "Loading paramerts groovy file.......... SSO is $sso  and envi is  $ENVIRONMENT"
 //}	
-}
-}
-
+         }
+	      }
 
 }
 }
