@@ -9,9 +9,14 @@ stages
 {
 stage('init') 
 {
+when {
+    expression {
+	params.executefunctionstep == true
+               }
 steps{
-echo "Loading paramerts groovy file.......... $sso"
-	
+echo "Loading paramerts groovy file.......... SSO is $sso  and envi is  $ENVIRONMENT"
+
+}	
 }
 }
 
