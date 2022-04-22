@@ -13,8 +13,8 @@ when {
     expression {
 	params.executefunctionstep == true
                }
-steps{
-echo "Loading paramerts groovy file.......... SSO is $sso  and envi is  $ENVIRONMENT"
+//steps{
+//echo "Loading paramerts groovy file.......... SSO is $sso  and envi is  $ENVIRONMENT"
 
 }	
 }
