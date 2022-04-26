@@ -14,9 +14,9 @@ pipeline {
 		     }
 		}
         stage ('pull images') {
-//            when {
-//                expression { tfparam.PushDrContainers().PushDrContainers == true }
-//  	           }
+            when {
+                expression { tfparam.PushDrContainers().PushDrContainers == true }
+  	           }
             steps {
                 script {
 			 tfparam.api_imagetag()	     
