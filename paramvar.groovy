@@ -43,7 +43,7 @@ def environmentloc(){
 //def nbr_ui_ec2(){
 	// string
 //	nbr_ui_ec2 = '1'
-}
+//}
 
 
 
