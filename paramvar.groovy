@@ -6,6 +6,7 @@ def environment(){
 def sso(){
 //	echo "my sso1"
 	sso = 'OracleAccess Manager'
+	iav1 = 'Govind1'
 
 }
 
