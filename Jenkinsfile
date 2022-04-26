@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
             approval = "true"
+	    tfparam.PushDrContainers()
     }
     stages {
 	stage('init') 
@@ -15,7 +16,7 @@ pipeline {
 		}
         stage ('pull images') {
             when {
-                expression { tfparam.PushDrContainers().PushDrContainers == true }
+                expression { PushDrContainers == true }
   	           }
             steps {
                 script {
