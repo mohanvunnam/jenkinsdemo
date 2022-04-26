@@ -8,6 +8,7 @@ pipeline {
     }
  parameters {
         booleanParam(name: 'PushDrContainers', defaultValue: true, description: 'PushDrContainers execute only if true')
+	string(name: 'nbr_api_ec2', defaultValue: 1, description: 'value of nbr_api_ec2 is 1 by default'))
         choice(name: 'environment', choices: ['prod', 'dr'], description: 'on which environment to execute')
         choice(name: 'update_api', choices: ['yes', 'no'], description: 'on which update_api to execute')
         choice(name: 'update_ebill', choices: ['yes', 'no'], description: 'on which update_ebill to execute')
@@ -55,9 +56,10 @@ pipeline {
         stage ('update ec2 counts'){
             steps {
                 script {
-                                tfparam.nbr_api_ec2()
+                               // tfparam.nbr_api_ec2()
                                 tfparam.nbr_ui_ec2()
 	                         echo "nbr_api_ec2 value is $nbr_api_ec2"
+	                         echo "nbr_api_ec2 value is ${nbr_api_ec2}"
 	                         echo "nbr_ui_ec2 value is $nbr_ui_ec2"
 	                         echo "environment value is $environment and ${environment}"
 
