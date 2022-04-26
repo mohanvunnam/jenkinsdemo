@@ -38,7 +38,8 @@ pipeline {
 			PushDrContainers = "true"
 			   }
             when {
-                expression { ['$PushDrContainers'] == true }
+                expression { ${["PushDrContainers"]} == true }
+                //expression { ['$PushDrContainers'] == true }
   	           }
 
 
