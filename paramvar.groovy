@@ -1,6 +1,6 @@
 def PushDrContainers(){
 	// Boolean
-	PushDrContainers = 'false'
+	PushDrContainers = 'true'
 }
 
 def api_imagetag(){
