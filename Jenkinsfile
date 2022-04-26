@@ -57,6 +57,10 @@ pipeline {
                 script {
                                 tfparam.nbr_api_ec2()
                                 tfparam.nbr_ui_ec2()
+	                         echo "nbr_api_ec2 value is ${nbr_api_ec2}"
+	                         echo "nbr_ui_ec2 value is ${nbr_ui_ec2}"
+	                         echo "environment value is params.environment"
+
                     sh '''
                         for environment in 'params.environment';
                         do
