@@ -10,13 +10,13 @@ pipeline {
 		echo "Loading paramerts groovy file.........."
 			script{
 			   tfparam = load "paramvar.groovy"
+			     }
 		     }
 		}
         stage ('pull images') {
-            when {
-//		tfparam.PushDrContainers()
-                expression { tfparam.PushDrContainers().PushDrContainers == true }
-            }
+//            when {
+//                expression { tfparam.PushDrContainers().PushDrContainers == true }
+//  	           }
             steps {
                 script {
 			 tfparam.api_imagetag()	     
@@ -30,9 +30,9 @@ pipeline {
 			 echo "ontrac_imagetag value is ${ontrac_imagetag}"
 	                 echo "ebill_imagetag value is ${ebill_imagetag}"
          	         echo "recipient_imagetag value is ${recipient_imagetag}"
-                }
-            }
-        }
+         	       }
+            	 }
+     				 }
         
     }
 }
