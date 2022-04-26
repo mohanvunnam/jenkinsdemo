@@ -77,6 +77,11 @@ pipeline {
 
 
 
-        
+      stage ('update ec2 counts'){
+            steps {
+ 		     sh 'printenv'
+		  }
+				 }
+
     }
 }
