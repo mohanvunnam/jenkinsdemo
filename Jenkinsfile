@@ -6,74 +6,22 @@ pipeline {
     environment {
             approval = "true"
     }
- parameters {
-        booleanParam(name: 'PushDrContainers', defaultValue: true, description: 'PushDrContainers execute only if true')
-	string(name: 'api_imagetag', defaultValue: 'latest', description: 'value of api_imagetag is latest by default')
-	string(name: 'sso_imagetag', defaultValue: 'latest', description: 'value of sso_imagetag is latest by default')
-	string(name: 'nbr_api_ec2', defaultValue: '3', description: 'value of nbr_api_ec2 is 1 by default')
-	string(name: 'nbr_ui_ec2', defaultValue: '1', description: 'value of nbr_ui_ec2 is 1 by default')
-        choice(name: 'environment', choices: ['prod', 'dr'], description: 'on which environment to execute')
-        choice(name: 'update_api', choices: ['yes', 'no'], description: 'on which update_api to execute')
-        choice(name: 'update_ebill', choices: ['yes', 'no'], description: 'on which update_ebill to execute')
-        choice(name: 'update_iav', choices: ['yes', 'no'], description: 'on which update_iav to execute')
-        choice(name: 'update_ontrac', choices: ['yes', 'no'], description: 'on which update_ontrac to execute')
-        choice(name: 'update_recipient', choices: ['yes', 'no'], description: 'on which update_recipient to execute')
-        choice(name: 'update_sso', choices: ['yes', 'no'], description: 'on which update_sso to execute')
-               }
 
-    stages {
-	stage('init') 
-		{
-		steps{
-		echo "Loading paramerts groovy file.........."
-			script{
-			   tfparam = load "paramvar.groovy"
-			      }
-		     }
-		}
-
-
-        stage ('pull images'){
-            when {
-                expression { params.PushDrContainers == true }
+stage('reading properties from properties file1') {
+   when {
+                expression { props.PushDrContainers == true }
             }
-            steps {
-                script {
-			 //tfparam.api_imagetag()	     
-			 //tfparam.sso_imagetag()	     
-			 tfparam.iav_imagetag()	     
-			 tfparam.ontrac_imagetag()	     
-			 tfparam.ebill_imagetag()	     
-			 tfparam.recipient_imagetag()	     
-               		 echo "api_imagetag value is ${api_imagetag}"
-                    	 echo "sso_imagetag value is ${sso_imagetag}"
-	                 echo "iav_imagetag value is ${iav_imagetag}"
-			 echo "ontrac_imagetag value is ${ontrac_imagetag}"
-	                 echo "ebill_imagetag value is ${ebill_imagetag}"
-         	         echo "recipient_imagetag value is ${recipient_imagetag}"
-                }
-            }
+    steps {
+        // Use a script block to do custom scripting
+        script {
+            def props = readProperties file: 'extravars.properties'
+            env.Username = props.Username
+            env.PushDrContainers = props.PushDrContainers
         }
-
-
-        stage ('update ec2 counts'){
-            steps {
-                script {
-	                         echo "nbr_api_ec2 value is $nbr_api_ec2"
-	                         echo "nbr_api_ec2 value is ${nbr_api_ec2}"
-	                         echo "nbr_ui_ec2 value is $nbr_ui_ec2"
-	                         echo "environment value is $environment and ${environment}"
-
-                    sh '''
-                        for environment in $environment;
-                        do
-                          echo "environment ${environment} value is $environment and nbr_api_ec2 value is ${nbr_api_ec2}"
-                          echo "environment ${environment} value is $environment and nbr_ui_ec2 value is ${nbr_ui_ec2}"
-                        done
-                    '''
-                }
-            }
-        }
+        echo "The username  is $Username"
+        echo "The PushDrContainers value  is $PushDrContainers"
+    }
+}
 
 
 
@@ -82,18 +30,6 @@ pipeline {
  		     sh 'printenv'
 		  }
 				 }
-
-stage('reading properties from properties file') {
-    steps {
-        // Use a script block to do custom scripting
-        script {
-            def props = readProperties file: 'extravars.properties' 
-            env.Username = props.Username
-        }
-        echo "The username  is $Username"
-    }
-}
-
 
     }
 }
