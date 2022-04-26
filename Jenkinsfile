@@ -2,6 +2,8 @@ pipeline {
     agent any
     environment {
             approval = "true"
+            ENV = "testing"
+
     }
 //    parameters {
 //        booleanParam(name: 'PushDrContainers', defaultValue: true, description: 'PushDrContainers execute only if true')
@@ -38,8 +40,8 @@ pipeline {
 			PushDrContainers = "true"
 			   }
             when {
-                //expression { env.PushDrContainers == true }
-                environment(name: "PushDrContainers", value: "true")
+                expression { env.PushDrContainers == true }
+                //environment(name: "PushDrContainers", value: "true")
                 //expression { ['$PushDrContainers'] == true }
   	           }
      				 }
