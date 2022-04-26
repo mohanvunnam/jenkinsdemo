@@ -21,7 +21,7 @@ echo "Building the Code.........."
 	   gv.sso()
 	   gv.iasso()
 		  }
-echo "Hello my environment value is  $environment and $sso"
+echo "Hello my environment value is  $environment and $sso iav1 is $iav1"
 	}
 
 }
