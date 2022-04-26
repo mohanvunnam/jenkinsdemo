@@ -19,7 +19,7 @@ echo "Building the Code.........."
 	script{
 	   gv.environment()
 	   gv.sso()
-	   gv.iav1()
+	   gv.iasso()
 		  }
 echo "Hello my environment value is  $environment and $sso"
 	}
