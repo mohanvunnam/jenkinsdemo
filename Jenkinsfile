@@ -328,6 +328,18 @@ TF_VAR_cybersource_loopback=${cybersource_loopback} TF_VAR_dc_dcu_loopback=${dc_
                         echo "env0 cancel environmentName infrastructure-${environment}"
                     '''
                 }
+                success {
+                    echo "Run when only success"
+                    sh '''
+                        crumb=$(curl -u "jenkins:test@3214" -s 'http://192.168.56.102:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
+
+echo "crumb value is $crumb"
+
+			#curl -u "jenkins:test@3214" -H "$crumb" -X POST http://192.168.56.102:8080/job/remotetrigger/build?delay=0sec
+			curl -u "jenkins:test@3214" -H "$crumb" -X POST http://192.168.56.102:8080/job/remotetrigger/buildWithParameters
+			#curl -u "jenkins:test@3214" -H "$crumb" -X POST "http://192.168.56.102:8080/job/remotetrigger/buildWithParameters?myname=$myname1&envi=$envi1"
+                    '''
+                }
             }
         }
         
