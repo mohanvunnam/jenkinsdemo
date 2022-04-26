@@ -35,10 +35,10 @@ def environmentloc(){
 }
 
 
-def nbr_api_ec2(){
+//def nbr_api_ec2(){
 	// string
-	nbr_api_ec2 = '1'
-}
+//	nbr_api_ec2 = '1'
+//}
 
 def nbr_ui_ec2(){
 	// string
