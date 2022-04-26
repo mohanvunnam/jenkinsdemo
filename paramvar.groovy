@@ -8,6 +8,10 @@
 //	sso_imagetag = 'latest'
 //}
 
+def PushDrContainers(){
+	// boolean
+	PushDrContainers = 'true'
+}
 def iav_imagetag(){
 	// string
 	iav_imagetag = 'latest'
