@@ -32,6 +32,7 @@ pipeline {
 			 echo "ontrac_imagetag value is ${ontrac_imagetag}"
 	                 echo "ebill_imagetag value is ${ebill_imagetag}"
          	         echo "recipient_imagetag value is ${recipient_imagetag}"
+         	         echo "recipient_imagetag value is $PushDrContainers"
          	       }
             	 }
  		environment {
