@@ -18,6 +18,7 @@ pipeline {
                 script {
                          tfparam.PushDrContainers()
 		  }
+		  }
             when {
                 expression { PushDrContainers == true }
   	           }
