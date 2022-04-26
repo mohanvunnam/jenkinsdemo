@@ -2,7 +2,6 @@ pipeline {
     agent any
     environment {
             approval = "true"
-            ENV = "testing"
     }
 //    parameters {
 //        booleanParam(name: 'PushDrContainers', defaultValue: true, description: 'PushDrContainers execute only if true')
@@ -43,8 +42,6 @@ pipeline {
                 environment(name: "PushDrContainers", value: "true")
                 //expression { ['$PushDrContainers'] == true }
   	           }
-
-
      				 }
        
 
@@ -53,9 +50,14 @@ pipeline {
                 environment(name: "ENV", value: "testing")
             	}
             steps {
-                echo "Test stage."
+                echo "Test stage got executed hehehe."
            	 }
+	 environment {
+                     ENV = "testing"
+                     }
 		        }
  
+
+
     }
 }
