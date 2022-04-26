@@ -19,9 +19,7 @@ pipeline {
 		     }
 		}
         stage ('pull images') {
-            when {
-                expression { PushDrContainers == PushDrContainers }
-  	           }
+
             steps {
                 script {
 			 tfparam.iav_imagetag()	     
@@ -38,6 +36,9 @@ pipeline {
  		environment {
 			PushDrContainers = "true"
 			   }
+            when {
+                expression { $PushDrContainers == PushDrContainers }
+  	           }
 
 
      				 }
