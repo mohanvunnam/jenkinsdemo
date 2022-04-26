@@ -1,27 +1,24 @@
 pipeline {
     agent any
-//    options {
-//        ansiColor('xterm')
-//    }
     environment {
             approval = "true"
     }
-
+stages {
 stage('reading properties from properties file1') {
-   when {
-                expression { props.PushDrContainers == true }
-            }
+  // when {
+    //            expression { props.PushDrContainers == true }
+     //    }
     steps {
         // Use a script block to do custom scripting
         script {
             def props = readProperties file: 'extravars.properties'
             env.Username = props.Username
             env.PushDrContainers = props.PushDrContainers
-        }
+               }
         echo "The username  is $Username"
         echo "The PushDrContainers value  is $PushDrContainers"
-    }
-}
+         }
+                                                   }
 
 
 
@@ -29,7 +26,7 @@ stage('reading properties from properties file1') {
             steps {
  		     sh 'printenv'
 		  }
-				 }
-
+			                      }
+                         
     }
 }
