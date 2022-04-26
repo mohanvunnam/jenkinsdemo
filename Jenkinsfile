@@ -49,7 +49,7 @@ pipeline {
 
         stage("Test") {
             when {
-                environment(name: "(env.ENV)", value: "testing")
+                environment(name: (env.ENV), value: "testing")
             	}
             steps {
                 echo "Test stage got executed hehehe. ${ENV}"
