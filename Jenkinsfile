@@ -38,7 +38,7 @@ pipeline {
             }
             steps {
                 script {
-			 tfparam.api_imagetag()	     
+			 //tfparam.api_imagetag()	     
 			 tfparam.sso_imagetag()	     
 			 tfparam.iav_imagetag()	     
 			 tfparam.ontrac_imagetag()	     
@@ -73,8 +73,6 @@ pipeline {
                 }
             }
         }
-
-
 
 
 
