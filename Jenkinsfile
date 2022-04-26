@@ -9,9 +9,9 @@ stages {
 
 stage('reading properties from properties file1') {
     steps {
-   when {
-                expression { $PushDrContainers == true }
-         }
+//   when {
+ //               expression { $PushDrContainers == true }
+//         }
         script {
 
 	def props = readProperties file: 'extravars.properties'
