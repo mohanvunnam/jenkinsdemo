@@ -3,10 +3,10 @@
 //	api_imagetag = 'latest'
 //}
 
-def sso_imagetag(){
+//def sso_imagetag(){
 	// string
-	sso_imagetag = 'latest'
-}
+//	sso_imagetag = 'latest'
+//}
 
 def iav_imagetag(){
 	// string

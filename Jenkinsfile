@@ -9,6 +9,7 @@ pipeline {
  parameters {
         booleanParam(name: 'PushDrContainers', defaultValue: true, description: 'PushDrContainers execute only if true')
 	string(name: 'api_imagetag', defaultValue: 'latest', description: 'value of api_imagetag is latest by default')
+	string(name: 'sso_imagetag', defaultValue: 'latest', description: 'value of sso_imagetag is latest by default')
 	string(name: 'nbr_api_ec2', defaultValue: '', description: 'value of nbr_api_ec2 is 1 by default')
 	string(name: 'nbr_ui_ec2', defaultValue: '', description: 'value of nbr_ui_ec2 is 1 by default')
         choice(name: 'environment', choices: ['prod', 'dr'], description: 'on which environment to execute')
@@ -39,7 +40,7 @@ pipeline {
             steps {
                 script {
 			 //tfparam.api_imagetag()	     
-			 tfparam.sso_imagetag()	     
+			 //tfparam.sso_imagetag()	     
 			 tfparam.iav_imagetag()	     
 			 tfparam.ontrac_imagetag()	     
 			 tfparam.ebill_imagetag()	     
