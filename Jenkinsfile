@@ -40,7 +40,7 @@ pipeline {
 			PushDrContainers = "true"
 			   }
             when {
-                expression { env.PushDrContainers == true }
+                expression { env.PushDrContainers == 'true' }
                 //environment(name: "PushDrContainers", value: "true")
                 //expression { ['$PushDrContainers'] == true }
   	           }
@@ -52,7 +52,7 @@ pipeline {
                 environment(name: "ENV", value: "testing")
             	}
             steps {
-                echo "Test stage got executed hehehe."
+                echo "Test stage got executed hehehe. $ENV"
            	 }
 	 environment {
                      ENV = "testing"
