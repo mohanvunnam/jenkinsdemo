@@ -38,6 +38,7 @@ pipeline {
 			 tfparam.iav_imagetag()	     
 			 tfparam.ontrac_imagetag()	     
 			 tfparam.ebill_imagetag()	     
+			 tfparam.recipient_imagetag()	     
                		 echo "api_imagetag value is ${api_imagetag}"
                     	 echo "sso_imagetag value is ${sso_imagetag}"
 	                 echo "iav_imagetag value is ${iav_imagetag}"
