@@ -20,7 +20,7 @@ pipeline {
 		}
         stage ('pull images') {
             when {
-                expression { PushDrContainers == true }
+                expression { PushDrContainers == PushDrContainers }
   	           }
             steps {
                 script {
