@@ -1,12 +1,7 @@
 pipeline {
     agent any
-//    options {
-//        ansiColor('xterm')
-//    }
     environment {
-        
             approval = "true"
-        
     }
     stages {
 	stage('init') 
@@ -15,13 +10,12 @@ pipeline {
 		echo "Loading paramerts groovy file.........."
 			script{
 			   tfparam = load "paramvar.groovy"
-			      }
 		     }
 		}
         stage ('pull images'){
             when {
-		tfparam.PushDrContainers()
-                expression { PushDrContainers == true }
+//		tfparam.PushDrContainers()
+                expression { tfparam.PushDrContainers().PushDrContainers == true }
             }
             steps {
                 script {
