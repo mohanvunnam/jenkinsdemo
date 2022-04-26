@@ -64,8 +64,8 @@ pipeline {
                     sh '''
                         for environment in $environment;
                         do
-                          echo "environment ${environment} value is $environment and nbr_api_ec2 value is $nbr_api_ec2"
-                          echo "environment ${environment} value is $environment and nbr_ui_ec2 value is $nbr_ui_ec2"
+                          echo "environment ${environment} value is $environment and nbr_api_ec2 value is ${nbr_api_ec2}"
+                          echo "environment ${environment} value is $environment and nbr_ui_ec2 value is ${nbr_ui_ec2}"
                         done
                     '''
                 }
