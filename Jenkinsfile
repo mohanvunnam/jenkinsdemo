@@ -14,8 +14,8 @@ pipeline {
 		     }
 		}
         stage ('pull images') {
-            when {
 		tfparam.PushDrContainers()
+            when {
                 expression { PushDrContainers == true }
   	           }
             steps {
