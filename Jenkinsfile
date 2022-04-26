@@ -52,10 +52,10 @@ pipeline {
                 environment(name: "ENV", value: "testing")
             	}
             steps {
-                echo "Test stage got executed hehehe. ${ENV1}"
+                echo "Test stage got executed hehehe. ${ENV}"
            	 }
 	    environment {
-                     ENV1 = "testing1"
+                     ENV = "testing1"
                      }
 		        }
  
