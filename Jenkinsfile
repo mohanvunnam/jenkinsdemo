@@ -12,7 +12,7 @@ pipeline {
 			   tfparam = load "paramvar.groovy"
 		     }
 		}
-        stage ('pull images'){
+        stage ('pull images') {
             when {
 //		tfparam.PushDrContainers()
                 expression { tfparam.PushDrContainers().PushDrContainers == true }
