@@ -77,7 +77,7 @@ pipeline {
 
 
 
-      stage ('update ec2 counts'){
+      stage ('Printing environment variables'){
             steps {
  		     sh 'printenv'
 		  }
