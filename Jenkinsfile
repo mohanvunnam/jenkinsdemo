@@ -22,6 +22,7 @@ pipeline {
 
             steps {
                 script {
+			 tfparam.PushDrContainers()
 			 tfparam.iav_imagetag()	     
 			 tfparam.ontrac_imagetag()	     
 			 tfparam.ebill_imagetag()	     
@@ -30,7 +31,7 @@ pipeline {
 			 echo "ontrac_imagetag value is ${ontrac_imagetag}"
 	                 echo "ebill_imagetag value is ${ebill_imagetag}"
          	         echo "recipient_imagetag value is ${recipient_imagetag}"
-         	         echo "recipient_imagetag value is $PushDrContainers"
+         	         echo "PushDrContainers value is $PushDrContainers"
          	       }
             	 }
  		environment {
