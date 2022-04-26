@@ -4,7 +4,7 @@ pipeline {
             approval = "true"
     }
     parameters {
-        booleanParam(name: "PushDrContainers", defaultValue: true)
+        booleanParam(name: 'PushDrContainers', defaultValue: true, description: 'PushDrContainers execute only if true')
                }
     stages {
 	stage('init') 
@@ -18,11 +18,10 @@ pipeline {
 		}
         stage ('pull images') {
             when {
-                expression { PushDrContainers == true }
+                expression { params.PushDrContainers == true }
   	           }
             steps {
                 script {
-//			 tfparam.PushDrContainers()	     
 			 tfparam.api_imagetag()	     
 			 tfparam.sso_imagetag()	     
 			 tfparam.iav_imagetag()	     
