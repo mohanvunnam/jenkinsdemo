@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
             approval = "true"
-            ENV = "testing"
+//            ENV = "testing"
 
     }
 //    parameters {
@@ -49,10 +49,10 @@ pipeline {
 
         stage("Test") {
             when {
-                environment(name: "ENV", value: "testing")
+                environment(name: "${ENV}", value: "testing")
             	}
             steps {
-                echo "Test stage got executed hehehe. $ENV"
+                echo "Test stage got executed hehehe. ${ENV}"
            	 }
 	 environment {
                      ENV = "testing"
