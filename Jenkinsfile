@@ -13,12 +13,14 @@ pipeline {
 		echo "Loading paramerts groovy file.........."
 			script{
 			   tfparam = load "paramvar.groovy"
+			   tfparam.PushDrContainers()
+			   echo "PushDrContainers value is ${PushDrContainers} and $PushDrContainers"
 			     }
 		     }
 		}
         stage ('pull images') {
             when {
-                expression { [tfparam.PushDrContainers] == true }
+                expression { ${PushDrContainers} == true }
   	           }
             steps {
                 script {
