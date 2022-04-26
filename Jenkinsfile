@@ -27,6 +27,8 @@ pipeline {
 			      }
 		     }
 		}
+
+
         stage ('pull images'){
             when {
                 expression { params.PushDrContainers == true }
@@ -48,6 +50,27 @@ pipeline {
                 }
             }
         }
+
+
+        stage ('update ec2 counts'){
+            steps {
+                script {
+                                tfparam.nbr_api_ec2()
+                                tfparam.nbr_ui_ec2()
+                    sh '''
+                        for environment in ${params.environment};
+                        do
+                            echo "environment {environment} value is ${params.environment} and nbr_api_ec2 value is ${nbr_api_ec2}"
+                            echo "environment {environment} value is ${params.environment} and nbr_ui_ec2 value is ${nbr_ui_ec2}"
+                        done
+                    '''
+                }
+            }
+        }
+
+
+
+
 
         
     }
