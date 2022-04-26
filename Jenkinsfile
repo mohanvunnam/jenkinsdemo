@@ -7,8 +7,6 @@ stages {
 
 stage('reading properties from properties file1') {
     steps {
-	    def props = readProperties file: 'extravars.properties'
-            env.PushDrContainers = props.PushDrContainers
    when {
                 expression { PushDrContainers == true }
          }
