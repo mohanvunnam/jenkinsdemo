@@ -8,12 +8,13 @@ pipeline {
     }
  parameters {
         booleanParam(name: 'PushDrContainers', defaultValue: true, description: 'PushDrContainers execute only if true')
-	booleanParam(name: 'update_api', defaultValue: true, description: 'update_api execute only if true')
-	booleanParam(name: 'update_ebill', defaultValue: true, description: 'update_ebill execute only if true')
-	booleanParam(name: 'update_iav', defaultValue: true, description: 'update_iav execute only if true')
-	booleanParam(name: 'update_ontrac', defaultValue: true, description: 'update_ontrac execute only if true')
-	booleanParam(name: 'update_recipient', defaultValue: true, description: 'update_recipient execute only if true')
-	booleanParam(name: 'update_sso', defaultValue: true, description: 'update_sso execute only if true')
+        choice(name: 'environment', choices: ['prod', 'dr'], description: 'on which environment to execute')
+        choice(name: 'update_api', choices: ['yes', 'no'], description: 'on which update_api to execute')
+        choice(name: 'update_ebill', choices: ['yes', 'no'], description: 'on which update_ebill to execute')
+        choice(name: 'update_iav', choices: ['yes', 'no'], description: 'on which update_iav to execute')
+        choice(name: 'update_ontrac', choices: ['yes', 'no'], description: 'on which update_ontrac to execute')
+        choice(name: 'update_recipient', choices: ['yes', 'no'], description: 'on which update_recipient to execute')
+        choice(name: 'update_sso', choices: ['yes', 'no'], description: 'on which update_sso to execute')
                }
 
     stages {
@@ -112,14 +113,13 @@ pipeline {
         stage ('update ec2 counts'){
             steps {
                 script {
-				tfparam.environment()
 				tfparam.nbr_api_ec2()
 				tfparam.nbr_ui_ec2()
                     sh '''
-                        for environment in ${environment};
+                        for environment in ${params.environment};
                         do
-                            echo "environment value is ${environment} and nbr_api_ec2 value is ${nbr_api_ec2}" 
-                            echo "environment value is ${environment} and nbr_ui_ec2 value is ${nbr_ui_ec2}" 
+                            echo "environment {environment} value is ${params.environment} and nbr_api_ec2 value is ${nbr_api_ec2}" 
+                            echo "environment {environment} value is ${params.environment} and nbr_ui_ec2 value is ${nbr_ui_ec2}" 
                         done
                     '''
                 }
@@ -127,14 +127,16 @@ pipeline {
         }
         stage ('create ssm parameter store api'){
             when {
-                environment name: 'update_api', value: 'yes'
+//                environment name: 'update_api', value: 'yes'
+                expression { params.update_api == yes }
+
             }
             steps {
                 script {
-                                 tfparam.environment()
+                                 //tfparam.environment()
                                  tfparam.api_imagetag()
                     sh '''
-                        for environment in ${environment};
+                        for environment in ${params.environment};
                         do
                             echo "${environment} and ${api_imagetag}"
                             echo "${environment} and ${api_imagetag}"
@@ -146,14 +148,15 @@ pipeline {
 
         stage ('create ssm parameter store sso'){
             when {
-                environment name: 'update_sso', value: 'yes'
+//                environment name: 'update_sso', value: 'yes'
+                expression { params.update_sso == yes }
             }
             steps {
                 script {
-                                 tfparam.environment()
+                                 //tfparam.environment()
                                  tfparam.sso_imagetag()
                     sh '''
-                        for environment in ${environment};
+                        for environment in ${params.environment};
                         do
                             echo "${environment} and ${sso_imagetag}"
                         done
@@ -164,14 +167,15 @@ pipeline {
 
         stage ('create ssm parameter store iav'){
             when {
-                environment name: 'update_iav', value: 'yes'
+//                environment name: 'update_iav', value: 'yes'
+                expression { params.update_iav == yes }
             }
             steps {
                 script {
-                                 tfparam.environment()
+  //                               tfparam.environment()
                                  tfparam.iav_imagetag()
                     sh '''
-                        for environment in ${environment};
+                        for environment in ${params.environment};
                         do
                             echo "${environment} and ${iav_imagetag}"
                             echo "${environment} and ${iav_imagetag}"
@@ -183,14 +187,15 @@ pipeline {
 
         stage ('create ssm parameter store ontrac'){
             when {
-                environment name: 'update_ontrac', value: 'yes'
+               // environment name: 'update_ontrac', value: 'yes'
+                expression { params.update_ontrac == yes }
             }
             steps {
                 script {
-                                 tfparam.environment()
+                                // tfparam.environment()
                                  tfparam.ontrac_imagetag()
                     sh '''
-                        for environment in ${environment};
+                        for environment in ${params.environment};
                         do
                             echo "${environment} ${ontrac_imagetag}"
                             echo "${environment} ${ontrac_imagetag}"
@@ -202,14 +207,16 @@ pipeline {
 
         stage ('create ssm parameter store ebill'){
             when {
-                environment name: 'update_ebill', value: 'yes'
+             //   environment name: 'update_ebill', value: 'yes'
+                expression { params.update_ebill == yes }
+
             }
             steps {
                 script {
-                                 tfparam.environment()
+                                 //tfparam.environment()
                                  tfparam.ebill_imagetag()
                     sh '''
-                        for environment in ${environment};
+                        for environment in ${params.environment};
                         do
                             echo "${environment} and ${ebill_imagetag}"
                             echo "${environment} and ${ebill_imagetag}"
@@ -221,14 +228,16 @@ pipeline {
 
         stage ('create ssm parameter store recipient'){
             when {
-                environment name: 'update_recipient', value: 'yes'
+               // environment name: 'update_recipient', value: 'yes'
+                expression { params.update_recipient == yes }
+
             }
             steps {
                 script {
-                                 tfparam.environment()
+                                 //tfparam.environment()
                                  tfparam.recipient_imagetag()
                     sh '''
-                        for environment in ${environment};
+                        for environment in ${params.environment};
                         do
                             echo "${environment} and ${recipient_imagetag}"
                             echo "${environment} and ${recipient_imagetag}"
@@ -240,14 +249,15 @@ pipeline {
 
         stage ('DR create ssm parameter store api'){
             when {
-                environment name: 'update_api', value: 'yes'
+                //environment name: 'update_api', value: 'yes'
+                expression { params.update_api == yes }
             }
             steps {
                 script {
-                                 tfparam.environment()
+                                // tfparam.environment()
                                  tfparam.api_imagetag()
                     sh '''
-                        for environment in ${environment};
+                        for environment in ${params.environment};
                         do
 
                              echo "${api_imagetag}"
@@ -260,14 +270,15 @@ pipeline {
 
         stage ('DR create ssm parameter store sso'){
             when {
-                environment name: 'update_sso', value: 'yes'
+                //environment name: 'update_sso', value: 'yes'
+                expression { params.update_sso == yes }
             }
             steps {
                 script {
-                                 tfparam.environment()
+                                // tfparam.environment()
                                  tfparam.sso_imagetag()
                     sh '''
-                        for environment in ${environment};
+                        for environment in ${params.environment};
                         do
                             echo "${sso_imagetag}"
                             echo "${sso_imagetag}"
@@ -278,14 +289,15 @@ pipeline {
         }
         stage ('DR create ssm parameter store iav'){
             when {
-                environment name: 'update_iav', value: 'yes'
+               // environment name: 'update_iav', value: 'yes'
+                expression { params.update_iav == yes }
             }
             steps {
-                                 tfparam.environment()
+                                 //tfparam.environment()
                                  tfparam.iav_imagetag()
                 script {
                     sh '''
-                        for environment in ${environment};
+                        for environment in ${params.environment};
                         do
                             echo "${iav_imagetag}"
                             echo "${iav_imagetag}"
@@ -296,14 +308,16 @@ pipeline {
         }
         stage ('DR create ssm parameter store ontrac'){
             when {
-                environment name: 'update_ontrac', value: 'yes'
+               // environment name: 'update_ontrac', value: 'yes'
+                expression { params.update_ontrac == yes }
+
             }
             steps {
                 script {
-                                 tfparam.environment()
+                                // tfparam.environment()
                                  tfparam.ontrac_imagetag()
                     sh '''
-                        for environment in ${environment};
+                        for environment in ${params.environment};
                         do
                             echo "${ontrac_imagetag}"
                             echo "${ontrac_imagetag}"
@@ -314,14 +328,16 @@ pipeline {
         }
         stage ('DR create ssm parameter store ebill'){
             when {
-                environment name: 'update_ebill', value: 'yes'
+                //environment name: 'update_ebill', value: 'yes'
+                expression { params.update_ontrac == yes }
+
             }
             steps {
                 script {
-                                 tfparam.environment()
+                                // tfparam.environment()
                                  tfparam.ebill_imagetag()
                     sh '''
-                        for environment in ${environment};
+                        for environment in ${params.environment};
                         do
                             echo "${ebill_imagetag}"
                             echo "${ebill_imagetag}"
@@ -332,14 +348,16 @@ pipeline {
         }
         stage ('DR create ssm parameter store recipient'){
             when {
-                environment name: 'update_recipient', value: 'yes'
+                //environment name: 'update_recipient', value: 'yes'
+                expression { params.update_recipient == yes }
+
             }
             steps {
                 script {
-                                 tfparam.environment()
+                                 //tfparam.environment()
                                  tfparam.recipient_imagetag()
                     sh '''
-                        for environment in ${environment};
+                        for environment in ${params.environment};
                         do
                             echo "${recipient_imagetag}"
                             echo "${recipient_imagetag}"

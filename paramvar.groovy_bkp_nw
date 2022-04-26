@@ -1,3 +1,8 @@
+def PushDrContainers(){
+	// Boolean
+	PushDrContainers = 'true'
+}
+
 def api_imagetag(){
     // string
 	api_imagetag = 'latest'
@@ -45,6 +50,36 @@ def nbr_ui_ec2(){
 	nbr_ui_ec2 = '1'
 }
 
+
+def update_sso(){
+	// Choice
+	update_sso = 'no'
+}
+
+def update_api(){
+	// Choice
+	update_api = 'no'
+}
+
+def update_iav(){
+	// Choice
+	update_iav = 'no'
+}
+
+def update_ontrac(){
+	// Choice
+	update_ontrac = 'no'
+}
+
+def update_ebill(){
+	// Choice
+	update_ebill = 'no'
+}
+
+def update_recipient(){
+	// Choice
+	update_recipient = 'no'
+}
 
 
 
