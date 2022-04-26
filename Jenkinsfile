@@ -14,12 +14,12 @@ pipeline {
 		     }
 		}
         stage ('pull images') {
-		tfparam.PushDrContainers()
             when {
                 expression { PushDrContainers == true }
   	           }
             steps {
                 script {
+			 tfparam.PushDrContainers()	     
 			 tfparam.api_imagetag()	     
 			 tfparam.sso_imagetag()	     
 			 tfparam.iav_imagetag()	     
