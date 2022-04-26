@@ -33,9 +33,10 @@ pipeline {
 	                 echo "ebill_imagetag value is ${ebill_imagetag}"
          	         echo "recipient_imagetag value is ${recipient_imagetag}"
          	       }
-		environment{
+ 		environment {
 			PushDrContainers = true
 			   }
+
             	 }
      				 }
         
