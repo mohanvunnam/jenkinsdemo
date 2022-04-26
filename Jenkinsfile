@@ -34,7 +34,7 @@ pipeline {
          	         echo "recipient_imagetag value is ${recipient_imagetag}"
          	       }
  		environment {
-			PushDrContainers = true
+			PushDrContainers = "true"
 			   }
 
             	 }
