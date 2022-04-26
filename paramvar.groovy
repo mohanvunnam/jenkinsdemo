@@ -1,7 +1,7 @@
-def api_imagetag(){
+//def api_imagetag(){
     // string
-	api_imagetag = 'latest'
-}
+//	api_imagetag = 'latest'
+//}
 
 def sso_imagetag(){
 	// string
