@@ -3,9 +3,9 @@ pipeline {
     environment {
             approval = "true"
     }
-    parameters{
-		tfparam.PushDrContainers()
-	      }
+    parameters {
+        booleanParam(name: "PushDrContainers", defaultValue: true)
+               }
     stages {
 	stage('init') 
 		{
@@ -22,7 +22,7 @@ pipeline {
   	           }
             steps {
                 script {
-			 tfparam.PushDrContainers()	     
+//			 tfparam.PushDrContainers()	     
 			 tfparam.api_imagetag()	     
 			 tfparam.sso_imagetag()	     
 			 tfparam.iav_imagetag()	     
