@@ -5,9 +5,9 @@ pipeline {
     }
 stages {
 stage('reading properties from properties file1') {
-  // when {
-    //            expression { props.PushDrContainers == true }
-     //    }
+   when {
+                expression { props.PushDrContainers == true }
+         }
     steps {
         // Use a script block to do custom scripting
         script {
