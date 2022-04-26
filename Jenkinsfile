@@ -5,8 +5,12 @@ pipeline {
     }
 stages {
 stage('reading properties from properties file1') {
+    steps {
+        script {
 	    def props = readProperties file: 'extravars.properties'
             env.PushDrContainers = props.PushDrContainers
+		}
+	  }
    when {
                 expression { props.PushDrContainers == true }
          }
