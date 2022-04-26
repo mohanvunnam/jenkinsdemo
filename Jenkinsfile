@@ -133,7 +133,6 @@ pipeline {
             }
             steps {
                 script {
-                                 //tfparam.environment()
                                  tfparam.api_imagetag()
                     sh '''
                         for environment in ${params.environment};
@@ -153,7 +152,6 @@ pipeline {
             }
             steps {
                 script {
-                                 //tfparam.environment()
                                  tfparam.sso_imagetag()
                     sh '''
                         for environment in ${params.environment};
@@ -172,7 +170,6 @@ pipeline {
             }
             steps {
                 script {
-  //                               tfparam.environment()
                                  tfparam.iav_imagetag()
                     sh '''
                         for environment in ${params.environment};
@@ -192,7 +189,6 @@ pipeline {
             }
             steps {
                 script {
-                                // tfparam.environment()
                                  tfparam.ontrac_imagetag()
                     sh '''
                         for environment in ${params.environment};
@@ -213,7 +209,6 @@ pipeline {
             }
             steps {
                 script {
-                                 //tfparam.environment()
                                  tfparam.ebill_imagetag()
                     sh '''
                         for environment in ${params.environment};
@@ -234,7 +229,6 @@ pipeline {
             }
             steps {
                 script {
-                                 //tfparam.environment()
                                  tfparam.recipient_imagetag()
                     sh '''
                         for environment in ${params.environment};
@@ -254,7 +248,6 @@ pipeline {
             }
             steps {
                 script {
-                                // tfparam.environment()
                                  tfparam.api_imagetag()
                     sh '''
                         for environment in ${params.environment};
@@ -275,7 +268,6 @@ pipeline {
             }
             steps {
                 script {
-                                // tfparam.environment()
                                  tfparam.sso_imagetag()
                     sh '''
                         for environment in ${params.environment};
@@ -293,7 +285,6 @@ pipeline {
                 expression { params.update_iav == yes }
             }
             steps {
-                                 //tfparam.environment()
                                  tfparam.iav_imagetag()
                 script {
                     sh '''
@@ -314,7 +305,6 @@ pipeline {
             }
             steps {
                 script {
-                                // tfparam.environment()
                                  tfparam.ontrac_imagetag()
                     sh '''
                         for environment in ${params.environment};
@@ -334,7 +324,6 @@ pipeline {
             }
             steps {
                 script {
-                                // tfparam.environment()
                                  tfparam.ebill_imagetag()
                     sh '''
                         for environment in ${params.environment};
@@ -354,7 +343,6 @@ pipeline {
             }
             steps {
                 script {
-                                 //tfparam.environment()
                                  tfparam.recipient_imagetag()
                     sh '''
                         for environment in ${params.environment};
