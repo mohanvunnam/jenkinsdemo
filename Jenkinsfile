@@ -8,7 +8,7 @@ pipeline {
     }
  parameters {
         booleanParam(name: 'PushDrContainers', defaultValue: true, description: 'PushDrContainers execute only if true')
-        choice(name: 'environment', choices: ['prod', 'dr'], description: 'on which environment to execute')
+        choice(name: 'envi', choices: ['prod', 'dr'], description: 'on which environment to execute')
         choice(name: 'update_api', choices: ['yes', 'no'], description: 'on which update_api to execute')
         choice(name: 'update_ebill', choices: ['yes', 'no'], description: 'on which update_ebill to execute')
         choice(name: 'update_iav', choices: ['yes', 'no'], description: 'on which update_iav to execute')
@@ -58,7 +58,7 @@ pipeline {
                                 tfparam.nbr_api_ec2()
                                 tfparam.nbr_ui_ec2()
                     sh '''
-                        for environment in ${params.environment};
+                        for environment in ${params.envi};
                         do
                             echo "environment {environment} value is ${params.environment} and nbr_api_ec2 value is ${nbr_api_ec2}"
                             echo "environment {environment} value is ${params.environment} and nbr_ui_ec2 value is ${nbr_ui_ec2}"
