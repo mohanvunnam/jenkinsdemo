@@ -37,7 +37,7 @@ pipeline {
 			PushDrContainers = "true"
 			   }
             when {
-                expression { $PushDrContainers == PushDrContainers }
+                expression { PushDrContainers == PushDrContainers }
   	           }
 
 
