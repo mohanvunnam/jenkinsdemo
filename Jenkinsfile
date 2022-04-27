@@ -2,9 +2,9 @@ pipeline {
     agent any
     environment {
             approval = "true"
-//	    def props = readProperties file: 'extravars.properties'
-//            env.PushDrContainers = props.PushDrContainers
-//            env.Username = props.Username
+	    def propss = readProperties file: 'extravars.properties'
+              env.PushDrContainers = propss.PushDrContainers
+//            env.Username = propss.Username
 
     }
 stages {
