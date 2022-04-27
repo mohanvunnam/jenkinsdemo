@@ -12,7 +12,7 @@ stages {
 stage('reading properties from properties file1') {
 
    when {
-                environment(name: "PushDrContainers", value: "true")
+                environment(name: "propss.PushDrContainers", value: "true")
          }
     steps {
         script {
