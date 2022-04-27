@@ -3,7 +3,7 @@ pipeline {
     environment {
             approval = "true"
 	    def propss = readProperties file: 'extravars.properties'
-              env.PushDrContainers = propss.PushDrContainers
+//              env.PushDrContainers = propss.PushDrContainers
 //            env.Username = propss.Username
 
     }
