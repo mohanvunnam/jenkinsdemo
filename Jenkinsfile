@@ -386,7 +386,11 @@ TF_VAR_cybersource_loopback=${cybersource_loopback} TF_VAR_dc_dcu_loopback=${dc_
                         echo "env0 cancel environmentName infrastructure-${environment}"
                     '''
                 }
+		
                 success {
+			when {
+                expression { ${HOSTNAME} == 'mohan2.vm.org' }
+            		}
                     echo "Run when only success"
                     sh '''
                         crumb=$(curl -u "jenkins:test@3214" -s 'http://192.168.56.102:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
