@@ -62,11 +62,10 @@ pipeline {
                 echo "The PushDrContainers value  is $PushDrContainers"
 		//def host= sh(returnStdout: true, script: 'echo ${BUILD_URL/https:\\/\\/} | cut -d ":" -f2').trim()
 		def DRhostname= sh(returnStdout: true, script: 'echo ${BUILD_URL/https:\\/\\/} | cut -d ":" -f2 | cut -d "/" -f3').trim()
-//		println "\n\n-- Running on machine: " + "hostname".execute().text
-//		println "hostname".execute().text
 		echo "${DRhostname}"
 //		echo "mohan3.vm.org" > myfile.txt
-		echo "${DRhostname}" > myfile.txt
+//		echo "${DRhostname}" > myfile.txt
+	        sh 'echo ${DRhostname} > myfile.txt'
 		DRhostname = readFile('myfile.txt').trim()
                		}
          	}
