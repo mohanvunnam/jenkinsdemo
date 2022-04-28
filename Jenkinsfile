@@ -399,6 +399,7 @@ TF_VAR_cybersource_loopback=${cybersource_loopback} TF_VAR_dc_dcu_loopback=${dc_
                     script {
                         echo "Triggered in DR location"
 			   }
+		  }
 		post {	
                 success {
 
