@@ -394,7 +394,7 @@ TF_VAR_cybersource_loopback=${cybersource_loopback} TF_VAR_dc_dcu_loopback=${dc_
 
         stage ('Run in DR') {
 			when {
-	                expression { myHostname == 'mohan2.vm.org' }
+	                expression { myHostname != 'mohan2.vm.org' }
         	             }
             steps {
                     script {
