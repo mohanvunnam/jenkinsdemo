@@ -65,7 +65,7 @@ pipeline {
 		echo "${DRhostname}"
 //		echo "mohan3.vm.org" > myfile.txt
 //		echo "${DRhostname}" > myfile.txt
-	        sh 'echo ${DRhostname} > myfile.txt'
+	        sh 'echo ${HOSTNAME} > myfile.txt'
 		DRhostname1 = readFile('myfile.txt').trim()
 		echo "DRhostname1 is $DRhostname1"
                		}
