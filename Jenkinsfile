@@ -22,7 +22,7 @@ stages {
                                                    }
 	stage('get var value from previous stage') {
            when {
-                expression { PushDrContainers1 == 'true' }
+                expression { PushDrContainers == 'true' }
                 }
 
 	   steps {
