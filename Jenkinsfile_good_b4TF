@@ -347,67 +347,6 @@ pipeline {
                 }
             }
         }
-
-
-
-// ----------------------------------------------------------------------------------------------------------------
-
-        stage ('terraform'){
-            steps {
-                dir("/home/mvunnam/environments/main/infrastructure") {
-                    sh '''
-                       echo "infrastructure-${environment} \
-                        workspaceName ${environment} \
-                        requiresApproval ${approval}\
-                        revision ${tfbranch} \
-                        environmentVariables ENV0_TERRAFORM_BACKEND_CONFIG=prodbackend \
-TF_VAR_cybersource_loopback=${cybersource_loopback} TF_VAR_dc_dcu_loopback=${dc_dcu_loopback} TF_VAR_dc_dna_3rivers_loopback=${dc_dna_3rivers_loopback} TF_VAR_dc_dna_meritrust_loopback=${dc_dna_meritrust_loopback} TF_VAR_dc_cocc_reading_loopback=${dc_cocc_reading_loopback} TF_VAR_dc_mahalo_profed_loopback=${dc_mahalo_profed_loopback} TF_VAR_dc_episys_coastal_loopback=${dc_episys_coastal_loopback} TF_VAR_dc_episys_dover_loopback=${dc_episys_dover_loopback} TF_VAR_dc_episys_publix_loopback=${dc_episys_publix_loopback} TF_VAR_dc_episys_unitus_loopback=${dc_episys_unitus_loopback} TF_VAR_dc_finxact_primis_loopback=${dc_finxact_primis_loopback} TF_VAR_dc_q2_mercantile_loopback=${dc_q2_mercantile_loopback} TF_VAR_rce_worker_loopback=${rce_worker_loopback} TF_VAR_venmo_loopback=${venmo_loopback} TF_VAR_bpx_loopback=${bpx_loopback} TF_VAR_dc_cocc_libertybank_loopback=${dc_cocc_libertybank_loopback} TF_VAR_dc_xp2_nusenda_loopback=${dc_xp2_nusenda_loopback} TF_VAR_dc_episys_wrightpatt_loopback=${dc_episys_wrightpatt_loopback} TF_VAR_dc_episys_eecu_loopback=${dc_episys_eecu_loopback} TF_VAR_dc_q2_firstnorthernbank_loopback=${dc_q2_firstnorthernbank_loopback} TF_VAR_dc_q2_5star_loopback=${dc_q2_5star_loopback} TF_VAR_dc_finxact_glorifi_loopback=${dc_finxact_glorifi_loopback} TF_VAR_dc_keystone_cenwill_loopback=${dc_keystone_cenwill_loopback} TF_VAR_dc_episys_hudsonvalley_loopback=${dc_episys_hudsonvalley_loopback} TF_VAR_dc_episys_kinecta_loopback=${dc_episys_kinecta_loopback} TF_VAR_dc_episys_georgiaunited_loopback=${dc_episys_georgiaunited_loopback} TF_VAR_dc_q2_chesapeakebank_loopback=${dc_q2_chesapeakebank_loopback} \
-                        TF_VAR_spotinst_api_desired_capacity=${nbr_api_ec2} \
-                        TF_VAR_spotinst_ui_desired_capacity=${nbr_ui_ec2} \
-                        TF_VAR_spotinst_should_roll=${should_roll}"
-                    '''
-         							       }
-            }
-        }
-
-        stage ('Terraform Apply') {
-            steps {
-                    script {
-                        input message: "Proceed with Terraform apply?", ok: "Yes", submitter: "admin"
-                    }
-                    sh '''
-                        echo "approve environmentName infrastructure-${environment}"
-                    '''
-            }
-            post {
-                aborted {
-                    echo "Aborting terraform apply"
-                    sh '''
-                        echo "env0 cancel environmentName infrastructure-${environment}"
-                    '''
-                }
-                success {
-                    echo "Run when only success"
-                    sh '''
-                        crumb=$(curl -u "jenkins:test@3214" -s 'http://192.168.56.102:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
-
-echo "crumb value is $crumb"
-
-                        #curl -u "jenkins:test@3214" -H "$crumb" -X POST http://192.168.56.102:8080/job/remotetrigger/build?delay=0sec
-                        curl -u "jenkins:test@3214" -H "$crumb" -X POST http://192.168.56.102:8080/job/remotetrigger/buildWithParameters
-                    '''
-                }
-            }
-        }
-
-
-
-
-
-
-
-
-
         
         
     }
