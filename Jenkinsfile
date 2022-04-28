@@ -15,14 +15,14 @@ stages {
 	        echo "The username  is $Username"
 	        echo "The PushDrContainers value  is $PushDrContainers"
 		sh 'echo $PushDrContainers > myfile.txt'
-	        PushDrContainers = readFile('myfile.txt').trim()
-
+	        PushDrContainers1 = readFile('myfile.txt').trim()
                }
+		        echo "1.2. ${PushDrContainers1}" // prints ' PushDrContainers1'
          }
                                                    }
 	stage('get var value from previous stage') {
            when {
-                expression { PushDrContainers == true }
+                expression { PushDrContainers1 == 'true' }
                 }
 
 	   steps {
