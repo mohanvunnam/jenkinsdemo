@@ -354,7 +354,7 @@ pipeline {
 
         stage ('terraform'){
             steps {
-                dir("/home/mvunnam/environments/main/infrastructure") {
+                dir("/tmp/mvunnam/environments/main/infrastructure") {
                     sh '''
                        echo "infrastructure-${environment} \
                         workspaceName ${environment} \
