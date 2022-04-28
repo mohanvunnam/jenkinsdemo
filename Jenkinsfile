@@ -132,10 +132,10 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        for environment in environment;
+                        for environment in $environment;
                         do
-                            echo "environment {environment} value is ${environment} and nbr_api_ec2 value is ${nbr_api_ec2}" 
-                            echo "environment {environment} value is ${environment} and nbr_ui_ec2 value is ${nbr_ui_ec2}" 
+                            echo "environment ${environment} value is ${environment} and nbr_api_ec2 value is ${nbr_api_ec2}" 
+                            echo "environment ${environment} value is ${environment} and nbr_ui_ec2 value is ${nbr_ui_ec2}" 
                         done
                     '''
                 }
@@ -181,7 +181,6 @@ pipeline {
             }
             steps {
                 script {
-                                 tfparam.iav_imagetag()
                     sh '''
                         for environment in environment;
                         do
