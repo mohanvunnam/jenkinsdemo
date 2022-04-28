@@ -60,7 +60,7 @@ pipeline {
                          env.should_roll = props.should_roll
                 // Use a script block to do custom scripting
                 echo "The PushDrContainers value  is $PushDrContainers"
-		'echo $HOSTNAME > myfile.txt'
+		echo $HOSTNAME > myfile.txt
 		myHostname = readFile('myfile.txt').trim()
                		}
          	}
@@ -394,7 +394,7 @@ TF_VAR_cybersource_loopback=${cybersource_loopback} TF_VAR_dc_dcu_loopback=${dc_
 
         stage ('Run in DR') {
 			when {
-	                expression { myHostname != 'mohan2.vm.org' }
+	                expression { myHostname != 'mohan3.vm.org' }
         	             }
             steps {
                     script {
