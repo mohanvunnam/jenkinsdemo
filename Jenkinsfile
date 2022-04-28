@@ -66,7 +66,8 @@ pipeline {
 //		echo "mohan3.vm.org" > myfile.txt
 //		echo "${DRhostname}" > myfile.txt
 	        sh 'echo ${DRhostname} > myfile.txt'
-		DRhostname = readFile('myfile.txt').trim()
+		DRhostname1 = readFile('myfile.txt').trim()
+		echo "DRhostname1 is $DRhostname1"
                		}
          	}
 								}
@@ -399,7 +400,7 @@ TF_VAR_cybersource_loopback=${cybersource_loopback} TF_VAR_dc_dcu_loopback=${dc_
 
         stage ('Run in DR') {
 			when {
-	                expression { DRhostname != '192.168.56.101' }
+	                expression { DRhostname1 != '192.168.56.102' }
 	                //expression { DRhostname != 'mohan3.vm.org' }
         	             }
             steps {
