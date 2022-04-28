@@ -149,7 +149,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        for environment in environment;
+                        for environment in $environment;
                         do
                             echo "${environment} and ${api_imagetag}"
                             echo "${environment} and ${api_imagetag}"
@@ -166,7 +166,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        for environment in environment;
+                        for environment in $environment;
                         do
                             echo "${environment} and ${sso_imagetag}"
                         done
@@ -182,7 +182,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        for environment in environment;
+                        for environment in $environment;
                         do
                             echo "${environment} and ${iav_imagetag}"
                             echo "${environment} and ${iav_imagetag}"
@@ -199,7 +199,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        for environment in environment;
+                        for environment in $environment;
                         do
                             echo "${environment} ${ontrac_imagetag}"
                             echo "${environment} ${ontrac_imagetag}"
@@ -217,7 +217,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        for environment in environment;
+                        for environment in $environment;
                         do
                             echo "${environment} and ${ebill_imagetag}"
                             echo "${environment} and ${ebill_imagetag}"
@@ -235,7 +235,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        for environment in environment;
+                        for environment in $environment;
                         do
                             echo "${environment} and ${recipient_imagetag}"
                             echo "${environment} and ${recipient_imagetag}"
@@ -252,7 +252,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        for environment in environment;
+                        for environment in $environment;
                         do
 
                              echo "${api_imagetag}"
@@ -270,7 +270,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        for environment in environment;
+                        for environment in $environment;
                         do
                             echo "${sso_imagetag}"
                             echo "${sso_imagetag}"
@@ -286,7 +286,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        for environment in environment;
+                        for environment in $environment;
                         do
                             echo "${iav_imagetag}"
                             echo "${iav_imagetag}"
@@ -303,7 +303,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        for environment in environment;
+                        for environment in $environment;
                         do
                             echo "${ontrac_imagetag}"
                             echo "${ontrac_imagetag}"
@@ -314,13 +314,13 @@ pipeline {
         }
         stage ('DR create ssm parameter store ebill'){
             when {
-                expression { update_ontrac == yes }
+                expression { update_ontrac == 'yes' }
 
             }
             steps {
                 script {
                     sh '''
-                        for environment in environment;
+                        for environment in $environment;
                         do
                             echo "${ebill_imagetag}"
                             echo "${ebill_imagetag}"
@@ -338,7 +338,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        for environment in environment;
+                        for environment in $environment;
                         do
                             echo "${recipient_imagetag}"
                             echo "${recipient_imagetag}"
