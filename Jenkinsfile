@@ -60,11 +60,13 @@ pipeline {
                          env.should_roll = props.should_roll
                 // Use a script block to do custom scripting
                 echo "The PushDrContainers value  is $PushDrContainers"
-		def host= sh(returnStdout: true, script: 'echo ${BUILD_URL/https:\\/\\/} | cut -d ":" -f2 | cut -d "/" -f2').trim()
+		//def host= sh(returnStdout: true, script: 'echo ${BUILD_URL/https:\\/\\/} | cut -d ":" -f2').trim()
+		def host= sh(returnStdout: true, script: 'echo ${BUILD_URL/https:\\/\\/} | cut -d ":" -f2 | cut -d "/" -f3').trim()
 //		println "\n\n-- Running on machine: " + "hostname".execute().text
 //		println "hostname".execute().text
 		echo "${host}"
-		echo "mohan3.vm.org" > myfile.txt
+//		echo "mohan3.vm.org" > myfile.txt
+		echo "${host}" > myfile.txt
 		myHostname = readFile('myfile.txt').trim()
                		}
          	}
