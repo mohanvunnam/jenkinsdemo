@@ -64,7 +64,7 @@ pipeline {
 		def DRhostname= sh(returnStdout: true, script: 'echo ${BUILD_URL/https:\\/\\/} | cut -d ":" -f2 | cut -d "/" -f3').trim()
 //		println "\n\n-- Running on machine: " + "hostname".execute().text
 //		println "hostname".execute().text
-		echo "${host}"
+		echo "${DRhostname}"
 //		echo "mohan3.vm.org" > myfile.txt
 		//echo "${host}" > myfile.txt
 		//myHostname = readFile('myfile.txt').trim()
