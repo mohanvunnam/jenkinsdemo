@@ -378,19 +378,30 @@ TF_VAR_cybersource_loopback=${cybersource_loopback} TF_VAR_dc_dcu_loopback=${dc_
                     sh '''
                         echo "approve environmentName infrastructure-${environment}"
                     '''
-            }
+            	  }
             post {
                 aborted {
                     echo "Aborting terraform apply"
                     sh '''
                         echo "env0 cancel environmentName infrastructure-${environment}"
                     '''
-                }
-		
-                success {
+                       }
+                  }
+				  }		   
+
+
+
+        stage ('Run in DR') {
 			when {
-                expression { ${HOSTNAME} == 'mohan2.vm.org' }
-            		}
+	                expression { ${HOSTNAME} == 'mohan2.vm.org' }
+        	             }
+            steps {
+                    script {
+                        echo "Triggered in DR location"
+			   }
+		post {	
+                success {
+
                     echo "Run when only success"
                     sh '''
                         crumb=$(curl -u "jenkins:test@3214" -s 'http://192.168.56.102:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)')
@@ -405,10 +416,6 @@ echo "crumb value is $crumb"
                 }
             }
         }
-
-
-
-
 
 
 
