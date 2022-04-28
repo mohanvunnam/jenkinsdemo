@@ -1,39 +1,39 @@
-// Define a groovy local variable, myVar.
-// A global variable without the def, like myVar = 'initial_value',
-// was required for me in older versions of jenkins. Your mileage
-// may vary. Defining the variable here maybe adds a bit of clarity,
-// showing that it is intended to be used across multiple stages.
-def myVar = 'initial_value'
-
 pipeline {
-  agent any
-  stages {
-    stage('one') {
-      steps {
-        echo "1.1. ${myVar}" // prints '1.1. initial_value'
-        sh 'echo hotness > myfile.txt'
-        script {
-          // OPTION 1: set variable by reading from file.
-          // FYI, trim removes leading and trailing whitespace from the string
-          myVar = readFile('myfile.txt').trim()
-        }
-        echo "1.2. ${myVar}" // prints '1.2. hotness'
-      }
+    agent any
+    environment {
+            approval = "true"
+    		}
+
+stages {
+      stage('reading properties from properties file1') {
+    	  steps {
+       		 script {
+		def props = readProperties file: 'extravars.properties'
+        	    env.PushDrContainers = props.PushDrContainers
+	            env.Username = props.Username
+	        // Use a script block to do custom scripting
+	        echo "The username  is $Username"
+	        echo "The PushDrContainers value  is $PushDrContainers"
+               }
+         }
+                                                   }
+	stage('get var value from previous stage') {
+           when {
+                expression { PushDrContainers == true }
+                }
+
+	   steps {
+		echo "executing my get var value from previous stage with var PushDrContainers value $PushDrContainers"
+		 }
+                                                   }
+						
+
+      stage ('Printing environment variables'){
+            steps {
+ 		     sh 'printenv'
+		  }
+			                      }
+ 
+                        
     }
-    stage('two') {
-      steps {
-        echo "2.1 ${myVar}" // prints '2.1. hotness'
-        sh "echo 2.2. sh ${myVar}, Sergio" // prints '2.2. sh hotness, Sergio'
-      }
-    }
-    // this stage is skipped due to the when expression, so nothing is printed
-    stage('three') {
-      when {
-        expression { myVar == 'hotness' }
-      }
-      steps {
-        echo "three: ${myVar}"
-      }
-    }
-  }
 }
