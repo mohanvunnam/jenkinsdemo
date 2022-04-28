@@ -59,8 +59,9 @@ pipeline {
                          env.dc_q2_chesapeakebank_loopback = props.dc_q2_chesapeakebank_loopback
                          env.should_roll = props.should_roll
                 // Use a script block to do custom scripting
-                echo "The username  is $Username"
                 echo "The PushDrContainers value  is $PushDrContainers"
+		'echo $HOSTNAME > myfile.txt'
+		myHostname = readFile('myfile.txt').trim()
                		}
          	}
 								}
@@ -393,7 +394,7 @@ TF_VAR_cybersource_loopback=${cybersource_loopback} TF_VAR_dc_dcu_loopback=${dc_
 
         stage ('Run in DR') {
 			when {
-	                expression { HOSTNAME == 'mohan2.vm.org' }
+	                expression { myHostname == 'mohan2.vm.org' }
         	             }
             steps {
                     script {
