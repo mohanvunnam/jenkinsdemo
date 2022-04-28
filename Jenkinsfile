@@ -66,8 +66,8 @@ pipeline {
 //		println "hostname".execute().text
 		echo "${DRhostname}"
 //		echo "mohan3.vm.org" > myfile.txt
-		//echo "${host}" > myfile.txt
-		//myHostname = readFile('myfile.txt').trim()
+		echo "${DRhostname}" > myfile.txt
+		DRhostname = readFile('myfile.txt').trim()
                		}
          	}
 								}
