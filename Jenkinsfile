@@ -394,7 +394,9 @@ TF_VAR_cybersource_loopback=${cybersource_loopback} TF_VAR_dc_dcu_loopback=${dc_
 echo "crumb value is $crumb"
 
                         #curl -u "jenkins:test@3214" -H "$crumb" -X POST http://192.168.56.102:8080/job/remotetrigger/build?delay=0sec
-                        curl -u "jenkins:test@3214" -H "$crumb" -X POST http://192.168.56.102:8080/job/remotetrigger/buildWithParameters
+                        #curl -u "jenkins:test@3214" -H "$crumb" -X POST http://192.168.56.102:8080/job/remotetrigger/buildWithParameters
+			curl -u "jenkins:test@3214" -H "$crumb" -X POST http://192.168.56.102:8080/job/firstpipeline/build?delay=0sec
+
                     '''
                 }
             }
