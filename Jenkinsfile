@@ -14,6 +14,9 @@ stages {
 	        // Use a script block to do custom scripting
 	        echo "The username  is $Username"
 	        echo "The PushDrContainers value  is $PushDrContainers"
+		sh 'echo $PushDrContainers > myfile.txt'
+	        PushDrContainers = readFile('myfile.txt').trim()
+
                }
          }
                                                    }
