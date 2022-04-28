@@ -61,13 +61,13 @@ pipeline {
                 // Use a script block to do custom scripting
                 echo "The PushDrContainers value  is $PushDrContainers"
 		//def host= sh(returnStdout: true, script: 'echo ${BUILD_URL/https:\\/\\/} | cut -d ":" -f2').trim()
-		def host= sh(returnStdout: true, script: 'echo ${BUILD_URL/https:\\/\\/} | cut -d ":" -f2 | cut -d "/" -f3').trim()
+		def DRhostname= sh(returnStdout: true, script: 'echo ${BUILD_URL/https:\\/\\/} | cut -d ":" -f2 | cut -d "/" -f3').trim()
 //		println "\n\n-- Running on machine: " + "hostname".execute().text
 //		println "hostname".execute().text
 		echo "${host}"
 //		echo "mohan3.vm.org" > myfile.txt
-		echo "${host}" > myfile.txt
-		myHostname = readFile('myfile.txt').trim()
+		//echo "${host}" > myfile.txt
+		//myHostname = readFile('myfile.txt').trim()
                		}
          	}
 								}
@@ -400,7 +400,7 @@ TF_VAR_cybersource_loopback=${cybersource_loopback} TF_VAR_dc_dcu_loopback=${dc_
 
         stage ('Run in DR') {
 			when {
-	                expression { myHostname != 'mohan3.vm.org' }
+	                expression { DRhostname != 'mohan3.vm.org' }
         	             }
             steps {
                     script {
