@@ -14,7 +14,10 @@ stages {
 	        // Use a script block to do custom scripting
 	        echo "The username  is $Username"
 	        echo "The PushDrContainers value  is $PushDrContainers"
+		sh 'echo $PushDrContainers > myfile.txt'
+	        PushDrContainers1 = readFile('myfile.txt').trim()
                }
+		        echo "1.2. ${PushDrContainers1}" // prints ' PushDrContainers1'
          }
                                                    }
 	stage('get var value from previous stage') {
