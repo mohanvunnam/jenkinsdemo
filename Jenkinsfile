@@ -37,8 +37,8 @@ pipeline {
 						 sh 'echo "booleanParam(name: \'executefunctionstep\', defaultValue: $myIP, description: \'execute only if true\')" >> /tmp/PreParam.properties'
 
 						sh 'cat beforeparam.txt > /tmp/Jenkinsfile'
-						sh 'cat /tmp/PreParam.properties > /tmp/Jenkinsfile'
-						sh 'cat afterparam.txt > /tmp/Jenkinsfile'
+						sh 'cat /tmp/PreParam.properties >> /tmp/Jenkinsfile'
+						sh 'cat afterparam.txt >> /tmp/Jenkinsfile'
 
                 }
             }
