@@ -39,7 +39,10 @@ pipeline {
 						sh 'cat beforeparam.txt > PLJenkinsfile'
 						sh 'cat /tmp/PreParam.properties >> PLJenkinsfile'
 						sh 'cat afterparam.txt >> PLJenkinsfile'
-						 sh 'git add PLJenkinsfile ; git push'
+						 //sh 'git add PLJenkinsfile ; git push'
+						git remote set-url origin git@github.com:https://github.com/mohanvunnam/jenkinsdemo.git
+						git push --set-upstream origin master
+						sh 'echo "done"'
                 }
             }
         }
