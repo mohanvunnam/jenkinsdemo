@@ -39,7 +39,7 @@ pipeline {
 						sh 'cat beforeparam.txt > PLJenkinsfile'
 						sh 'cat /tmp/PreParam.properties >> PLJenkinsfile'
 						sh 'cat afterparam.txt >> PLJenkinsfile'
-						 sh 'git add PLJenkinsfile ; git push PLJenkinsfile'
+						 sh 'git add PLJenkinsfile ; git push'
                 }
             }
         }
