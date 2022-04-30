@@ -15,6 +15,7 @@ stage('test') {
        }
   steps {
   echo "Loading paramerts groovy file.......... SSO is $sso  and envi is  $ENVIRONMENT"
+  echo "Loading paramerts groovy file.......... File Count is $FileCount  and envi is  $ENVIRONMENT"
         }
 
               }
