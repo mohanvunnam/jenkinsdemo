@@ -34,7 +34,7 @@ pipeline {
 						 sh '> /tmp/PreParam.properties'
 						 sh 'echo "choice(name: \'ENVIRONMENT\', choices: [\'DVLP\', \'TEST\', \'UAT\', \'PROD\'], description: \'on which environment to execute\')" >> /tmp/PreParam.properties' 
 						 sh 'echo "string(name: \'sso\', defaultValue: \'$myHN\', description: \'which SSO we want to execute\')" >> /tmp/PreParam.properties'
-						 sh 'echo "booleanParam(name: \'executefunctionstep\', defaultValue: $myIP, description: \'execute only if true\')" >> /tmp/PreParam.properties'
+						 sh 'echo "booleanParam(name: \'executefunctionstep\', defaultValue: \'$myIP\', description: \'execute only if true\')" >> /tmp/PreParam.properties'
 
 						sh 'cat beforeparam.txt > /tmp/Jenkinsfile'
 						sh 'cat /tmp/PreParam.properties >> /tmp/Jenkinsfile'
