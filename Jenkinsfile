@@ -39,7 +39,7 @@ pipeline {
 						sh 'cat beforeparam.txt > PLJenkinsfile'
 						sh 'cat /tmp/PreParam.properties >> PLJenkinsfile'
 						sh 'cat afterparam.txt >> PLJenkinsfile'
-
+						 git add . ; git commit -m " when jenkins push `date +%d%b%Y_%H%M%S` "
                 }
             }
         }
