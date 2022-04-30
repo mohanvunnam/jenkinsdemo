@@ -38,7 +38,7 @@ pipeline {
 
 						sh 'cat beforeparam.txt > /tmp/Jenkinsfile'
 						sh 'cat /tmp/PreParam.properties > /tmp/Jenkinsfile'
-						sh 'cat bafterparam.txt > /tmp/Jenkinsfile'
+						sh 'cat afterparam.txt > /tmp/Jenkinsfile'
 
                 }
             }
