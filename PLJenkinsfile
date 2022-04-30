@@ -3,6 +3,7 @@ agent any
 parameters {
 choice(name: 'ENVIRONMENT', choices: ['DVLP', 'TEST', 'UAT', 'PROD'], description: 'on which environment to execute')
 string(name: 'sso', defaultValue: 'mohan2.vm.org', description: 'which SSO we want to execute')
+string(name: 'FileCount', defaultValue: '29', description: 'which File COunt we want to execute')
 booleanParam(name: 'executefunctionstep', defaultValue: '192.168.56.101', description: 'execute only if true')
 }
 stages
@@ -21,6 +22,7 @@ stage('test') {
        }
   steps {
   echo "Loading paramerts groovy file.......... SSO is $sso  and envi is  $ENVIRONMENT"
+  echo "Loading paramerts groovy file.......... File Count is $FileCount  and envi is  $ENVIRONMENT"
         }
 
               }
