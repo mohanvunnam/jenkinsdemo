@@ -6,38 +6,38 @@
                         "Environment": "dev1",
                          "services": [
 						   {"httpq":"1.9","appmgr":"jenkin-69"}
-									 ]
+                                     ]
                  },
                  {
                         "Environment": "dev2",
                          "services": [
 						   {"httpq":"1.8","appmgr":"jenkin-68"}
-									 ]
+                                     ]
                  },
 				
                  {
                         "Environment": "dev3",
                          "services": [
 						   {"httpq":"1.7","appmgr":"jenkin-67"}
-									 ]
+                                     ]
                  },
                  {
                         "Environment": "qa1",
                          "services": [
 						   {"httpq":"1.6","appmgr":"jenkin-66"}
-									 ]
+                                     ]
                  },
                  {
                         "Environment": "qa2",
                          "services": [
 						   {"httpq":"1.5","appmgr":"jenkin-65"}
-				            		 ]
+                                     ]
                  },
                  {
                         "Environment": "pref",
                          "services": [
 						   {"httpq":"1.4","appmgr":"jenkin-64"}
-				            		 ]
+                                     ]
                  }
 
         ]
