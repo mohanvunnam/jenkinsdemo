@@ -7,10 +7,11 @@ pipeline {
           steps {
                 script {
 		def datas = readYaml file: 'AppServiceVersion.yml'
-		//def restResponse = datas.Environments.Environment
+		appmgr1=datas.Environments.services[1].appmgr
                 echo "Got httpq version as ${datas.Environments.services.httpq}"
-                echo "Got Env as ${datas.Environments.Environment}"
-		appmgr1=datas.Environments.services[0].appmgr
+                echo "Got Env as ${datas.Environments.Environment[1]}"
+                echo "Got  appmgr as ${appmgr1}"
+
 
                        }
                 }
