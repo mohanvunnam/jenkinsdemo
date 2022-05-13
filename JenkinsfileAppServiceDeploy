@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    stages {
+
+              stage('Read the variables of service and versions') {
+          steps {
+
+                script {
+		def datas = readYaml (file: 'AppServiceVersion.yml')  text: """
+                echo "Got httpq version as ${datas.Environments.services.httpq}"
+                       }
+                }
+                                                                }
+
+        stage ('add content to pipeline job'){
+            steps {
+                script {
+						 
+                   echo "Got appmgr version as ${datas.Environments.services.appmgr}"
+
+                }
+            }
+        }
+
+
+
+}
+}
+
