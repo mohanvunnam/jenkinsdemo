@@ -3,9 +3,8 @@ pipeline {
     stages {
        stage('Read the variables of service and versions') {
           steps {
-
                 script {
-		def datas = readYaml (file: 'AppServiceVersion.yml')  text: """
+		def datas = readYaml file: 'AppServiceVersion.yml'
                 echo "Got httpq version as ${datas.Environments.services.httpq}"
                        }
                 }
