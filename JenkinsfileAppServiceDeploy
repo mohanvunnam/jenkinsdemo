@@ -18,9 +18,9 @@ pipeline {
         stage ('Print values'){
             steps {
                 script {
-		def restResponse = readYaml file: 'AppServiceVersion.yml'
+		//def restResponse = readYaml file: 'AppServiceVersion.yml'
 
-		   //def restResponse = '[{"uid":10512213, "name":"Bob"},{"uid":7208201, "name":"John"},{"uid":10570, "name":"Jim"},{"uid":1799657, "name":"Sally"}]'
+		   def restResponse = '[{"uid":10512213, "name":"Bob"},{"uid":7208201, "name":"John"},{"uid":10570, "name":"Jim"},{"uid":1799657, "name":"Sally"}]'
 		   def list = new JsonSlurper().parseText( restResponse )
 		   list.each { println it }
 
