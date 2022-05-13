@@ -11,7 +11,5 @@
                         "Environment": "dev2",
                          "services": [{"httpq":"1.8","appmgr":"jenkin-68"}]
                  }
-				
-
                          ]
 }
