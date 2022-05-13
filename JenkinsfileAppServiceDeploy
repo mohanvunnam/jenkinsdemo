@@ -10,14 +10,14 @@ pipeline {
                 }
                                                                 }
 
-        stage ('add content to pipeline job'){
-            steps {
-                script {
-                   echo "Got appmgr version as ${datas.Environments.services.appmgr}"
-                }
-            	  }
+//        stage ('add content to pipeline job'){
+//            steps {
+//                script {
+//                   echo "Got appmgr version as ${datas.Environments.services.appmgr}"
+//                }
+//            	  }
+//					    }
 
 
-					    }
 }
 }
