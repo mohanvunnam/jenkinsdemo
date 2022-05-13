@@ -10,7 +10,8 @@ pipeline {
 		//def restResponse = datas.Environments.Environment
                 echo "Got httpq version as ${datas.Environments.services.httpq}"
                 echo "Got Env as ${datas.Environments.Environment}"
-		appmgr1=datas.Environments.services.appmgr
+		appmgr1=datas.Environments.services[0].appmgr
+
                        }
                 }
                                                                 }
