@@ -5,20 +5,18 @@ pipeline {
           steps {
                 script {
 		def datas = readYaml file: 'AppServiceVersion.yml'
-//                datas.Environments.services.httpq = httpqr
-//                echo "Got httpq version as ${httpqr}"
                 echo "Got httpq version as ${datas.Environments.services.httpq}"
                        }
                 }
                                                                 }
 
-//        stage ('add content to pipeline job'){
-//            steps {
-//                script {
-//                   echo "Got appmgr version as ${datas.Environments.services.appmgr}"
-//                }
-//            	  }
-//					    }
+        stage ('Print values'){
+            steps {
+                script {
+                   echo "Got appmgr version as ${datas.Environments.services.appmgr}"
+                }
+            	  }
+					    }
 
 
 }
