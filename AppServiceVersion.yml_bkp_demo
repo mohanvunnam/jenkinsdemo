@@ -1,0 +1,11 @@
+{
+        "Name" : "ServieVersions",
+        "Description": "Services: Versions",
+        "Environments": [
+                 {
+                        "Environment": "dev1",
+                         "services": [{"httpq":"1.9","appmgr":"jenkin-69"}]
+                 }
+
+                         ]
+}
