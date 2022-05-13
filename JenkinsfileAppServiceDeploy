@@ -1,8 +1,7 @@
 pipeline {
     agent any
     stages {
-
-              stage('Read the variables of service and versions') {
+       stage('Read the variables of service and versions') {
           steps {
 
                 script {
@@ -15,15 +14,10 @@ pipeline {
         stage ('add content to pipeline job'){
             steps {
                 script {
-						 
                    echo "Got appmgr version as ${datas.Environments.services.appmgr}"
-
                 }
-            }
-        }
-
+            	  }
 
 
 }
 }
-
