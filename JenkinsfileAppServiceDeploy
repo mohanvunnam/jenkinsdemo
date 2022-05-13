@@ -5,9 +5,9 @@ pipeline {
           steps {
                 script {
 		def datas = readYaml file: 'AppServiceVersion.yml'
-                datas.Environments.services.httpq = httpqr
-                echo "Got httpq version as ${httpqr}"
-                //echo "Got httpq version as ${datas.Environments.services.httpq}"
+//                datas.Environments.services.httpq = httpqr
+//                echo "Got httpq version as ${httpqr}"
+                echo "Got httpq version as ${datas.Environments.services.httpq}"
                        }
                 }
                                                                 }
