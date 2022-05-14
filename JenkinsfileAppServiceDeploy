@@ -7,7 +7,7 @@ pipeline {
           steps {
                 script {
 		def datas = readYaml file: 'service.yml'
-		appmgr1=datas.qa1.appmgr
+		appmgr1=datas.qa1.apimgr
                 echo "Got  appmgr as ${appmgr1}"
 
 
