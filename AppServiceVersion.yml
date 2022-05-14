@@ -4,12 +4,12 @@
         "Environments": [
                  {
                         "Environment": "dev1",
-                         "services": [{"httpq":"1.9","appmgr":"jenkin-69"}]
+                         "services": [{"httpq":"1.1","appmgr":"jenkin-61"}]
                  },
 
                  {
                         "Environment": "dev2",
-                         "services": [{"httpq":"1.8","appmgr":"jenkin-68"}]
+                         "services": [{"httpq":"1.2","appmgr":"jenkin-62"}]
                  }
                          ]
 }
