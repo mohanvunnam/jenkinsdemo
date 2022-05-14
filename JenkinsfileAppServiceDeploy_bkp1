@@ -1,0 +1,40 @@
+import groovy.json.JsonSlurper
+
+pipeline {
+    agent any
+    stages {
+       stage('Read the variables of service and versions') {
+          steps {
+                script {
+		def datas = readYaml file: 'AppServiceVersion.yml'
+		def datas = readYaml file: 'service.yml'
+		appmgr1=datas.Environments.services[1].appmgr
+                echo "Got all httpq version as ${datas.Environments.services.httpq}"
+                echo "Got all appmgr  version as ${datas.Environments.services.appmgr}"
+                echo "Got all Env as ${datas.Environments.Environment}"
+                echo "Got Env as ${datas.Environments.Environment[1]}"
+                echo "Got  appmgr as ${appmgr1}"
+
+
+                       }
+                }
+                                                                }
+
+        stage ('Print values'){
+            steps {
+                script {
+		//def restResponse = readYaml file: 'AppServiceVersion.yml'
+
+		   def restResponse = '[{"uid":10512213, "name":"Bob"},{"uid":7208201, "name":"John"},{"uid":10570, "name":"Jim"},{"uid":1799657, "name":"Sally"}]'
+		   def list = new JsonSlurper().parseText( restResponse )
+		   list.each { println it }
+
+                   echo "Got appmgr version as ${appmgr1}"
+                   //echo "Got appmgr version as ${datas.Environments.services.appmgr}"
+                }
+            	  }
+					    }
+
+
+}
+}
