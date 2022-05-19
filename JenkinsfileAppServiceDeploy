@@ -3,7 +3,7 @@
 pipeline {
     agent any
     stages {
-	stage(print Environment) {
+	stage('print Environment') {
 	   steps {
 		script {
 		envi = ${ENVIRONMENT}
