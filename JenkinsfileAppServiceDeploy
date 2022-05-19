@@ -1,4 +1,7 @@
 //import groovy.json.JsonSlurper
+def putaws() {
+    echo "Hello environment ${environment} from putaws function. Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
+}
 
 pipeline {
     agent any
@@ -21,6 +24,8 @@ pipeline {
                 script {
 			if (environment == 'prod' || environment == 'imp1' || environment == 'conv') {
                         	echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
+				putaws()
+
 	                    } else if (environment == 'dev1' || environment == 'dev2' ||  environment == 'dev3' || environment == 'qa1' ) {
                                 echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
                             } else if (environment == 'pref' || environment == 'qa2') {
