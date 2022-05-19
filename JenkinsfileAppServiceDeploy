@@ -20,11 +20,11 @@ pipeline {
           steps {
                 script {
 			if (ENVIRONMENT == 'prod') {
-                        	echo 'I only execute on the $ENVIRONMENT branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}'
+                        	echo "Executing on the $ENVIRONMENT branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
 	                    } else if (ENVIRONMENT == 'dev1') {
-                                echo 'I only execute on the $ENVIRONMENT branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}'
+                                echo "Executing on the $ENVIRONMENT branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
                             } else {
-        	                echo 'I execute elsewhere'
+        	                echo 'No Matching environment found....... '
                 	    	   }
                        }
                 }
