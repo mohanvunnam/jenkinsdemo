@@ -3,6 +3,13 @@
 pipeline {
     agent any
     stages {
+	stage(print Environment) {
+	   steps {
+		script {
+		envi = ${ENVIRONMENT}
+		       }
+		 }
+	      			 }
        stage('Read the variables of service and versions') {
           steps {
                 script {
