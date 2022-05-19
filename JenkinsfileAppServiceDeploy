@@ -10,6 +10,8 @@ pipeline {
 		httpq=datas.ENVIRONMENT.httpq
 		webhook=datas.ENVIRONMENT.webhook
 		apimgr=datas.ENVIRONMENT.apimgr
+                echo "Got  httpq as ${httpq}"
+                echo "Got  webhook as ${webhook}"
                 echo "Got  appmgr as ${appmgr}"
                        }
                 }
