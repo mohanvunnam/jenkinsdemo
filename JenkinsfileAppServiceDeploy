@@ -20,7 +20,7 @@ pipeline {
 		apimgr1=datas.dev1.apimgr
                 echo "Got  httpq as ${httpq1}"
                 echo "Got  webhook as ${webhook1}"
-                echo "Got  appmgr as ${appmgr1}"
+                echo "Got  apimgr as ${apimgr1}"
                        }
                 }
                                                                 }
