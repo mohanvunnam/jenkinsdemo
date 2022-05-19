@@ -21,7 +21,7 @@ pipeline {
                 script {
 			if (ENVIRONMENT == 'prod' || ENVIRONMENT == 'imp1' || ENVIRONMENT == 'conv') {
                         	echo "Executing on the $ENVIRONMENT branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
-	                    } else if (ENVIRONMENT == 'dev1' || ENVIRONMENT == 'dev2' ENVIRONMENT == 'dev3' ENVIRONMENT == 'qa1' ) {
+	                    } else if (ENVIRONMENT == 'dev1' || ENVIRONMENT == 'dev2' ||  ENVIRONMENT == 'dev3' || ENVIRONMENT == 'qa1' ) {
                                 echo "Executing on the $ENVIRONMENT branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
                             } else if (ENVIRONMENT == 'pref' || ENVIRONMENT == 'qa2') {
                                 echo "Executing on the $ENVIRONMENT branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
