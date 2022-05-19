@@ -10,7 +10,7 @@ pipeline {
 		httpq1=datas."${ENVIRONMENT}".httpq
 		webhook1=datas."${ENVIRONMENT}".webhook003
 		apimgr1=datas."${ENVIRONMENT}".apimgr
-                echo "Got  httpq ${httpqenv} from ${ENVIRONMENT} environment"
+                echo "Got  httpq ${httpq1} from ${ENVIRONMENT} environment"
                 echo "Got  webhook as ${webhook1} from ${ENVIRONMENT} environment"
                 echo "Got  apimgr as ${apimgr1} from ${ENVIRONMENT} environment"
                        }
