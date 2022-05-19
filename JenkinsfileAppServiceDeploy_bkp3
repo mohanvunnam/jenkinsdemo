@@ -3,16 +3,27 @@
 pipeline {
     agent any
     stages {
+	stage('print Environment') {
+	   steps {
+		script {
+		envi = ENVIRONMENT
+		echo "Got  httpq as ${envi}"
+		       }
+		 }
+	      			 }
        stage('Read the variables of service and versions') {
           steps {
                 script {
 		def datas = readYaml file: 'service.yml'
+		envi = ENVIRONMENT
+		httpqenv = "datas.${envi}.httpq"
 		httpq1=datas."${ENVIRONMENT}".httpq
-		webhook1=datas."${ENVIRONMENT}".webhook003
-		apimgr1=datas."${ENVIRONMENT}".apimgr
-                echo "Got  httpq ${httpqenv} from ${ENVIRONMENT} environment"
-                echo "Got  webhook as ${webhook1} from ${ENVIRONMENT} environment"
-                echo "Got  apimgr as ${apimgr1} from ${ENVIRONMENT} environment"
+		//webhook1=datas.dev1.webhook003
+		//apimgr1=datas.dev1.apimgr
+                echo "Got  httpq ${httpqenv}"
+                echo "Got  httpq ${httpqenv} as ${httpq1}"
+                //echo "Got  webhook as ${webhook1}"
+                //echo "Got  apimgr as ${apimgr1}"
                        }
                 }
                                                                 }
