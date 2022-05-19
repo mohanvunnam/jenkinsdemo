@@ -6,7 +6,8 @@ pipeline {
 	stage('print Environment') {
 	   steps {
 		script {
-		envi = ${ENVIRONMENT}
+		envi = ENVIRONMENT
+		echo "Got  httpq as ${envi}"
 		       }
 		 }
 	      			 }
