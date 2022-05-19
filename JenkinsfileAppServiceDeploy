@@ -16,7 +16,7 @@ pipeline {
                 script {
 		def datas = readYaml file: 'service.yml'
 		envi = ENVIRONMENT
-		httpq1=datas.envi.httpq
+		httpq1=datas.${envi}.httpq
 		//webhook1=datas.dev1.webhook003
 		//apimgr1=datas.dev1.apimgr
                 echo "Got  httpq as ${httpq1}"
