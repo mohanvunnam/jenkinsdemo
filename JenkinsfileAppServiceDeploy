@@ -7,26 +7,26 @@ pipeline {
           steps {
                 script {
 		def datas = readYaml file: 'service.yml'
-		httpq1=datas."${ENVIRONMENT}".httpq
-		webhook1=datas."${ENVIRONMENT}".webhook003
-		apimgr1=datas."${ENVIRONMENT}".apimgr
-                echo "Got  httpq ${httpq1} from ${ENVIRONMENT} environment"
-                echo "Got  webhook as ${webhook1} from ${ENVIRONMENT} environment"
-                echo "Got  apimgr as ${apimgr1} from ${ENVIRONMENT} environment"
+		httpq1=datas."${environment}".httpq
+		webhook1=datas."${environment}".webhook003
+		apimgr1=datas."${environment}".apimgr
+                //echo "Got  httpq ${httpq1} from ${environment} environment"
+                //echo "Got  webhook as ${webhook1} from ${environment} environment"
+                //echo "Got  apimgr as ${apimgr1} from ${environment} environment"
                        }
                 }
                                                                 }
        stage('Execute based on Environment') {
           steps {
                 script {
-			if (ENVIRONMENT == 'prod' || ENVIRONMENT == 'imp1' || ENVIRONMENT == 'conv') {
-                        	echo "Executing on the $ENVIRONMENT branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
-	                    } else if (ENVIRONMENT == 'dev1' || ENVIRONMENT == 'dev2' ||  ENVIRONMENT == 'dev3' || ENVIRONMENT == 'qa1' ) {
-                                echo "Executing on the $ENVIRONMENT branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
-                            } else if (ENVIRONMENT == 'pref' || ENVIRONMENT == 'qa2') {
-                                echo "Executing on the $ENVIRONMENT branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
-                            } else if (ENVIRONMENT == 'uat1') {
-                                echo "Executing on the $ENVIRONMENT branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
+			if (environment == 'prod' || environment == 'imp1' || environment == 'conv') {
+                        	echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
+	                    } else if (environment == 'dev1' || environment == 'dev2' ||  environment == 'dev3' || environment == 'qa1' ) {
+                                echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
+                            } else if (environment == 'pref' || environment == 'qa2') {
+                                echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
+                            } else if (environment == 'uat1') {
+                                echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
                             } else {
         	                echo 'No Matching environment found....... '
                 	    	   }
