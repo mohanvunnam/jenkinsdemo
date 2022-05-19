@@ -15,9 +15,9 @@ pipeline {
           steps {
                 script {
 		def datas = readYaml file: 'service.yml'
-		httpq1=datas.${ENVIRONMENT}.httpq
-		webhook1=datas.${ENVIRONMENT}.webhook
-		apimgr1=datas.${ENVIRONMENT}.apimgr
+		httpq1=datas.${envi}.httpq
+		webhook1=datas.${envi}.webhook
+		apimgr1=datas.${envi}.apimgr
                 echo "Got  httpq as ${httpq1}"
                 echo "Got  webhook as ${webhook1}"
                 echo "Got  appmgr as ${appmgr1}"
