@@ -29,10 +29,13 @@ pipeline {
 
 	                    } else if (environment == 'dev1' || environment == 'dev2' ||  environment == 'dev3' || environment == 'qa1' ) {
                                 echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
+				putaws()
                             } else if (environment == 'pref' || environment == 'qa2') {
                                 echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
+				putaws()
                             } else if (environment == 'uat1') {
                                 echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
+				putaws()
                             } else {
         	                echo 'No Matching environment found....... '
                 	    	   }
