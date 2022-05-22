@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+       stage('Read the variables of mybatisddl and command') {
+          steps {
+                script {
+                def datas = readYaml file: 'mybatisddl.yml'
+                command1=datas."${environment}".command
+                dblist1=datas."${environment}".dblist
+                //apimgr1=datas."${environment}".apimgr
+                echo "Got  command ${command1} from ${environment} environment"
+                //echo "Got  webhook as ${webhook1} from ${environment} environment"
+                //echo "Got  apimgr as ${apimgr1} from ${environment} environment"
+		dblist1.each {println it * 2}
+                       }
+                }
+
+}
+}
+
+
+

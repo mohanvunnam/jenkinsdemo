@@ -1,0 +1,37 @@
+sprint6: &sprint6
+  - db001: down
+  - db002: down
+  - db003: down
+sprint7: &sprint7
+  - db001: up
+  - db002: up
+  - db003: up
+sprint8: &sprint8
+  - db001: pending
+  - db002: pending
+  - db003: pending
+sprint9: &sprint9
+  - db001: status
+  - db002: status
+  - db003: status
+
+qa1: 
+  <<: *sprint6
+prod: 
+  <<: *sprint9
+imp1: 
+  <<: *sprint7
+dev1:
+  <<: *sprint6
+dev2:
+  <<: *sprint6
+dev3:
+  <<: *sprint6
+perf:
+  <<: *sprint9
+qa2:
+  <<: *sprint7
+uat1:
+  <<: *sprint8
+conv:
+  <<: *sprint8
