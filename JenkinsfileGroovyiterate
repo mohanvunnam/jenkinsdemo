@@ -12,7 +12,7 @@ pipeline {
                 //echo "Got  webhook as ${webhook1} from ${environment} environment"
                 //echo "Got  apimgr as ${apimgr1} from ${environment} environment"
 		list.each {println it * 2}
-		list.eachWithIndex{ it, i -> println "$i : $it" }
+		//list.eachWithIndex{ it, i -> println "$i : $it" }
                        }
                 }
 
