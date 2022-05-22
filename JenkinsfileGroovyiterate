@@ -15,7 +15,16 @@ pipeline {
 		//list.eachWithIndex{ it, i -> println "$i : $it" }
                        }
                 }
-
 							     }
+
+
+ stage('List DB') {
+          steps {
+                script {
+			list.each {println it }
+                       }
+                }
+                                                             }
+
 }
 }
