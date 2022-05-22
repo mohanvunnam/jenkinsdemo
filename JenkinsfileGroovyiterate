@@ -11,7 +11,7 @@ pipeline {
                 echo "Got  command ${command1} from ${environment} environment"
                 //echo "Got  webhook as ${webhook1} from ${environment} environment"
                 //echo "Got  apimgr as ${apimgr1} from ${environment} environment"
-		list.each {println it * 2}
+		list.each {println it }
 		//list.eachWithIndex{ it, i -> println "$i : $it" }
                        }
                 }
