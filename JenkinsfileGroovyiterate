@@ -22,7 +22,7 @@ pipeline {
           steps {
                 script {
 			list.each {
-				echo "I am working on ${environment} environment with 'it'"
+				echo "I am working on ${environment} environment with ${it}"
 				  }
                        }
                 }
