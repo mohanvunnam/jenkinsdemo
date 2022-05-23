@@ -18,7 +18,7 @@ pipeline {
 		apimgr1=datas."${environment}".apimgr
                 list=datas."${environment}".applist
                         list.each {
-                                echo "I am working on ${environment} environment with appname ${it.appname}"
+                                echo "I am working on ${environment} environment with appname ${it.appname} and Version is ${it.version}"
                                 appname1 = it.appname
                                 putaws()
                                   }
