@@ -24,7 +24,7 @@ pipeline {
                 script {
 			list.each {
 				echo "I am working on ${environment} environment with ${it}"
-				DBNODE=${it}
+				DBNODE = ${it}
 				runcmd()
 				  }
                        }
