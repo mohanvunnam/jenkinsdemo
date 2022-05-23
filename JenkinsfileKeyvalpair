@@ -18,11 +18,11 @@ pipeline {
 		apimgr1=datas."${environment}".apimgr
                 list=datas."${environment}".applist
                         list.each {
-                                echo "I am working on ${environment} environment with appname ${it.appname} and Version is ${it.version}"
+                                echo "appname ${it.appname} and Version is ${it.version}"
                                 appname1 = it.appname
                                 version1 = it.version
+//                                putaws()
                                   }
-                                putaws()
 
 //		Map map = [:].withDefault { key -> return [] }
 //		listOfObjects.each { map.get(it.myKey).add(it.myValue) }
@@ -35,7 +35,7 @@ pipeline {
                 script {
 			if (environment == 'prod' || environment == 'imp1' || environment == 'conv') {
                         	echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
-				putaws()
+//				putaws()
 
 	                    } else if (environment == 'dev1' || environment == 'dev2' ||  environment == 'dev3' || environment == 'qa1' ) {
                                 echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
