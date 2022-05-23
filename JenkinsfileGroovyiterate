@@ -1,6 +1,6 @@
 def runcmd() {
-echo "Hello from runcmd function. Executing on the $environment branch. Running on DB name ${environment}_${DBNODE}"
-//echo "Hello from runcmd function. Executing on the $environment branch. Running on DB name ${environment}_${DBNODE} with ${DBNAME}"
+//echo "Hello from runcmd function. Executing on the $environment branch. Running on DB name ${environment}_${DBNODE}"
+echo "Hello from runcmd function. Executing on the $environment branch. Running on DB name ${environment}_${DBNODE} with ${DBNAME}"
 }
 
 
@@ -25,15 +25,15 @@ pipeline {
                 script {
 			echo "databases are ${databases}"
 //                      sh '''
-//                      databases.each {
-//				echo "Looking on ${environment} environment with database ${it}"
-//				DBNAME = it
+                      databases.each {
+				echo "Looking on ${environment} environment with database ${it}"
+				DBNAME = it
 			list.each {
 				echo "I am working on ${environment} environment with DBNODE ${it}"
 				DBNODE = it
 				runcmd()
 				  }
-//				     }
+				     }
 //			'''
                        }
         	}
