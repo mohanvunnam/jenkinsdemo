@@ -25,7 +25,8 @@ pipeline {
                 script {
 			echo "databases are ${databases}"
 //                      sh '''
-                      databases.each {
+		      def dblist = databases.split(',').collect{it as String}
+                      dblist.each {
 				echo "Looking on ${environment} environment with database ${it}"
 				DBNAME = it
 			list.each {
