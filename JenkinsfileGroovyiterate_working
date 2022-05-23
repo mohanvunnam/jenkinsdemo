@@ -1,5 +1,5 @@
 def runcmd() {
-	echo "Hello from runcmd function. Executing on the $environment branch. Running on DB name ${environment} ${it}"
+	echo "Hello from runcmd function. Executing on the $environment branch. Running on DB name ${environment}"
 }
 
 
