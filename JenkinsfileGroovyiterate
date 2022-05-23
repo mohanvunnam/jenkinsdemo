@@ -23,7 +23,7 @@ pipeline {
 	 stage('List DB') {
           steps {
                 script {
-                      //sh '''
+                      sh '''
 //                      databases.each {
 //				echo "Looking on ${environment} environment with database ${it}"
 //				DBNAME = it
@@ -33,7 +33,7 @@ pipeline {
 				runcmd()
 				  }
 //				     }
-			//'''
+			'''
                        }
         	}
                            }
