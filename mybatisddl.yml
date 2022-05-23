@@ -1,14 +1,12 @@
 sprint6: &sprint6
   - command: up
-  - dblist: [db001,db002,db003]
+  - dblist: [db001,db002,db003,db999]
 sprint7: &sprint7
   - command: pending
-  - dblist: [db001,db002,db003]
-  - dbnodes: [db001,db002,db003]
+  - dblist: [db001,db002,db003,db999]
 sprint8: &sprint8
   - command: status
-  - dblist: [db001,db002,db003]
-  - dbnodes: [db001,db002,db003]
+  - dblist: [db001,db002,db003,db999]
 
 qa1: 
   <<: *sprint6

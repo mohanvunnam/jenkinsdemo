@@ -1,3 +1,11 @@
+def runcmd() {
+	echo "Hello from runcmd function. Executing on the $environment branch. Running on DB name ${environment}_${it}"
+	echo " cd ~/${gitBranch}/payrailz-db/myBatis/migration-repository/${i}/ddl/"
+         echo "~/${gitBranch}/payrailz-db/myBatis/migrations-master/bin/migrate --env=${environment}_${it} ${command};"
+	sh "ls -ltrh"
+}
+
+
 pipeline {
     agent any
     stages {
@@ -7,26 +15,29 @@ pipeline {
                 def datas = readYaml file: 'mybatisddl.yml'
                 command1=datas."${environment}".command
                 list=datas."${environment}".dblist
-                //apimgr1=datas."${environment}".apimgr
-                echo "Got  command ${command1} from ${environment} environment"
-                //echo "Got  webhook as ${webhook1} from ${environment} environment"
-                //echo "Got  apimgr as ${apimgr1} from ${environment} environment"
-		list.each {println it }
-		//list.eachWithIndex{ it, i -> println "$i : $it" }
+                echo "Got my command ${command1} from ${environment} environment"
+		//list.each {println it }
                        }
                 }
 							     }
 
 
- stage('List DB') {
+	 stage('List DB') {
           steps {
                 script {
+			sh '''
+			for i in ${databases} ;
+                      	do
 			list.each {
 				echo "I am working on ${environment} environment with ${it}"
+				runcmd
 				  }
+			done
+			'''
                        }
-                }
-                                                             }
+        	}
+                           }
+
 
 }
 }
