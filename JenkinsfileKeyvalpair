@@ -1,11 +1,16 @@
 //import groovy.json.JsonSlurper
 def putaws() {
+                        list.each {
+                                echo "appname ${it.appname} and Version is ${it.version}"
+                                appname1 = it.appname
+                                version1 = it.version
+                                  
     echo "Hello environment ${environment} from putaws function. Executing on the $environment branch. Values of  ${appname1} = ${version1} , webhook = ${webhook1} and apimgr = ${apimgr1}"
     echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/httpq_image --value {accountid}.dkr.ecr.us-east-1.amazonaws.com/httpq:${httpq1} --overwrite  --type String"
    // sh "yamllint services.yml"
     sh "ls -ltrh"
 }
-
+}
 pipeline {
     agent any
     stages {
