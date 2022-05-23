@@ -21,11 +21,11 @@ pipeline {
                                 echo "I am working on ${environment} environment with appname ${it.appname} and Version is ${it.version}"
                                 appname1 = it.appname
                                 version1 = it.version
-                                putaws()
                                   }
+                                putaws()
 
-		Map map = [:].withDefault { key -> return [] }
-		listOfObjects.each { map.get(it.myKey).add(it.myValue) }
+//		Map map = [:].withDefault { key -> return [] }
+//		listOfObjects.each { map.get(it.myKey).add(it.myValue) }
 
                        }
                 }
