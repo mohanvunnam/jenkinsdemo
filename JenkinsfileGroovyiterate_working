@@ -1,5 +1,5 @@
 def runcmd() {
-	echo "Hello from runcmd function. Executing on the $environment branch. Running on DB name ${environment}"
+echo "Hello from runcmd function. Executing on the $environment branch. Running on DB name ${environment}_${DBNODE}"
 }
 
 
@@ -24,7 +24,7 @@ pipeline {
                 script {
 			list.each {
 				echo "I am working on ${environment} environment with ${it}"
-				//DBNODE=${it}
+				DBNODE = it
 				runcmd()
 				  }
                        }

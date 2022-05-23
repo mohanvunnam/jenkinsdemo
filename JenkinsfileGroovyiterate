@@ -22,11 +22,16 @@ pipeline {
 	 stage('List DB') {
           steps {
                 script {
+                      sh '''
+                      for i in ${databases} ;
+                              do
 			list.each {
 				echo "I am working on ${environment} environment with ${it}"
 				DBNODE = it
 				runcmd()
 				  }
+			done
+			'''
                        }
         	}
                            }
