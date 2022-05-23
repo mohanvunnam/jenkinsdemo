@@ -1,5 +1,5 @@
 sprint6: &sprint6
-  - applist: [appname: 'httpq', version: package-release-2.2.5.0-212]
+  - applist: [appname: 'httpq', version: 'package-release-2.2.5.0-212']
   - httpq: package-release-2.2.5.0-212
   - webhook003: jenkins-55
   - apimgr: jenkins-222
