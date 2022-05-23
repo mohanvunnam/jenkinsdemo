@@ -23,6 +23,7 @@ pipeline {
 	 stage('List DB') {
           steps {
                 script {
+			echo "databases are {databases}"
 //                      sh '''
 //                      databases.each {
 //				echo "Looking on ${environment} environment with database ${it}"
