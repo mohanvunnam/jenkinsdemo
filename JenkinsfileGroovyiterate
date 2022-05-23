@@ -23,17 +23,17 @@ pipeline {
 	 stage('List DB') {
           steps {
                 script {
-                      sh '''
-#                      databases.each {
-#				echo "Looking on ${environment} environment with database ${it}"
-#				DBNAME = it
+//                      sh '''
+//                      databases.each {
+//				echo "Looking on ${environment} environment with database ${it}"
+//				DBNAME = it
 			list.each {
 				echo "I am working on ${environment} environment with DBNODE ${it}"
 				DBNODE = it
 				runcmd()
 				  }
-#				     }
-			'''
+//				     }
+//			'''
                        }
         	}
                            }
