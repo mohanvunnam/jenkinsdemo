@@ -22,7 +22,7 @@ pipeline {
 	 stage('List DB') {
           steps {
                 script {
-                      sh '''
+                      //sh '''
                       for i in ${databases} ;
                               do
 			list.each {
@@ -32,7 +32,7 @@ pipeline {
 				runcmd()
 				  }
 			done
-			'''
+			//'''
                        }
         	}
                            }
