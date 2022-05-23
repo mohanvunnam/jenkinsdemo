@@ -1,6 +1,6 @@
 def runcmd() {
 	echo "Hello from runcmd function. Executing on the $environment branch. Running on DB name ${environment}_${it}"
-	echo " cd ~/${gitBranch}/payrailz-db/myBatis/migration-repository/${i}/ddl/"
+//	echo " cd ~/${gitBranch}/payrailz-db/myBatis/migration-repository/${i}/ddl/"
          echo "~/${gitBranch}/payrailz-db/myBatis/migrations-master/bin/migrate --env=${environment}_${it} ${command};"
 //	sh "ls -ltrh"
 }
@@ -25,15 +25,15 @@ pipeline {
 	 stage('List DB') {
           steps {
                 script {
-			sh '''
-			for i in ${databases} ;
-                      	do
+//			sh '''
+//			for i in ${databases} ;
+//                      	do
 			list.each {
 				echo "I am working on ${environment} environment with ${it}"
 				runcmd
 				  }
-			done
-			'''
+//			done
+//			'''
                        }
         	}
                            }
