@@ -24,6 +24,9 @@ pipeline {
                                 putaws()
                                   }
 
+		Map map = [:].withDefault { key -> return [] }
+		listOfObjects.each { map.get(it.myKey).add(it.myValue) }
+
                        }
                 }
                                                                 }
