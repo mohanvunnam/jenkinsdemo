@@ -23,7 +23,7 @@ pipeline {
           steps {
                 script {
                       //sh '''
-                      databases.each {
+                      ${databases}.each {
 				echo "Looking on ${environment} environment with database ${it}"
 				DBNAME = it
 			list.each {
