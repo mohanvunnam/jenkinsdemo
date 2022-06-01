@@ -40,12 +40,11 @@ pipeline {
 
                 	then
 				withoutdb00x()
+														  }
 			else {
                                 withonlydb00x()
 			     }
-														  }
 												  }
-
 				 }
                        }
         	}
