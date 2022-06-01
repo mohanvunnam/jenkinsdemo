@@ -37,11 +37,16 @@ pipeline {
 			if (DBNAME == 'dbtemp' || DBNAME == 'dbcopy' || DBNAME == 'dbreplicate') { 
 	                        if (environment == 'perf' || environment == 'prod' || environment == 'dr') {
 					withoutdb00x()
+					echo "Inside if Envi validation"
 													   }
 				else {
                         	        withonlydb00x()
+					echo "Inside else Envi validation"
 				     }
 												  }
+			else {
+				echo "Inside else DB validation"
+			     }
 
 				 }
                        }
