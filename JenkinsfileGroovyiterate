@@ -32,7 +32,7 @@ pipeline {
 				echo "Looking on ${environment} environment with database ${it}"
 				DBNAME = it
 			dbnode1.each {
-				echo "I am working on ${environment} environment with DBNODE ${it}"
+		//		echo "I am working on ${environment} environment with DBNODE ${it}"
 				DBNODE = it
 			if (DBNAME == 'dbtemp' || DBNAME == 'dbcopy' || DBNAME == 'dbreplicate') { 
                         if (environment == 'perf' || environment == 'prod' || environment == 'dr') {
