@@ -24,37 +24,37 @@ pipeline {
 			if (DBNAME == 'dbtemp' || DBNAME == 'dbcopy' || DBNAME == 'dbreplicate') { 
 	                        if (environment == 'perf' || environment == 'prod' || environment == 'dr') {
 					echo "Inside if Envi validation"
-					echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_${DBNODE}  command = ${command1} with Database = ${DBNAME}"
+					echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_DBNODE  command = ${command1} with Database = ${DBNAME}"
 					sh "ls -l"
 													   }
 				else {
 					echo "Inside else Envi validation"
-					echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_${DBNODE}  command = ${command1} with Database = ${DBNAME}"
+					echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_DBNODE  command = ${command1} with Database = ${DBNAME}"
 					sh "ls -l"
 				     }
 												  }//closing if for DB validation
 			else {
 				echo "Inside else DB validation"
-				echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_${DBNODE}  command = ${command1} with Database = ${DBNAME}"
+				echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_DBNODE  command = ${command1} with Database = ${DBNAME}"
 					sh "ls -l"
 			     }
 
 			if (DBNAME == 'db00x') {
 				echo "Inside if dbx00 DB validation"
-				echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_${DBNODE}  command = ${command1} with Database = ${DBNAME}"
+				echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_DBNODE  command = ${command1} with Database = ${DBNAME}"
 					sh "ls -l"
 					       } 
 
 			else if (DBNAME == 'rce') {
 				echo "Run code for rce database"			
 				echo "Inside if dbx00 DB validation"
-				echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_${DBNODE}  command = ${command1} with Database = ${DBNAME}"
+				echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_DBNODE  command = ${command1} with Database = ${DBNAME}"
 					sh "ls -l"
 						  }
 			else {
 				
 				echo "Inside else dbx00 DB validation"
-				echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_${DBNODE}  command = ${command1} with Database = ${DBNAME}"
+				echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_DBNODE  command = ${command1} with Database = ${DBNAME}"
 					sh "ls -l"
 			     }
 				 }
