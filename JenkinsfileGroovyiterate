@@ -3,7 +3,7 @@ def withoutdb00x() {
 echo "Hello from withoutdb00x function. Executing on the $environment branch ${gitBranch} on DB Node ${environment}_${DBNODE}  command ${command1} with Database ${DBNAME}"
 }
 
-def withdb00x() {
+def withonlydb00x() {
 //echo "Hello from withdb00x function. Executing on the $environment branch. Running on DB name ${environment}_${DBNODE}"
 echo "Hello from withdb00x function. Executing on the $environment branch ${gitBranch} on DB Node ${environment}  command ${command1} with Database ${DBNAME}"
 }
@@ -34,14 +34,24 @@ pipeline {
 			dbnode1.each {
 				echo "I am working on ${environment} environment with DBNODE ${it}"
 				DBNODE = it
+			if ($DBNAME = "dbtemp" || $DBNAME = "dbcopy" || $DBNAME = "dbreplicate") { 
+	                then 
+        	        if  (${environment} = "perf" ] || [ ${environment} = "prod" ] || [ ${environment} = "dr") {
+                	then
 				withoutdb00x()
-				  }
-				     }
-//			'''
+			else {
+                                withonlydb00x()
+			     }
+														  }
+												  }
+
+				 }
                        }
         	}
                            }
+			}
 
 
+// closing for pipeline and stages
 }
 }
