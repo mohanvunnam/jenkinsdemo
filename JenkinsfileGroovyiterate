@@ -37,10 +37,10 @@ pipeline {
 			if (DBNAME == 'dbtemp' || DBNAME == 'dbcopy' || DBNAME == 'dbreplicate') { 
                         if (environment == 'perf' || environment == 'prod' || environment == 'dr') {
 				withoutdb00x()
-														  }
 			else {
                                 withonlydb00x()
 			     }
+												   }
 												  }
 				 }
                        }
