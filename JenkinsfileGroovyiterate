@@ -35,10 +35,7 @@ pipeline {
 				echo "I am working on ${environment} environment with DBNODE ${it}"
 				DBNODE = it
 			if (DBNAME == 'dbtemp' || DBNAME == 'dbcopy' || DBNAME == 'dbreplicate') { 
-	                then 
                         if (environment == 'perf' || environment == 'prod' || environment == 'dr') {
-
-                	then
 				withoutdb00x()
 														  }
 			else {
