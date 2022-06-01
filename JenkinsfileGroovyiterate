@@ -30,7 +30,7 @@ pipeline {
 				else {
 					echo "Inside else Envi validation"
 					echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_DBNODE  command = ${command1} with Database = ${DBNAME}"
-					sh 'cd /tmp/test/dir/ ; env | tail -50'
+					sh 'cd /tmp/test/dir/ ; env | tail -50 | grep HOSTNAME'
 				     }
 												  }//closing if for DB validation
 			else {
