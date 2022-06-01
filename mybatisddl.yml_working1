@@ -1,0 +1,30 @@
+sprint6: &sprint6
+  - command: up
+  - dblist: [db001,db002,db003,db999]
+sprint7: &sprint7
+  - command: pending
+  - dblist: [db001,db002,db003,db999]
+sprint8: &sprint8
+  - command: status
+  - dblist: [db001,db002,db003,db999]
+
+qa1: 
+  <<: *sprint6
+prod: 
+  <<: *sprint6
+imp1: 
+  <<: *sprint7
+dev1:
+  <<: *sprint6
+dev2:
+  <<: *sprint6
+dev3:
+  <<: *sprint6
+perf:
+  <<: *sprint7
+qa2:
+  <<: *sprint7
+uat1:
+  <<: *sprint8
+conv:
+  <<: *sprint8

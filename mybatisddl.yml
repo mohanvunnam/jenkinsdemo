@@ -1,12 +1,15 @@
 sprint6: &sprint6
   - command: up
-  - dblist: [db001,db002,db003,db999]
+  - dbnode: [db001,db002,db003,db999]
+  - dblist: [dbreplicate,dbtemp,rce,svcq_db000,svcq_db000_b]
 sprint7: &sprint7
   - command: pending
-  - dblist: [db001,db002,db003,db999]
+  - dbnode: [db001,db002,db003,db999]
+  - dblist: [zextq_dc_mahalo_profed,zextq_dc_portico_trailnorth,zextq_dc_q2_5star,zextq_dc_q2_advia,zextq]
 sprint8: &sprint8
   - command: status
-  - dblist: [db001,db002,db003,db999]
+  - dbnode: [db001,db002,db003,db999]
+  - dblist: [zextq_dc_episys_publix,zextq_dc_episys_srp,zextq_dc_episys_unitus,zextq_dc_episys_wrightpatt,zextq_dc_finxact,zextq_dc_finxact_glorifi,zextq_dc_finxact_liveoakbank,zextq_dc_finxact_primis,zextq_dc_keystone_cenwill,zextq_dc_keystone_expedition]
 
 qa1: 
   <<: *sprint6

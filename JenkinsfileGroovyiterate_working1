@@ -1,12 +1,8 @@
-def withoutdb00x() {
+def runcmd() {
 //echo "Hello from runcmd function. Executing on the $environment branch. Running on DB name ${environment}_${DBNODE}"
-echo "Hello from withoutdb00x function. Executing on the $environment branch ${gitBranch} on DB Node ${environment}_${DBNODE}  command ${command1} with Database ${DBNAME}"
+echo "Hello from runcmd function. Executing on the $environment branch. Running command ${command1} on DB name ${environment}_${DBNODE} with ${DBNAME}"
 }
 
-def withdb00x() {
-//echo "Hello from withdb00x function. Executing on the $environment branch. Running on DB name ${environment}_${DBNODE}"
-echo "Hello from withdb00x function. Executing on the $environment branch ${gitBranch} on DB Node ${environment}  command ${command1} with Database ${DBNAME}"
-}
 
 pipeline {
     agent any
@@ -16,8 +12,7 @@ pipeline {
                 script {
                 def datas = readYaml file: 'mybatisddl.yml'
                 command1=datas."${environment}".command
-                dblist1=datas."${environment}".dblist
-                dbnode1=datas."${environment}".dbnode
+                list=datas."${environment}".dblist
                 echo "Got my command ${command1} from ${environment} environment"
 		//list.each {println it }
                        }
@@ -28,13 +23,16 @@ pipeline {
 	 stage('List DB') {
           steps {
                 script {
+			echo "databases are ${databases}"
+//                      sh '''
+		      def dblist = databases.split(',').collect{it as String}
                       dblist.each {
 				echo "Looking on ${environment} environment with database ${it}"
 				DBNAME = it
-			dbnode1.each {
+			list.each {
 				echo "I am working on ${environment} environment with DBNODE ${it}"
 				DBNODE = it
-				withoutdb00x()
+				runcmd()
 				  }
 				     }
 //			'''
