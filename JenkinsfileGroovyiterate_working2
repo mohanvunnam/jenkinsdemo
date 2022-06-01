@@ -1,3 +1,13 @@
+def withoutdb00x() {
+//echo "Hello from runcmd function. Executing on the $environment branch. Running on DB name ${environment}_${DBNODE}"
+echo "Hello from withoutdb00x function. Executing on the $environment branch ${gitBranch} on DB Node ${environment}_${DBNODE}  command ${command1} with Database ${DBNAME}"
+}
+
+def withonlydb00x() {
+//echo "Hello from withdb00x function. Executing on the $environment branch. Running on DB name ${environment}_${DBNODE}"
+echo "Hello from withdb00x function. Executing on the $environment branch ${gitBranch} on DB Node ${environment}  command ${command1} with Database ${DBNAME}"
+}
+
 pipeline {
     agent any
     stages {
@@ -21,46 +31,51 @@ pipeline {
                       dblist1.each {
 				echo "Looking on ${environment} environment with database ${it}"
 				DBNAME = it
+			dbnode1.each {
+		//		echo "I am working on ${environment} environment with DBNODE ${it}"
+				DBNODE = it
 			if (DBNAME == 'dbtemp' || DBNAME == 'dbcopy' || DBNAME == 'dbreplicate') { 
 	                        if (environment == 'perf' || environment == 'prod' || environment == 'dr') {
+					//withoutdb00x()
 					echo "Inside if Envi validation"
 					echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_${DBNODE}  command = ${command1} with Database = ${DBNAME}"
-					sh "ls -l"
+
 													   }
 				else {
+                        	        //withonlydb00x()
 					echo "Inside else Envi validation"
 					echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_${DBNODE}  command = ${command1} with Database = ${DBNAME}"
-					sh "ls -l"
+
 				     }
-												  }//closing if for DB validation
+												  }
 			else {
 				echo "Inside else DB validation"
 				echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_${DBNODE}  command = ${command1} with Database = ${DBNAME}"
-					sh "ls -l"
 			     }
 
 			if (DBNAME == 'db00x') {
+				//if (DBNODE != db999) {
+                                //	withonlydb00x()
 				echo "Inside if dbx00 DB validation"
 				echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_${DBNODE}  command = ${command1} with Database = ${DBNAME}"
-					sh "ls -l"
+				//		     }					
 					       } 
 
 			else if (DBNAME == 'rce') {
 				echo "Run code for rce database"			
 				echo "Inside if dbx00 DB validation"
 				echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_${DBNODE}  command = ${command1} with Database = ${DBNAME}"
-					sh "ls -l"
 						  }
 			else {
 				
 				echo "Inside else dbx00 DB validation"
 				echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_${DBNODE}  command = ${command1} with Database = ${DBNAME}"
-					sh "ls -l"
 			     }
 				 }
                        }
         	}
                            }
+			}
 
 
 // closing for pipeline and stages

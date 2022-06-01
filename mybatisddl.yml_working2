@@ -1,11 +1,14 @@
 sprint6: &sprint6
   - command: up
+  - dbnode: [db001,db002,db003,db999]
   - dblist: [dbreplicate,dbtemp,rce,svcq_db000,svcq_db000_b,dbx00]
 sprint7: &sprint7
   - command: pending
+  - dbnode: [db001,db002,db003,db999]
   - dblist: [dbreplicate,zextq_dc_mahalo_profed,zextq,dbx00]
 sprint8: &sprint8
   - command: status
+  - dbnode: [db001,db002,db003,db999]
   - dblist: [zextq_dc_episys_publix,rce]
 
 qa1: 
