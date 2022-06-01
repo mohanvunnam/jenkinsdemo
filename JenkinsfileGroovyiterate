@@ -25,7 +25,7 @@ pipeline {
 	                        if (environment == 'perf' || environment == 'prod' || environment == 'dr') {
 					echo "Inside if Envi validation"
 					echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_DBNODE  command = ${command1} with Database = ${DBNAME}"
-					sh 'cd /tmp/test/dir/ ; env | tail -50'
+					sh 'cd /tmp/test/dir/ ; env | tail -6'
 													   }
 				else {
 					echo "Inside else Envi validation"
@@ -36,26 +36,26 @@ pipeline {
 			else {
 				echo "Inside else DB validation"
 				echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_DBNODE  command = ${command1} with Database = ${DBNAME}"
-					sh 'cd /tmp/test/dir/ ; env | tail -50'
+					sh 'cd /tmp/test/dir/ ; env | tail -4'
 			     }
 
 			if (DBNAME == 'db00x') {
 				echo "Inside if dbx00 DB validation"
 				echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_DBNODE  command = ${command1} with Database = ${DBNAME}"
-					sh 'cd /tmp/test/dir/ ; env | tail -50'
+					sh 'cd /tmp/test/dir/ ; env | tail -3'
 					       } 
 
 			else if (DBNAME == 'rce') {
 				echo "Run code for rce database"			
-				echo "Inside if dbx00 DB validation"
+				echo "Inside if rce DB validation"
 				echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_DBNODE  command = ${command1} with Database = ${DBNAME}"
-					sh 'cd /tmp/test/dir/ ; env | tail -50'
+					sh 'cd /tmp/test/dir/ ; env | tail -2'
 						  }
 			else {
 				
 				echo "Inside else dbx00 DB validation"
 				echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_DBNODE  command = ${command1} with Database = ${DBNAME}"
-					sh 'cd /tmp/test/dir/ ; env | tail -50'
+					sh 'cd /tmp/test/dir/ ; env | tail -7'
 			     }
 				 }
                        }
