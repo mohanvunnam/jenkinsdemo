@@ -28,7 +28,7 @@ pipeline {
 	 stage('List DB') {
           steps {
                 script {
-                      dblist.each {
+                      dblist1.each {
 				echo "Looking on ${environment} environment with database ${it}"
 				DBNAME = it
 			dbnode1.each {
