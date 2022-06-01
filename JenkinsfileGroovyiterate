@@ -42,7 +42,7 @@ pipeline {
 
 													   }
 				else {
-                        	        withonlydb00x()
+                        	        //withonlydb00x()
 					echo "Inside else Envi validation"
 					echo "Executing on the environment = $environment branch = ${gitBranch} on DB_Node = ${environment}_${DBNODE}  command = ${command1} with Database = ${DBNAME}"
 
