@@ -5,11 +5,11 @@ sprint6: &sprint6
 sprint7: &sprint7
   - command: pending
   - dbnode: [db001,db002,db003,db999]
-  - dblist: [dbreplicate,zextq_dc_mahalo_profed,zextq_dc_q2_advia,zextq]
+  - dblist: [dbreplicate,zextq_dc_mahalo_profed,zextq,dbx00]
 sprint8: &sprint8
   - command: status
   - dbnode: [db001,db002,db003,db999]
-  - dblist: [zextq_dc_episys_publix,zextq_dc_episys_srp,zextq_dc_episys_unitus,zextq_dc_episys_wrightpatt,zextq_dc_finxact,zextq_dc_finxact_glorifi,zextq_dc_finxact_liveoakbank,zextq_dc_finxact_primis,zextq_dc_keystone_cenwill,zextq_dc_keystone_expedition]
+  - dblist: [zextq_dc_episys_publix,rce]
 
 qa1: 
   <<: *sprint6
