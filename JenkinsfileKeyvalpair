@@ -8,7 +8,7 @@ def putaws() {
     echo "Hello environment ${environment} from putaws function. Executing on the $environment branch. Values of  ${appname1} = ${version1} , webhook = ${webhook1} and apimgr = ${apimgr1}"
     echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/httpq_image --value {accountid}.dkr.ecr.us-east-1.amazonaws.com/httpq:${httpq1} --overwrite  --type String"
    // sh "yamllint services.yml"
-    sh "ls -ltrh"
+   // sh "ls -ltrh"
 }
 }
 pipeline {
