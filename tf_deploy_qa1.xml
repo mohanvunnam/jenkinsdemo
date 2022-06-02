@@ -1,0 +1,334 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.40">
+  <actions>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@1.7.2"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@1.7.2">
+      <jobProperties/>
+      <triggers/>
+      <parameters/>
+      <options/>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+  </actions>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.31">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>environment</name>
+          <description>environment</description>
+          <defaultValue>qa1</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>should_roll</name>
+          <description>if new ami true replaces the servers</description>
+          <defaultValue>false</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>nbr_api_ec2</name>
+          <description>number of ec2 instances for api (large used to be 10 small used to be 1)</description>
+          <defaultValue>1</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>nbr_ui_ec2</name>
+          <description>number of ec2 instances for ui  (large used to be 5 small used to be 1)</description>
+          <defaultValue>1</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>api_imagetag</name>
+          <description>tag for api</description>
+          <defaultValue>qa1latest</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.BooleanParameterDefinition>
+          <name>cybersource_loopback</name>
+          <description></description>
+          <defaultValue>true</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+        <hudson.model.BooleanParameterDefinition>
+          <name>dc_dcu_loopback</name>
+          <description></description>
+          <defaultValue>true</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+        <hudson.model.BooleanParameterDefinition>
+          <name>dc_dover_loopback</name>
+          <description></description>
+          <defaultValue>true</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>update_api</name>
+          <description></description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>no</string>
+              <string>yes</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ebill_imagetag</name>
+          <description>tag for ebill</description>
+          <defaultValue>qa1latest</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>update_ebill</name>
+          <description></description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>no</string>
+              <string>yes</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>recipientui_imagetag</name>
+          <description>tag for recipientui</description>
+          <defaultValue>qa1latest</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>update_recipientui</name>
+          <description></description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>no</string>
+              <string>yes</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ontrac_imagetag</name>
+          <description>tag for ontrac</description>
+          <defaultValue>qa1latest</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>update_ontrac</name>
+          <description></description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>no</string>
+              <string>yes</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>iav_imagetag</name>
+          <description>tag for iav</description>
+          <defaultValue>qa1latest</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>update_iav</name>
+          <description></description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>no</string>
+              <string>yes</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ssoui_imagetag</name>
+          <description>tag for ssoui</description>
+          <defaultValue>qa1latest</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>update_ssoui</name>
+          <description></description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>no</string>
+              <string>yes</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.83">
+    <script>pipeline {
+    agent any
+    options {
+        ansiColor(&apos;xterm&apos;)
+    }    
+    stages {
+        stage (&apos;update ec2 counts&apos;){
+            steps {
+                script {
+                    sh &apos;&apos;&apos;
+                        for environment in ${environment};
+                        do
+                            aws ssm put-parameter --name /${environment}/terraform/ec2_servers/api_count --value ${nbr_api_ec2} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/ec2_servers/ui_count --value ${nbr_ui_ec2} --overwrite  --type String
+                        done
+                    &apos;&apos;&apos;
+                }
+            }      
+        }                 
+        stage (&apos;create ssm parameter store api&apos;){
+            when {
+                environment name: &apos;update_api&apos;, value: &apos;yes&apos;
+            }
+            steps {
+                script {
+                    sh &apos;&apos;&apos;
+                        for environment in ${environment};
+                        do
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/httpq_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/httpq:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/apimgr_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/apimgr:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/execmgr_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/execmgr:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/execmgr001_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/execmgr001:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/execmgr002_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/execmgr002:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/addressnormalization_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/addressnormalization:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/emailnotification_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/emailnotification:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/session_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/session:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/smsnotification_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/smsnotification:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/notificationengine000_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/notificationengine000:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/notificationengine001_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/notificationengine000:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/notificationengine002_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/notificationengine000:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/webhook001_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/webhook001:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/webhook002_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/webhook002:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/finhook001_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/finhook001:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/finhook002_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/finhook002:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/finovera_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/finovera:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/realtime001_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/realtime001:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/realtime002_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/realtime002:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/cybersource_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/cybersource:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/dc_dcu_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/dc_dcu:${api_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/nginx_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/nginx_wildcard:latest --overwrite  --type String
+
+                        done
+                    &apos;&apos;&apos;
+                }
+            }      
+        } 
+        stage (&apos;create ssm parameter store ebill&apos;){
+            when {
+                environment name: &apos;update_ebill&apos;, value: &apos;yes&apos;
+            }
+            steps {
+                script {
+                    sh &apos;&apos;&apos;
+                        for environment in ${environment};
+                        do
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/ebillui_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/ebillui:${ebill_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/ebillserver_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/ebillserver:${ebill_imagetag} --overwrite  --type String
+                        done
+                    &apos;&apos;&apos;
+                }
+            }      
+        }         
+
+        stage (&apos;create ssm parameter store iav&apos;){
+            when {
+                environment name: &apos;update_iav&apos;, value: &apos;yes&apos;
+            }
+            steps {
+                script {
+                    sh &apos;&apos;&apos;
+                        for environment in ${environment};
+                        do
+
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/iavui_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/iavui:${iav_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/iavserver_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/iavserver:${iav_imagetag} --overwrite  --type String
+                        done
+                    &apos;&apos;&apos;
+                }
+            }      
+        }         
+
+
+        stage (&apos;create ssm parameter store ontrac&apos;){
+            when {
+                environment name: &apos;update_ontrac&apos;, value: &apos;yes&apos;
+            }
+            steps {
+                script {
+                    sh &apos;&apos;&apos;
+                        for environment in ${environment};
+                        do
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/ontracserver_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/ontracserver:${ontrac_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/ontracui_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/ontracui:${ontrac_imagetag} --overwrite  --type String
+                        done
+                    &apos;&apos;&apos;
+                }
+            }      
+        }    
+
+         stage (&apos;create ssm parameter store recipientui&apos;){
+            when {
+                environment name: &apos;update_recipientui&apos;, value: &apos;yes&apos;
+            }
+            steps {
+                script {
+                    sh &apos;&apos;&apos;
+                        for environment in ${environment};
+                        do
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/recipientui_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/recipientui:${recipientui_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/recipientserver_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/recipientserver:${recipientui_imagetag} --overwrite  --type String
+                        done
+                    &apos;&apos;&apos;
+                }
+            }      
+        }    
+
+         stage (&apos;create ssm parameter store ssoui&apos;){
+            when {
+                environment name: &apos;update_ssoui&apos;, value: &apos;yes&apos;
+            }
+            steps {
+                script {
+                    sh &apos;&apos;&apos;
+                        for environment in ${environment};
+                        do
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/ssoui_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/ssoui:${ssoui_imagetag} --overwrite  --type String
+                            aws ssm put-parameter --name /${environment}/terraform/docker_images/ssoserver_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/ssoserver:${ssoui_imagetag} --overwrite  --type String
+
+                        done
+                    &apos;&apos;&apos;
+                }
+            }      
+        }    
+        
+        stage(&apos;git checkouts&apos;) {
+            steps {
+                deleteDir()
+                checkout([$class: &apos;GitSCM&apos;, branches: [[name: &apos;*/develop&apos;]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: &apos;f8341b62-0a95-4e17-9233-f42e9d1a8069&apos;, url: &apos;git@bitbucket.org:Payrailz/terraform.git&apos;]]])
+            }
+        }
+        stage (&apos;run terraform plan&apos;){
+            steps {
+                dir(&quot;environments/main/infrastructure&quot;) {
+                    sh &quot;terraform init -backend-config=devbackend&quot;
+                    sh &quot;terraform workspace select ${environment} || terraform workspace new ${environment} &quot;
+                    sh &quot;terraform plan  -var cybersource_loopback=&apos;${cybersource_loopback}&apos; -var dc_dcu_loopback=&apos;${dc_dcu_loopback}&apos; -var spotinst_api_desired_capacity=${nbr_api_ec2} -var spotinst_ui_desired_capacity=${nbr_ui_ec2} -var spotinst_should_roll=${should_roll} -out ${env.BUILD_ID}&quot;
+                }
+            }    
+        }
+
+        stage (&apos;terraform apply&apos;){
+            steps {
+                dir(&quot;environments/main/infrastructure&quot;) {
+                    sh &quot;terraform apply  --auto-approve  ${env.BUILD_ID}&quot;
+                }
+            }
+            
+        }
+    }    
+}</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>
