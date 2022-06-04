@@ -6,7 +6,7 @@ def putparam() {
                                 //version1 = it.version
     echo "Executing on Environment $environment. Values of Application = ${it.appname}, Pakage Version = ${it.version}"
     sh "ls -ltrh | tail -5"
-    echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/${it.appname}_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/${it.appname}:${api_imagetag} --overwrite  --type String"
+    echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/${it.appname}_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/${it.appname}:${it.version} --overwrite  --type String"
 } // End of List
 } // Endo of Put Functions
 pipeline {
