@@ -1,5 +1,5 @@
 sprint6: &sprint6
-  - applist: [{appname: 'httpq', version: 'package-release-2.2.5.0-300'}, {appname: 'webhook003', version: 'jenkins-300'}, {appname: 'apimgr', version: 'expo-300'}]
+  - applist: [{appname: 'httpq', version: 'package-release-2.2.5.0-300'}, {appname: 'webhook003', version: 'jenkins-300'}, {appname: 'apimgr', version: 'expo-300'},{appname: 'ssoui', version: 'ssoU-2.2.0'},{appname: 'ssoserver', version: 'SsoSe-2.1.0'}]
   - approval: false
   - tfbranch: master
   - nbr_api_ec2: Vinj
