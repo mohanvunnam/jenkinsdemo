@@ -1,0 +1,67 @@
+//import groovy.json.JsonSlurper
+def putaws() {
+                        list.each {
+                                echo "appname ${it.appname} and Version is ${it.version}"
+                                appname1 = it.appname
+                                version1 = it.version
+                                  
+    echo "Hello environment ${environment} from putaws function. Executing on the $environment branch. Values of  ${appname1} = ${version1} , webhook = ${webhook1} and apimgr = ${apimgr1}"
+    echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/httpq_image --value {accountid}.dkr.ecr.us-east-1.amazonaws.com/httpq:${httpq1} --overwrite  --type String"
+   // sh "yamllint services.yml"
+   // sh "ls -ltrh"
+}
+}
+pipeline {
+    agent any
+    stages {
+       stage('Read the variables of service and versions') {
+          steps {
+                script {
+		def datas = readYaml file: 'serviceskeyval.yml'
+		httpq1=datas."${environment}".httpq
+		webhook1=datas."${environment}".webhook003
+		apimgr1=datas."${environment}".apimgr
+                list=datas."${environment}".applist
+                        list.each {
+                                echo "appname ${it.appname} and Version is ${it.version}"
+                                appname1 = it.appname
+                                version1 = it.version
+//                                putaws()
+                                  }
+
+//		Map map = [:].withDefault { key -> return [] }
+//		listOfObjects.each { map.get(it.myKey).add(it.myValue) }
+
+                       }
+                }
+                                                                }
+
+
+       stage('Execute based on Environment') {
+          steps {
+                script {
+                        if (environment == 'prod' || environment == 'imp1' || environment == 'conv') {
+                                echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
+                                putaws()
+
+                            } else if (environment == 'dev1' || environment == 'dev2' ||  environment == 'dev3' || environment == 'qa1' ) {
+                                echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
+                                putaws()
+                            } else if (environment == 'pref' || environment == 'qa2') {
+                                echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
+                                putaws()
+                            } else if (environment == 'uat1') {
+                                echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
+                                putaws()
+                            } else {
+                                echo 'No Matching environment found....... '
+                                   }
+                       }
+                }
+                                                                }
+
+
+
+
+}
+}

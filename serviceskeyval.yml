@@ -1,13 +1,16 @@
 sprint6: &sprint6
-  - applist: [{appname: 'httpq', version: 'package-release-2.2.5.0-300'}, {appname: 'webhook003', version: 'jenkins-300'}, {appname: 'apimgr', version: 'jenkins-300'}]
-  - httpq: package-release-2.2.5.0-212
-  - webhook003: jenkins-55
-  - apimgr: jenkins-222
+  - applist: [{appname: 'httpq', version: 'package-release-2.2.5.0-300'}, {appname: 'webhook003', version: 'jenkins-300'}, {appname: 'apimgr', version: 'expo-300'}]
+  - approval: false
+  - tfbranch: master
+  - nbr_api_ec2: Vinj
+  - nbr_ui_ec2: Govind
+
 sprint7: &sprint7
-  - applist: [{appname: 'httpq', version: 'package-release-2.2.5.0-400'}, {appname: 'webhook003', version: 'jenkins-400'}, {appname: 'apimgr', version: 'jenkins-400'}, {appname: 'apache', version: '2.2.5'}]
-  - httpq: package-release-2.2.7.0-212
-  - webhook003: jenkins-55
-  - apimgr: jenkins-222
+  - applist: [{appname: 'httpq', version: 'package-release-2.2.5.0-400'}, {appname: 'webhook003', version: 'jenkins-400'}, {appname: 'apimgr', version: 'expo-400'}, {appname: 'apache', version: '2.2.5'}]
+  - approval: true
+  - tfbranch: master
+  - nbr_api_ec2: Mohan
+  - nbr_ui_ec2: babu
 
 qa1: 
   <<: *sprint6
