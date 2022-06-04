@@ -92,7 +92,7 @@ pipeline {
 
 	stage ('terraform'){
             steps {
-		//echo "dc_dcu_loopback is ${dc_dcu_loopback} and dc_mahalo_profed_loopback is ${dc_mahalo_profed_loopback} and dc_cunify_oregonians_loopback is ${dc_cunify_oregonians_loopback} and cybersource_loopback is ${cybersource_loopback1}"
+		echo "dc_dcu_loopback is ${env.dc_dcu_loopback} and dc_mahalo_profed_loopback is ${env.dc_mahalo_profed_loopback} and dc_cunify_oregonians_loopback is ${env.dc_cunify_oregonians_loopback} and cybersource_loopback is ${env.cybersource_loopback1}"
                dir("/tmp/environments/main/infrastructure") {
                     sh '''
                       echo  "env0 deploy \
