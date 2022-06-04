@@ -61,7 +61,7 @@ pipeline {
                 dc_q2_advia_loopback=datas."${environment}".dc_q2_advia_loopback
                 dc_dna_georgiasown_loopback=datas."${environment}".dc_dna_georgiasown_loopback
                 dc_portico_trailnorth_loopback=datas."${environment}".dc_portico_trailnorth_loopback
-                dc_cunify_oregonians_loopback=datas."${environment}".dc_cunify_oregonians_loopback
+                def dc_cunify_oregonians_loopback=datas."${environment}".dc_cunify_oregonians_loopback
                 dc_keystone_frontwave_loopback=datas."${environment}".dc_keystone_frontwave_loopback
                       
                 list=datas."${environment}".applist
