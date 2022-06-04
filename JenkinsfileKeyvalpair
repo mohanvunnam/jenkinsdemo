@@ -1,14 +1,14 @@
 //import groovy.json.JsonSlurper
-def putaws() {
+def putparam() {
                         list.each {
                                 //echo "appname ${it.appname} and Version is ${it.version}"
                                // appname1 = it.appname
                                 //version1 = it.version
-    echo "Executing on the Environment $environment. Values of Application = ${it.appname}, Pakage Version = ${it.version} and apimgr = ${apimgr1}"                              
-   sh "ls -ltrh | tail -5"
-	echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/${it.appname}_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/${it.appname}:${api_imagetag} --overwrite  --type String"
-}
-}
+    echo "Executing on Environment $environment. Values of Application = ${it.appname}, Pakage Version = ${it.version}"
+    sh "ls -ltrh | tail -5"
+    echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/${it.appname}_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/${it.appname}:${api_imagetag} --overwrite  --type String"
+} // End of List
+} // Endo of Put Functions
 pipeline {
     agent any
     stages {
@@ -29,14 +29,14 @@ pipeline {
           steps {
                 script {
                         if (environment == 'prod' || environment == 'imp1' || environment == 'conv') {
-                                putaws()
+                                putparam()
 
                             } else if (environment == 'dev1' || environment == 'dev2' ||  environment == 'dev3' || environment == 'qa1' ) {
-                                putaws()
+                                putparam()
                             } else if (environment == 'pref' || environment == 'qa2') {
-                                putaws()
+                                putparam()
                             } else if (environment == 'uat1') {
-                                putaws()
+                                putparam()
                             } else {
                                 echo 'No Matching environment found....... '
                                    }
@@ -52,7 +52,7 @@ pipeline {
 
 //            steps {
 //                script {
-//			putaws()
+//			putparam()
 //		       } //End of Script
 //		  } //End of Steps
 //					}//End of stage - create ssm parameter store api
