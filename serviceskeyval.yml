@@ -4,6 +4,43 @@ sprint6: &sprint6
   - tfbranch: master
   - nbr_api_ec2: Vinj
   - nbr_ui_ec2: Govind
+  - cybersource_loopback: false
+  - dc_dcu_loopback: false
+  - dc_dna_3rivers_loopback: false
+  - dc_dna_meritrust_loopback: false
+  - dc_cocc_reading_loopback: false
+  - dc_mahalo_profed_loopback: false
+  - dc_episys_coastal_loopback: false
+  - dc_episys_dover_loopback: false
+  - dc_episys_publix_loopback: false
+  - dc_episys_unitus_loopback: false
+  - dc_finxact_primis_loopback: false
+  - dc_q2_mercantile_loopback: false
+  - rce_worker_loopback: false
+  - venmo_loopback: false
+  - bpx_loopback: false
+  - dc_cocc_libertybank_loopback: false
+  - dc_xp2_nusenda_loopback: false
+  - dc_episys_wrightpatt_loopback: false
+  - dc_episys_eecu_loopback: false
+  - dc_q2_firstnorthernbank_loopback: false
+  - dc_q2_5star_loopback: false
+  - dc_finxact_glorifi_loopback: false
+  - dc_keystone_cenwill_loopback: false
+  - dc_episys_hudsonvalley_loopback: false
+  - dc_episys_kinecta_loopback: false
+  - dc_episys_georgiaunited_loopback: false
+  - dc_q2_chesapeakebank_loopback: false
+  - dc_episys_airforce_loopback: false
+  - dc_episys_cport_loopback: false
+  - dc_keystone_expedition_loopback: false
+  - dc_episys_srp_loopback: false
+  - dc_q2_advia_loopback: true
+  - dc_dna_georgiasown_loopback: true
+  - dc_portico_trailnorth_loopback: true
+  - dc_cunify_oregonians_loopback: true
+  - dc_keystone_frontwave_loopback: true
+
 
 sprint7: &sprint7
   - applist: [{appname: 'httpq', version: 'package-release-2.2.5.0-400'}, {appname: 'webhook003', version: 'jenkins-400'}, {appname: 'apimgr', version: 'expo-400'}, {appname: 'apache', version: '2.2.5'}]
@@ -11,6 +48,45 @@ sprint7: &sprint7
   - tfbranch: master
   - nbr_api_ec2: Mohan
   - nbr_ui_ec2: babu
+  - cybersource_loopback: false
+  - dc_dcu_loopback: false
+  - dc_dna_3rivers_loopback: false
+  - dc_dna_meritrust_loopback: false
+  - dc_cocc_reading_loopback: false
+  - dc_mahalo_profed_loopback: false
+  - dc_episys_coastal_loopback: false
+  - dc_episys_dover_loopback: false
+  - dc_episys_publix_loopback: false
+  - dc_episys_unitus_loopback: false
+  - dc_finxact_primis_loopback: false
+  - dc_q2_mercantile_loopback: false
+  - rce_worker_loopback: false
+  - venmo_loopback: false
+  - bpx_loopback: false
+  - dc_cocc_libertybank_loopback: false
+  - dc_xp2_nusenda_loopback: false
+  - dc_episys_wrightpatt_loopback: false
+  - dc_episys_eecu_loopback: false
+  - dc_q2_firstnorthernbank_loopback: false
+  - dc_q2_5star_loopback: false
+  - dc_finxact_glorifi_loopback: false
+  - dc_keystone_cenwill_loopback: false
+  - dc_episys_hudsonvalley_loopback: false
+  - dc_episys_kinecta_loopback: false
+  - dc_episys_georgiaunited_loopback: false
+  - dc_q2_chesapeakebank_loopback: false
+  - dc_episys_airforce_loopback: false
+  - dc_episys_cport_loopback: false
+  - dc_keystone_expedition_loopback: false
+  - dc_episys_srp_loopback: false
+  - dc_q2_advia_loopback: true
+  - dc_dna_georgiasown_loopback: true
+  - dc_portico_trailnorth_loopback: true
+  - dc_cunify_oregonians_loopback: true
+  - dc_keystone_frontwave_loopback: true
+
+
+
 
 qa1: 
   <<: *sprint6
