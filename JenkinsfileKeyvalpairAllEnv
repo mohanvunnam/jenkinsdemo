@@ -1,8 +1,8 @@
 def putparam() {
                         list.each {
                                 //echo "appname ${it.appname} and Version is ${it.version}"
-                               // appname1 = it.appname
-                                //version1 = it.version
+                                appname1 = it.appname
+                                version1 = it.version
     sh '''
     echo "Executing on Environment $environment. Values of Application = ${it.appname}, Pakage Version = ${it.version}"
 #    ls -ltrh | tail -5
@@ -13,6 +13,7 @@ def putparam() {
 #    echo "App ${it.appname} Version  ${it.version}  is same, so we are ignoring the deploy for this application"
 #else
     echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/${it.appname}_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/${it.appname}:${it.version} --overwrite  --type String"
+    echo "aws ssm put-parameter --name /environment/terraform/docker_images/${appname1}_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/${appname1}:${version1} --overwrite  --type String"
 #fi
 '''
 
