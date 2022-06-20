@@ -12,7 +12,7 @@ def putparam() {
 #if [ ${it.version} == ${appVersionLive} ] ;then
 #    echo "App ${it.appname} Version  ${it.version}  is same, so we are ignoring the deploy for this application"
 #else
-    echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/${it.appname}_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/${it.appname}:${it.version} --overwrite  --type String"
+#    echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/${it.appname}_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/${it.appname}:${it.version} --overwrite  --type String"
     echo "aws ssm put-parameter --name /environment/terraform/docker_images/${appname1}_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/${appname1}:${version1} --overwrite  --type String"
 #fi
 '''
