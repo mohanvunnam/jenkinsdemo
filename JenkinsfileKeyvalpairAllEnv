@@ -20,9 +20,13 @@ pipeline {
     agent any
     stages {
       stage('Get the environment list') {
-       echo "Hello from Environment ${environment}" 
-      }
+          steps {
+                script {
 
+       echo "Hello from Environment ${environment}" 
+		       }
+		}
+					}
 
        stage('Read the variables of service and versions') {
           steps {
