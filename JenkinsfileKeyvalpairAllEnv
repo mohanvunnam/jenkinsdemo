@@ -27,6 +27,10 @@ pipeline {
 	envlist.each {
                                 echo "Looking on ${it} environment"
                                 env.environment = it
+                     }// End of envlist
+                       }// End of Script for 'Get the environment list'
+		 } // ENd of steps for 'Get the environment list'
+					} // End of Stage for 'Get the environment list'
 
 
        stages {
@@ -92,10 +96,7 @@ pipeline {
                                             }
 
 
-                     }// End of envlist
-                       }// End of Script for 'Get the environment list'
-		 } // ENd of steps for 'Get the environment list'
-					} // End of Stage for 'Get the environment list'
+
 } // End of Stages inner loop
 
 
