@@ -8,11 +8,9 @@ def putparam() {
     #ls -ltrh | tail -5
     appVersionLive=jenkins-300
    #appVersionLive=`aws ssm get-parameter --name /${environment}/terraform/docker_images/${appname1}_image --query Parameter.Value --output text`
-     '''
-    appVersionLive = appVersionLive.trim()
-    version1 = version1.trim()
-
-    sh '''
+ 
+#    appVersionLive = appVersionLive.trim()
+#    version1 = version1.trim()
 if [ ${version1} == ${appVersionLive} ] ;then
     echo "App ${appname1} Version  ${version1}  is same, so we are ignoring the deploy for this application"
 else
