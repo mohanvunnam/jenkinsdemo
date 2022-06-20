@@ -25,15 +25,11 @@ pipeline {
 	echo "Hello from Environment ${environment}" 
 	def envlist = environment.split(',').collect{it as String}
 	envlist.each {
-                                echo "Looking on ${it} environment"
-                                env.environment = it
+                echo "Working on ${it} environment"
+                env.environment = it
 
 
-
-//       stage('Read the variables of service and versions') {
-//          steps {
-//                script {
-		def datas = readYaml file: 'serviceskeyval.yml'
+		def datas = readYaml file: 'serviceskeyvalAllEnv.yml'
 		env.approval=datas."${environment}".approval
 		env.tfbranch=datas."${environment}".tfbranch
 		env.nbr_api_ec2=datas."${environment}".nbr_api_ec2
@@ -77,15 +73,13 @@ pipeline {
                       
                 list=datas."${environment}".applist
 
-                                putparam()
+                putparam()
+
+
                      }// End of envlist
                        }// End of Script for 'Get the environment list'
 		 } // ENd of steps for 'Get the environment list'
 					} // End of Stage for 'Get the environment list'
-//                       } //End of Script
-//               } //End of steps
-//                                                            } //End of Stage - Read the variables of service and versions
-
 
 
 
