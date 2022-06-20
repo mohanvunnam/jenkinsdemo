@@ -9,8 +9,8 @@ def putparam() {
     appVersionLive=jenkins-300
    #appVersionLive=`aws ssm get-parameter --name /${environment}/terraform/docker_images/${appname1}_image --query Parameter.Value --output text`
      '''
-    def appVersionLive = appVersionLive.trim()
-    def version1 = version1.trim()
+    appVersionLive = appVersionLive.trim()
+    version1 = version1.trim()
 
     sh '''
 if [ ${version1} == ${appVersionLive} ] ;then
