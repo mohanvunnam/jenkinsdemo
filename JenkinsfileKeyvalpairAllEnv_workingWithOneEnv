@@ -1,11 +1,22 @@
 def putparam() {
                         list.each {
+                                //echo "appname ${it.appname} and Version is ${it.version}"
                                 env.appname1 = it.appname
                                 env.version1 = it.version
+                                //env.approval=datas."${environment}".approval
 
     sh '''
-    ls -ltrh | tail -5
+#    echo "Executing on Environment $environment. Values of Application = ${it.appname}, Pakage Version = ${it.version}"
+#    ls -ltrh | tail -5
+#    appVersionLive=jenkins-300
+   #appVersionLive=`aws ssm get-parameter --name /${environment}/terraform/docker_images/${it.appname}_image --query Parameter.Value --output text`
+
+#if [ ${it.version} == ${appVersionLive} ] ;then
+#    echo "App ${it.appname} Version  ${it.version}  is same, so we are ignoring the deploy for this application"
+#else
+#    echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/${it.appname}_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/${it.appname}:${it.version} --overwrite  --type String"
     echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/${appname1}_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/${appname1}:${version1} --overwrite  --type String"
+#fi
 '''
 
 } // End of List
@@ -19,9 +30,7 @@ def deployApp() {
 pipeline {
     agent any
     stages {
-      stage('Get the environment list') {
-       echo "Hello from Environment ${environment}" 
-      }
+
 
 
        stage('Read the variables of service and versions') {
