@@ -1,8 +1,10 @@
 def putparam() {
                         list.each {
                                 //echo "appname ${it.appname} and Version is ${it.version}"
-                                appname1 = it.appname
-                                version1 = it.version
+                                env.appname1 = it.appname
+                                env.version1 = it.version
+                                //env.approval=datas."${environment}".approval
+
     sh '''
 #    echo "Executing on Environment $environment. Values of Application = ${it.appname}, Pakage Version = ${it.version}"
 #    ls -ltrh | tail -5
