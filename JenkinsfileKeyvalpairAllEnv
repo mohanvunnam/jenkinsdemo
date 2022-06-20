@@ -4,7 +4,7 @@ def putparam() {
                                 appname1 = it.appname
                                 version1 = it.version
     sh '''
-    echo "Executing on Environment $environment. Values of Application = ${it.appname}, Pakage Version = ${it.version}"
+//    echo "Executing on Environment $environment. Values of Application = ${it.appname}, Pakage Version = ${it.version}"
 #    ls -ltrh | tail -5
 #    appVersionLive=jenkins-300
    #appVersionLive=`aws ssm get-parameter --name /${environment}/terraform/docker_images/${it.appname}_image --query Parameter.Value --output text`
