@@ -27,16 +27,12 @@ pipeline {
 	envlist.each {
                                 echo "Looking on ${it} environment"
                                 env.environment = it
-                     }// End of envlist
-                       }// End of Script for 'Get the environment list'
-		 } // ENd of steps for 'Get the environment list'
-					} // End of Stage for 'Get the environment list'
 
 
-       stages {
-       stage('Read the variables of service and versions') {
-          steps {
-                script {
+
+//       stage('Read the variables of service and versions') {
+//          steps {
+//                script {
 		def datas = readYaml file: 'serviceskeyval.yml'
 		env.approval=datas."${environment}".approval
 		env.tfbranch=datas."${environment}".tfbranch
@@ -81,23 +77,16 @@ pipeline {
                       
                 list=datas."${environment}".applist
 
-                       } //End of Script
-                } //End of steps
-                                                            } //End of Stage - Read the variables of service and versions
-
-
-       stage('Execute In All Environment') {
-          steps {
-                script {
-				
                                 putparam()
-                       }
-                }
-                                            }
+                     }// End of envlist
+                       }// End of Script for 'Get the environment list'
+		 } // ENd of steps for 'Get the environment list'
+					} // End of Stage for 'Get the environment list'
+//                       } //End of Script
+//               } //End of steps
+//                                                            } //End of Stage - Read the variables of service and versions
 
 
-
-} // End of Stages inner loop
 
 
 } // End of Stages
