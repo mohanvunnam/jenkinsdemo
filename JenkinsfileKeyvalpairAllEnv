@@ -22,10 +22,14 @@ pipeline {
       stage('Get the environment list') {
           steps {
                 script {
-
-       echo "Hello from Environment ${environment}" 
-		       }
-		}
+	echo "Hello from Environment ${environment}" 
+	def envlist = environment.split(',').collect{it as String}
+	envlist.each {
+                                echo "Looking on ${it} environment"
+                                env.environment = it
+                     }
+                       }
+		 }
 					}
 
        stage('Read the variables of service and versions') {
