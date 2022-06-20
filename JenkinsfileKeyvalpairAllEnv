@@ -89,11 +89,8 @@ pipeline {
                                 putparam()
                        }
                 }
-                                                                }
+                                            }
 
-                }
-            }
-        }
 
 
 } // End of Stages
