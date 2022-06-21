@@ -3,7 +3,7 @@ def putparam() {
                                 env.appname1 = it.appname
                                 env.version1 = it.version
 
-//    sh '''
+    sh '''
     echo "Executing on Environment $environment. Values of Application = ${appname1}, Pakage Version = ${version1}"
     #ls -ltrh | tail -5
     appVersionLive=jenkins-300
@@ -14,7 +14,7 @@ if [ ${version1} == ${appVersionLive} ] ;then
 else
     echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/${appname1}_image --value 753224138664.dkr.ecr.us-east-1.amazonaws.com/${appname1}:${version1} --overwrite  --type String"
 fi
-//'''
+'''
 
 
 } // End of List
