@@ -12,8 +12,8 @@ pipeline {
                             env.server = server
 
                             sh '''
-                            scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no wlspatch.sh mvunnam@$server:/tmp/ 
-			    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no mvunnam@$server "sh /tmp/wlspatch.sh" > /tmp/wlspatchOutput.txt
+                            scp -i /var/lib/jenkins/.ssh/id_rsa_wl -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no wlspatch.sh mvunnam@$server:/tmp/ 
+			    ssh -i /var/lib/jenkins/.ssh/id_rsa_wl -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no mvunnam@$server "sh /tmp/wlspatch.sh" > /tmp/wlspatchOutput.txt
                             echo "run stuff.. $server `date`" >> /tmp/$server.txt
                             sleep 1
                             echo "second run.. on $server `date`" >> /tmp/$server.txt
