@@ -1,0 +1,29 @@
+def deploys = [:]
+def servers = servers.split(',').collect{it as String}
+
+pipeline {
+    agent any
+    stages {
+        stage ('Weblogic Patching on multiple hosts') {    
+            steps {
+                script {
+                    servers.each { server ->
+                        deploys[server] = {
+                            env.server = server
+
+                            sh '''
+                            scp wlspatch.sh mvunnam@$server:/tmp/ 
+			    ssh mvunnam@$server "sh /tmp/wlspatch.sh" > /tmp/wlspatchOutput.txt
+                            echo "run stuff.. $server `date`" >> /tmp/$server.txt
+                            sleep 1
+                            echo "second run.. on $server `date`" >> /tmp/$server.txt
+                            cat /tmp/wlspatchOutput.txt
+                            '''
+                        }
+                    }
+                    parallel deploys
+                }
+            }
+        }
+    }
+}
