@@ -13,12 +13,12 @@ pipeline {
 
                             sh '''
                             scp -i /var/lib/jenkins/.ssh/id_rsa_wl -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no wlspatch.sh mvunnam@$server:/tmp/ 
-			    ssh -i /var/lib/jenkins/.ssh/id_rsa_wl -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no mvunnam@$server "sh /tmp/wlspatch.sh" > /tmp/wlspatchOutput.txt
+			    ssh -i /var/lib/jenkins/.ssh/id_rsa_wl -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no mvunnam@$server "sh /tmp/wlspatch.sh"
 
                             echo "run stuff.. $server `date`" >> /tmp/$server.txt
                             sleep 1
                             echo "second run.. on $server `date`" >> /tmp/$server.txt
-                            cat /tmp/wlspatchOutput.txt
+                            #cat /tmp/wlspatchOutput.txt
                             '''
                         }
                     }
