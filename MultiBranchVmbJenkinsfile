@@ -118,7 +118,7 @@ pipeline {
 		                env.environment = it
 				getenvparam()
                 		putparam()
-
+				deployApp()
 
                      }// End of envlist
                        }// End of Script for 'Get the environment list'
