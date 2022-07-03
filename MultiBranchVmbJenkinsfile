@@ -64,10 +64,7 @@ pipeline {
                 """
 		script {
 
-			def envlist = [dev1,qa1]
-			//def environment = [dev1,qa1]
-		        //echo "Hello from Environment ${environment}"	
-		        //def envlist = environment.split(',').collect{it as String}
+			def envlist = ["dev1","qa1"]
 		        envlist.each {
                 		echo "Working on ${it} environment"
 		                env.environment = it
