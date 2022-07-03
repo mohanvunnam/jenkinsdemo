@@ -14,7 +14,7 @@ pipeline {
                 echo "Deploying Code from Master branch"
                 """
 		script {
-			def environment = [dev1,qa1]
+			def environment = ['dev1','qa1']
 		        echo "Hello from Environment ${environment}"
 	
 		        def envlist = environment.split(',').collect{it as String}
