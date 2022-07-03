@@ -56,7 +56,7 @@ pipeline {
             }
             steps {
                 sh """
-                echo "Building Artifact from Master branch"
+                echo "Building Artifact from Master branch."
                 """
 
                 sh """
