@@ -46,54 +46,6 @@ TF_VAR_cybersource_loopback=${cybersource_loopback1} TF_VAR_dc_dcu_loopback=${dc
 
 // ###################################################
 
-def getenvparam() {
-
-                                def datas = readYaml file: 'serviceskeyvalAllEnv.yml'
-                                env.approval=datas."${environment}".approval
-                                env.tfbranch=datas."${environment}".tfbranch
-                                env.nbr_api_ec2=datas."${environment}".nbr_api_ec2
-                                env.nbr_ui_ec21=datas."${environment}".nbr_ui_ec2
-                                env.cybersource_loopback=datas."${environment}".cybersource_loopback
-                                env.dc_dcu_loopback=datas."${environment}".dc_dcu_loopback
-                                env.dc_dna_3rivers_loopback=datas."${environment}".dc_dna_3rivers_loopback
-                                env.dc_dna_meritrust_loopback=datas."${environment}".dc_dna_meritrust_loopback
-                                env.dc_cocc_reading_loopback=datas."${environment}".dc_cocc_reading_loopback
-                                env.dc_mahalo_profed_loopback=datas."${environment}".dc_mahalo_profed_loopback
-                                env.dc_episys_coastal_loopback=datas."${environment}".dc_episys_coastal_loopback
-                                env.dc_episys_dover_loopback=datas."${environment}".dc_episys_dover_loopback
-                                env.dc_episys_publix_loopback=datas."${environment}".dc_episys_publix_loopback
-                                env.dc_episys_unitus_loopback=datas."${environment}".dc_episys_unitus_loopback
-                                env.dc_finxact_primis_loopback=datas."${environment}".dc_finxact_primis_loopback
-                                env.dc_q2_mercantile_loopback=datas."${environment}".dc_q2_mercantile_loopback
-                                env.rce_worker_loopback=datas."${environment}".rce_worker_loopback
-                                env.venmo_loopback=datas."${environment}".venmo_loopback
-                                env.bpx_loopback=datas."${environment}".bpx_loopback
-                                env.dc_cocc_libertybank_loopback=datas."${environment}".dc_cocc_libertybank_loopback
-                                env.dc_xp2_nusenda_loopback=datas."${environment}".dc_xp2_nusenda_loopback
-                                env.dc_episys_wrightpatt_loopback=datas."${environment}".dc_episys_wrightpatt_loopback
-                                env.dc_episys_eecu_loopback=datas."${environment}".dc_episys_eecu_loopback
-                                env.dc_q2_firstnorthernbank_loopback=datas."${environment}".dc_q2_firstnorthernbank_loopback
-                                env.dc_q2_5star_loopback=datas."${environment}".dc_q2_5star_loopback
-                                env.dc_finxact_glorifi_loopback=datas."${environment}".dc_finxact_glorifi_loopback
-                                env.dc_keystone_cenwill_loopback=datas."${environment}".dc_keystone_cenwill_loopback
-                                env.dc_episys_hudsonvalley_loopback=datas."${environment}".dc_episys_hudsonvalley_loopback
-                                env.dc_episys_kinecta_loopback=datas."${environment}".dc_episys_kinecta_loopback
-                                env.dc_episys_georgiaunited_loopback=datas."${environment}".dc_episys_georgiaunited_loopback
-                                env.dc_q2_chesapeakebank_loopback=datas."${environment}".dc_q2_chesapeakebank_loopback
-                                env.dc_episys_airforce_loopback=datas."${environment}".dc_episys_airforce_loopback
-                                env.dc_episys_cport_loopback=datas."${environment}".dc_episys_cport_loopback
-                                env.dc_keystone_expedition_loopback=datas."${environment}".dc_keystone_expedition_loopback
-                                env.dc_episys_srp_loopback=datas."${environment}".dc_episys_srp_loopback
-                                env.dc_q2_advia_loopback=datas."${environment}".dc_q2_advia_loopback
-                                env.dc_dna_georgiasown_loopback=datas."${environment}".dc_dna_georgiasown_loopback
-                                env.dc_portico_trailnorth_loopback=datas."${environment}".dc_portico_trailnorth_loopback
-                                env.dc_cunify_oregonians_loopback=datas."${environment}".dc_cunify_oregonians_loopback
-                                env.dc_keystone_frontwave_loopback=datas."${environment}".dc_keystone_frontwave_loopback
-                                list=datas."${environment}".applist
-}
-
-// ##########################################
-
 
 pipeline {
     agent any
@@ -116,7 +68,51 @@ pipeline {
 		        envlist.each {
                 		echo "Working on ${it} environment"
 		                env.environment = it
-				getenvparam()
+
+
+                		def datas = readYaml file: 'serviceskeyvalAllEnv.yml'
+		                env.approval=datas."${environment}".approval
+                		env.tfbranch=datas."${environment}".tfbranch
+		                env.nbr_api_ec2=datas."${environment}".nbr_api_ec2
+                		env.nbr_ui_ec21=datas."${environment}".nbr_ui_ec2
+		                env.cybersource_loopback=datas."${environment}".cybersource_loopback
+		                env.dc_dcu_loopback=datas."${environment}".dc_dcu_loopback
+                		env.dc_dna_3rivers_loopback=datas."${environment}".dc_dna_3rivers_loopback
+		                env.dc_dna_meritrust_loopback=datas."${environment}".dc_dna_meritrust_loopback
+                		env.dc_cocc_reading_loopback=datas."${environment}".dc_cocc_reading_loopback
+		                env.dc_mahalo_profed_loopback=datas."${environment}".dc_mahalo_profed_loopback
+                		env.dc_episys_coastal_loopback=datas."${environment}".dc_episys_coastal_loopback
+		                env.dc_episys_dover_loopback=datas."${environment}".dc_episys_dover_loopback
+                		env.dc_episys_publix_loopback=datas."${environment}".dc_episys_publix_loopback
+		                env.dc_episys_unitus_loopback=datas."${environment}".dc_episys_unitus_loopback
+                		env.dc_finxact_primis_loopback=datas."${environment}".dc_finxact_primis_loopback
+		                env.dc_q2_mercantile_loopback=datas."${environment}".dc_q2_mercantile_loopback
+                		env.rce_worker_loopback=datas."${environment}".rce_worker_loopback
+		                env.venmo_loopback=datas."${environment}".venmo_loopback
+                		env.bpx_loopback=datas."${environment}".bpx_loopback
+		                env.dc_cocc_libertybank_loopback=datas."${environment}".dc_cocc_libertybank_loopback
+                		env.dc_xp2_nusenda_loopback=datas."${environment}".dc_xp2_nusenda_loopback
+		                env.dc_episys_wrightpatt_loopback=datas."${environment}".dc_episys_wrightpatt_loopback
+                		env.dc_episys_eecu_loopback=datas."${environment}".dc_episys_eecu_loopback
+		                env.dc_q2_firstnorthernbank_loopback=datas."${environment}".dc_q2_firstnorthernbank_loopback
+                		env.dc_q2_5star_loopback=datas."${environment}".dc_q2_5star_loopback
+		                env.dc_finxact_glorifi_loopback=datas."${environment}".dc_finxact_glorifi_loopback
+                		env.dc_keystone_cenwill_loopback=datas."${environment}".dc_keystone_cenwill_loopback
+		                env.dc_episys_hudsonvalley_loopback=datas."${environment}".dc_episys_hudsonvalley_loopback
+                		env.dc_episys_kinecta_loopback=datas."${environment}".dc_episys_kinecta_loopback
+		                env.dc_episys_georgiaunited_loopback=datas."${environment}".dc_episys_georgiaunited_loopback
+                		env.dc_q2_chesapeakebank_loopback=datas."${environment}".dc_q2_chesapeakebank_loopback
+		                env.dc_episys_airforce_loopback=datas."${environment}".dc_episys_airforce_loopback
+                		env.dc_episys_cport_loopback=datas."${environment}".dc_episys_cport_loopback
+		                env.dc_keystone_expedition_loopback=datas."${environment}".dc_keystone_expedition_loopback
+                		env.dc_episys_srp_loopback=datas."${environment}".dc_episys_srp_loopback
+		                env.dc_q2_advia_loopback=datas."${environment}".dc_q2_advia_loopback
+                		env.dc_dna_georgiasown_loopback=datas."${environment}".dc_dna_georgiasown_loopback
+		                env.dc_portico_trailnorth_loopback=datas."${environment}".dc_portico_trailnorth_loopback
+                		env.dc_cunify_oregonians_loopback=datas."${environment}".dc_cunify_oregonians_loopback
+		                env.dc_keystone_frontwave_loopback=datas."${environment}".dc_keystone_frontwave_loopback
+
+		                list=datas."${environment}".applist
                 		putparam()
 
 
