@@ -112,7 +112,7 @@ pipeline {
                 """
 		script {
 
-			def envlist = ["dev1","qa1"]
+			def envlist = ["dev1","dev2"]
 		        envlist.each {
                 		echo "Working on ${it} environment"
 		                env.environment = it
