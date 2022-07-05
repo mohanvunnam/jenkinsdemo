@@ -152,20 +152,6 @@ pipeline {
 	          } // End of Steps
         				   } //End of Dev stage
 
-        stage('PR Branch for pull request') {
-            when {
-                branch 'PR-*'
-            }
-            steps {
-                sh """
-                echo "Building Artifact from Develop branch"
-                """
-                sh """
-                echo "Deploying Code from Develop branch"
-                """
-	          } // End of Steps
-        				   } //End of PR stage
-
 
     } //End of Stages
 } //End of Pipeline
