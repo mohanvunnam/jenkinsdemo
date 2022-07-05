@@ -97,6 +97,10 @@ def getenvparam() {
 
 pipeline {
     agent any
+    options {
+    buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')
+    disableConcurrentBuilds()
+  }
     stages {
         stage('Master Branch Deploy Code') {
             when {
@@ -151,6 +155,20 @@ pipeline {
                        }// End of Script for 'Get the environment list'
 	          } // End of Steps
         				   } //End of Dev stage
+
+        stage('PR Branch for pull request') {
+            when {
+                branch 'PR-*'
+            }
+            steps {
+                sh """
+                echo "Building Artifact from Develop branch"
+                """
+                sh """
+                echo "Deploying Code from Develop branch"
+                """
+	          } // End of Steps
+        				   } //End of PR stage
 
 
     } //End of Stages
