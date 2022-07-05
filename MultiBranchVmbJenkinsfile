@@ -132,7 +132,7 @@ pipeline {
 
         stage('Develop Branch Deploy Code') {
             when {
-                branch 'develop'
+                branch 'devBranch'
             }
             steps {
                 sh """
@@ -155,6 +155,32 @@ pipeline {
                        }// End of Script for 'Get the environment list'
 	          } // End of Steps
         				   } //End of Dev stage
+
+        stage('Develop Branch Deploy Code') {
+            when {
+                branch 'develop'
+            }
+            steps {
+                sh """
+                echo "Building Artifact from Develop branch"
+                """
+                sh """
+                echo "Deploying Code from Develop branch"
+                """
+                script {
+
+                        def envlist = ["dev1","dev2"]
+                        envlist.each {
+                                echo "Working on ${it} environment"
+                                env.environment = it
+                                getenvparam()
+                                putparam()
+                                deployApp()
+
+                                      }// End of envlist
+                       }// End of Script for 'Get the environment list'
+                  } // End of Steps
+                                           } //End of Dev stage
 
         stage('PR Branch for pull request') {
             when {
