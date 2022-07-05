@@ -4,7 +4,7 @@ def putparam() {
                                 env.version1 = it.version
 
     sh '''
-    echo "Executing on Environment $environment. Values of Application = ${appname1}, Pakage Version = ${version1}."
+    echo "Executing on Environment $environment. Values of Application = ${appname1}, Pakage Version = ${version1}"
     #ls -ltrh | tail -5
     appVersionLive=jenkins-300
    #appVersionLive=`aws ssm get-parameter --name /${environment}/terraform/docker_images/${appname1}_image --query Parameter.Value --output text`
@@ -116,7 +116,7 @@ pipeline {
                 """
 		script {
 
-			def envlist = ["perf","qa2"]
+			def envlist = ["dev1","dev2"]
 		        envlist.each {
                 		echo "Working on ${it} environment"
 		                env.environment = it
@@ -126,13 +126,11 @@ pipeline {
 
                      }// End of envlist
                        }// End of Script for 'Get the environment list'
-	          } // End of Steps
-        				   } //End of Main stage
-
-
+            }
+        }
         stage('Develop Branch Deploy Code') {
             when {
-                branch 'develop'
+                branch 'devBranch'
             }
             steps {
                 sh """
@@ -141,35 +139,7 @@ pipeline {
                 sh """
                 echo "Deploying Code from Develop branch"
                 """
-                script {
-
-                        def envlist = ["dev1","dev2"]
-                        envlist.each {
-                                echo "Working on ${it} environment"
-                                env.environment = it
-                                getenvparam()
-                                putparam()
-                                deployApp()
-
-               			      }// End of envlist
-                       }// End of Script for 'Get the environment list'
-	          } // End of Steps
-        				   } //End of Dev stage
-
-        stage('PR Branch for pull request') {
-            when {
-                branch 'PR-*'
-            }
-            steps {
-                sh """
-                echo "Building Artifact from Develop branch"
-                """
-                sh """
-                echo "Deploying Code from Develop branch"
-                """
-	          } // End of Steps
-        				   } //End of PR stage
-
-
-    } //End of Stages
-} //End of Pipeline
+           }
+        }
+    }
+}

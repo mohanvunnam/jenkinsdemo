@@ -1,0 +1,45 @@
+pipeline {
+    agent any
+    stages {
+        stage('Master Branch Deploy Code') {
+            when {
+                branch 'main'
+            }
+            steps {
+                sh """
+                echo "Building Artifact from Master branch."
+                """
+
+                sh """
+                echo "Deploying Code from Master branch"
+                """
+		script {
+			def envlist = ["dev1","qa1"]
+			//def environment = ["dev1","qa1"]
+		        //echo "Hello from Environment ${environment}"
+	
+		        //def envlist = environment.split(',').collect{it as String}
+		        envlist.each {
+                		echo "Working on ${it} environment"
+		                env.environment = it
+
+
+                     }// End of envlist
+                       }// End of Script for 'Get the environment list'
+            }
+        }
+        stage('Develop Branch Deploy Code') {
+            when {
+                branch 'devBranch'
+            }
+            steps {
+                sh """
+                echo "Building Artifact from Develop branch"
+                """
+                sh """
+                echo "Deploying Code from Develop branch"
+                """
+           }
+        }
+    }
+}
