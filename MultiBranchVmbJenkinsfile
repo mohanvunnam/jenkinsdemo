@@ -130,7 +130,7 @@ pipeline {
         				   } //End of Main stage
 
 
-        stage('Develop Branch Deploy Code') {
+        stage('DevBranch Deploy Code') {
             when {
                 branch 'devBranch'
             }
