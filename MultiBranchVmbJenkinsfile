@@ -116,7 +116,7 @@ pipeline {
                 """
 		script {
 
-			def envlist = ["perf","qa2"]
+			def envlist = ["imp1","conv"]
 		        envlist.each {
                 		echo "Working on ${it} environment"
 		                env.environment = it
@@ -130,9 +130,9 @@ pipeline {
         				   } //End of Main stage
 
 
-        stage('DevBranch Deploy Code') {
+        stage('Release Deploy Code') {
             when {
-                branch 'devBranch'
+                branch 'release'
             }
             steps {
                 sh """
@@ -143,7 +143,7 @@ pipeline {
                 """
                 script {
 
-                        def envlist = ["dev1","dev2"]
+                        def envlist = ["pref","qa2"]
                         envlist.each {
                                 echo "Working on ${it} environment"
                                 env.environment = it
