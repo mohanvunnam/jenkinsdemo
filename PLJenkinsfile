@@ -4,7 +4,7 @@ parameters {
 choice(name: 'ENVIRONMENT', choices: ['DVLP', 'TEST', 'UAT', 'PROD'], description: 'on which environment to execute')
 string(name: 'sso', defaultValue: 'mohan2.vm.org', description: 'which SSO we want to execute')
 string(name: 'FileCount', defaultValue: '29', description: 'which File COunt we want to execute')
-booleanParam(name: 'executefunctionstep', defaultValue: 'true', description: 'execute only if true')
+booleanParam(name: 'executefunctionstep', defaultValue: 'no', description: 'execute only if true')
 }
 stages
 {
