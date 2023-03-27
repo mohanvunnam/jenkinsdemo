@@ -22,10 +22,22 @@ parameters {
           steps {
                 script {
 		sh "ls -ltrh configdata.json"
+		def exists = fileExists "configdata_${params['ENVIRONMENT']}.json"
+		echo "-------------------------------------------------------"
+	        echo "Looking for configdata_${params['ENVIRONMENT']}.json:"
+        	if (exists) {
+	            echo "configdata_${params['ENVIRONMENT']}.json found"
+        	} else {
+	            // sendErrorMessageToHipchat("Cannot find configdata_${params['ENVIRONMENT']}.json file.")
+        	    error("configdata_${params['ENVIRONMENT']}.json cannot be found")
+         	}
+          echo "-------------------------------------------------------"
+
+		def config = readJSON file: "configdata.json"
+    		echo "config.vm.ip = ${config.vm.ip}"
 
 //		def jsonSlurper = new JsonSlurper()
 //		def config = jsonSlurper.parse(new File('configdata.json'))
-		def config = readJSON file: "configdata.json"
 //		def datas = readYaml file: 'services.yml'
 //		httpq1=datas."${environment}".httpq
 //		webhook1=datas."${environment}".webhook003
