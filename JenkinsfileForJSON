@@ -21,6 +21,8 @@ parameters {
        stage('Read the variables of service and versions') {
           steps {
                 script {
+		sh "ls -ltrh configdata.json"
+
 //		def jsonSlurper = new JsonSlurper()
 //		def config = jsonSlurper.parse(new File('configdata.json'))
 		def config = readJSON file: "configdata.json"
