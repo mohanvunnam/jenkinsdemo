@@ -43,10 +43,11 @@ File textfile= new File("configdata.json")
 JsonSlurper slurper = new JsonSlurper()
 def parsedJson = slurper.parse(textfile)
 
-parsedJson.each {
-    list.add (it.node_name.toString())
-}
-
+    parsedJson.each { obj ->
+        obj.each { k, v ->
+            list.add v.node_name
+        }
+    }
 return list;
 
 
