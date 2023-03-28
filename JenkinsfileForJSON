@@ -39,7 +39,7 @@ parameters {
 //		def config = readJSON file: "configdata.json"
                 def config = readJSON file: "configdata_${params['ENVIRONMENT']}.json"
     		echo "config.vm.ip = ${config.vm.ip}"
-//		list=config.vm
+		list=config.vm
 
 //		def jsonSlurper = new JsonSlurper()
 //		def config = jsonSlurper.parse(new File('configdata.json'))
