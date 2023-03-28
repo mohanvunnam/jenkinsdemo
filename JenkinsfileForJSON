@@ -36,22 +36,10 @@ parameters {
 
 
 
-
-def list = []
-
-File textfile= new File("configdata.json")
-JsonSlurper slurper = new JsonSlurper()
-def parsedJson = slurper.parse(textfile)
-
-    parsedJson.each { obj ->
-        obj.each { k, v ->
-            list.add v.node_name
-        }
-    }
-
-
-//#		def config = readJSON file: "configdata.json"
-//#    		echo "config.vm.ip = ${config.vm.ip}"
+//		def config = readJSON file: "configdata.json"
+                def config = readJSON file: "configdata_${params['ENVIRONMENT']}.json"
+    		echo "config.vm.ip = ${config.vm.ip}"
+//		list=config.vm
 
 //		def jsonSlurper = new JsonSlurper()
 //		def config = jsonSlurper.parse(new File('configdata.json'))
