@@ -1,95 +1,16 @@
-//import groovy.json.JsonSlurper
-def putaws() {
-    //echo "Hello environment ${environment} from putaws function. Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
-    //echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/httpq_image --value {accountid}.dkr.ecr.us-east-1.amazonaws.com/httpq:${httpq1} --overwrite  --type String"
-   // sh "yamllint services.yml"
-    //println "config.vm.ip = ${config.vm.ip}"
-//    echo "config.vm.ip = ${config.vm.ip}"
-    sh "ls -ltrh"
-}
-
+// Import the Groovy JsonSlurper module
 import groovy.json.JsonSlurper
-pipeline {
-    agent any
-parameters {
-//    string(name: 'sso', defaultValue: '', description: 'which SSO we want to execute')
-    choice(name: 'ENVIRONMENT', choices: ['dev1', 'dev2', 'dev3', 'prod', 'imp1', 'conv'], description: 'on which environment to execute')
-//    booleanParam(name: 'executefunctionstep', defaultValue: true, description: 'execute only if true')
+// KV function takes jsonstring input and returns Key/Value Output
+def KV(jsonInput){
+def json = new groovy.json.JsonSlurper().parseText(jsonInput)
+String kv = json.collect{“${it.key}=${it.value}”}.join(‘,’)
+return kv
 }
-
-
-    stages {
-       stage('Read the variables of service and versions') {
-          steps {
-                script {
-		sh "ls -ltrh configdata.json"
-		def exists = fileExists "configdata_${params['ENVIRONMENT']}.json"
-		echo "-------------------------------------------------------"
-	        echo "Looking for configdata_${params['ENVIRONMENT']}.json:"
-        	if (exists) {
-	            echo "configdata_${params['ENVIRONMENT']}.json found"
-        	} else {
-	            // sendErrorMessageToHipchat("Cannot find configdata_${params['ENVIRONMENT']}.json file.")
-        	    error("configdata_${params['ENVIRONMENT']}.json cannot be found")
-         	}
-          echo "-------------------------------------------------------"
-
-
-
-
-def list = []
-
-File textfile= new File("configdata.json")
-JsonSlurper slurper = new JsonSlurper()
-def parsedJson = slurper.parse(textfile)
-
-    parsedJson.each { obj ->
-        obj.each { k, v ->
-            list.add v.node_name
-        }
-    }
-return list;
-
-
-//#		def config = readJSON file: "configdata.json"
-//#    		echo "config.vm.ip = ${config.vm.ip}"
-
-//		def jsonSlurper = new JsonSlurper()
-//		def config = jsonSlurper.parse(new File('configdata.json'))
-//		def datas = readYaml file: 'services.yml'
-//		httpq1=datas."${environment}".httpq
-//		webhook1=datas."${environment}".webhook003
-//		apimgr1=datas."${environment}".apimgr
-                //echo "Got  httpq ${httpq1} from ${environment} environment"
-                //echo "Got  webhook as ${webhook1} from ${environment} environment"
-                //echo "Got  apimgr as ${apimgr1} from ${environment} environment"
-                       }
-                }
-                                                                }
-       stage('Execute based on Environment') {
-          steps {
-                script {
-			if (environment == 'prod' || environment == 'imp1' || environment == 'conv') {
-//                        	echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
-				putaws()
-
-	                    } else if (environment == 'dev1' || environment == 'dev2' ||  environment == 'dev3' || environment == 'qa1' ) {
-//                                echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
-				putaws()
-                            } else if (environment == 'pref' || environment == 'qa2') {
-//                                echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
-				putaws()
-                            } else if (environment == 'uat1') {
-//                                echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
-				putaws()
-                            } else {
-        	                echo 'No Matching environment found....... '
-                	    	   }
-                       }
-                }
-                                                                }
-
-
-// End
-}
-}
+// Create Static Jsonstring for input
+jsonstring = ‘{“Key”:”Value”, “Key2”:”Value2", “Owner”:”Veeresh Kumar”}’
+// Call KV function by passing jsonstring as input and store output in kv variable
+kv=KV(jsonstring)
+// Print the Static jsonsring content
+println “JsonString: ${jsonstring}”
+// Print converted jsonstring kv variable value
+println “Key/Value: ${kv}”
