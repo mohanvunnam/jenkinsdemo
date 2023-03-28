@@ -4,7 +4,7 @@ def putaws() {
     //echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/httpq_image --value {accountid}.dkr.ecr.us-east-1.amazonaws.com/httpq:${httpq1} --overwrite  --type String"
    // sh "yamllint services.yml"
     //println "config.vm.ip = ${config.vm.ip}"
-    echo "config.vm.ip = ${config.vm.ip}"
+//    echo "config.vm.ip = ${config.vm.ip}"
     sh "ls -ltrh"
 }
 
@@ -33,8 +33,24 @@ parameters {
          	}
           echo "-------------------------------------------------------"
 
-		def config = readJSON file: "configdata.json"
-    		echo "config.vm.ip = ${config.vm.ip}"
+
+
+import groovy.json.JsonSlurper
+def list = []
+
+File textfile= new File("configdata.json")
+JsonSlurper slurper = new JsonSlurper()
+def parsedJson = slurper.parse(textfile)
+
+parsedJson.each {
+    list.add (it.node_name.toString())
+}
+
+return list;
+
+
+//#		def config = readJSON file: "configdata.json"
+//#    		echo "config.vm.ip = ${config.vm.ip}"
 
 //		def jsonSlurper = new JsonSlurper()
 //		def config = jsonSlurper.parse(new File('configdata.json'))
