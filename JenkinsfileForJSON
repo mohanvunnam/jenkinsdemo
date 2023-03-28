@@ -8,6 +8,7 @@ def putaws() {
     sh "ls -ltrh"
 }
 
+import groovy.json.JsonSlurper
 pipeline {
     agent any
 parameters {
@@ -35,7 +36,7 @@ parameters {
 
 
 
-import groovy.json.JsonSlurper
+
 def list = []
 
 File textfile= new File("configdata.json")
