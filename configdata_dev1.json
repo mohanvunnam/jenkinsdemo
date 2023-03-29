@@ -1,7 +1,9 @@
 {
   "deploy": [
-    {
-clientname: 'dc_cocc_bankgloucester', releasenumber: 'release-550'}, {clientname: 'dc_cocc_baycoast', releasenumber: 'release-549'}]
+    
+	{clientname: 'dc_cocc_bankgloucester', releasenumber: 'release-550'},
+	{clientname: 'dc_cocc_baycoast', releasenumber: 'release-549'}]
+
     }
   ]
 }
