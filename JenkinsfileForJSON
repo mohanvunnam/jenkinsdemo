@@ -5,12 +5,12 @@ def putaws() {
    // sh "yamllint services.yml"
     //println "config.vm.ip = ${config.vm.ip}"
 //    echo "config.vm.ip = ${config.vm.ip}"
-    sh "ls -ltrh"
+    sh "ls -ltrh configdata_${params['environment']}.json"
 
 
 list.each {
 
-env.appname1 = ip
+env.appname1 = it
 echo "Executing on Environment $environment. Values of Application = ${appname1}"
 }
 }
@@ -30,6 +30,11 @@ pipeline {
        stage('Read the variables of service and versions') {
           steps {
                 script {
+        echo "Hello from Environment ${environment}"
+      def envlist = environment.split(',').collect{it as String}
+        envlist.each {
+                echo "Working on ${it} environment"
+                env.environment = it
                 echo "Working on ${it} environment"
 		sh "ls -ltrh configdata.json"
 		def exists = fileExists "configdata_${params['environment']}.json"
@@ -59,6 +64,7 @@ pipeline {
                 //echo "Got  httpq ${httpq1} from ${environment} environment"
                 //echo "Got  webhook as ${webhook1} from ${environment} environment"
                 //echo "Got  apimgr as ${apimgr1} from ${environment} environment"
+}
                        }
                 }
                                                                 }
