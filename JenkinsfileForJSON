@@ -56,7 +56,8 @@ pipeline {
 
 //		def config = readJSON file: "configdata.json"
                 def config = readJSON file: "configdata_${params['environment']}.json"
-    		echo "config.vm.ip = ${config.vm.ip}"
+//    		echo "config.vm.ip = ${config.vm.ip}"
+		echo "going into list function"
 		list=config.deploy
 
 //		def jsonSlurper = new JsonSlurper()
