@@ -10,8 +10,9 @@ def putaws() {
 
 list.each {
 
-env.appname1 = it
-echo "Executing on Environment $environment. Values of Application = ${appname1}"
+env.VMip = it.ip
+env.VMmemory = it.memory
+echo "Executing on Environment $environment. Values of Application = ${VMip}"
 }
 }
 
