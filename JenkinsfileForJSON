@@ -21,7 +21,7 @@ pipeline {
     agent any
 //parameters {
 //    string(name: 'sso', defaultValue: '', description: 'which SSO we want to execute')
- //   choice(name: 'ENVIRONMENT', choices: ['dev1', 'dev2', 'dev3', 'prod', 'imp1', 'conv'], description: 'on which environment to execute')
+ //   choice(name: 'environment', choices: ['dev1', 'dev2', 'dev3', 'prod', 'imp1', 'conv'], description: 'on which environment to execute')
 //    booleanParam(name: 'executefunctionstep', defaultValue: true, description: 'execute only if true')
 //}
 
@@ -32,21 +32,21 @@ pipeline {
                 script {
                 echo "Working on ${it} environment"
 		sh "ls -ltrh configdata.json"
-		def exists = fileExists "configdata_${params['ENVIRONMENT']}.json"
+		def exists = fileExists "configdata_${params['environment']}.json"
 		echo "-------------------------------------------------------"
-	        echo "Looking for configdata_${params['ENVIRONMENT']}.json:"
+	        echo "Looking for configdata_${params['environment']}.json:"
         	if (exists) {
-	            echo "configdata_${params['ENVIRONMENT']}.json found"
+	            echo "configdata_${params['environment']}.json found"
         	} else {
-	            // sendErrorMessageToHipchat("Cannot find configdata_${params['ENVIRONMENT']}.json file.")
-        	    error("configdata_${params['ENVIRONMENT']}.json cannot be found")
+	            // sendErrorMessageToHipchat("Cannot find configdata_${params['environment']}.json file.")
+        	    error("configdata_${params['environment']}.json cannot be found")
          	}
           echo "-------------------------------------------------------"
 
 
 
 //		def config = readJSON file: "configdata.json"
-                def config = readJSON file: "configdata_${params['ENVIRONMENT']}.json"
+                def config = readJSON file: "configdata_${params['environment']}.json"
     		echo "config.vm.ip = ${config.vm.ip}"
 		list=config.vm
 
