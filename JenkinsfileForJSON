@@ -38,13 +38,17 @@ pipeline {
                 echo "Working on ${it} environment"
 		sh "ls -ltrh configdata.json"
 		def exists = fileExists "configdata_${params['environment']}.json"
+		//def exists = fileExists "configdata_${environment}.json"
 		echo "-------------------------------------------------------"
-	        echo "Looking for configdata_${params['environment']}.json:"
+	        //echo "Looking for configdata_${params['environment']}.json:"
+	        echo "Looking for configdata_${environment}.json:"
         	if (exists) {
-	            echo "configdata_${params['environment']}.json found"
+	            //echo "configdata_${params['environment']}.json found"
+	            echo "configdata_${environment}.json found"
         	} else {
 	            // sendErrorMessageToHipchat("Cannot find configdata_${params['environment']}.json file.")
-        	    error("configdata_${params['environment']}.json cannot be found")
+        	    //error("configdata_${params['environment']}.json cannot be found")
+        	    error("configdata_${environment}.json cannot be found")
          	}
           echo "-------------------------------------------------------"
 
