@@ -13,7 +13,7 @@ list.each {
 env.clientname = it.clientname
 env.releasenumber = it.releasenumber
 //env.VMmemory = it.memory
-echo "Executing on Environment $environment. Values of Application = ${clientname} and Release number is {releasenumber}"
+echo "Executing on Environment $environment. Values of Application = ${clientname} and Release number is ${releasenumber}"
 //echo "Executing on Environment $environment. Values of Application = ${dc_cocc_bankgloucester}"
 
 }
