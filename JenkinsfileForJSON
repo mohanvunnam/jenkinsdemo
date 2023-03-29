@@ -6,7 +6,15 @@ def putaws() {
     //println "config.vm.ip = ${config.vm.ip}"
 //    echo "config.vm.ip = ${config.vm.ip}"
     sh "ls -ltrh"
+
+
+list.each {
+
+env.appname1 = it.ip
+echo "Executing on Environment $environment. Values of Application = ${appname1}"
 }
+}
+
 
 import groovy.json.JsonSlurper
 pipeline {
@@ -22,6 +30,7 @@ parameters {
        stage('Read the variables of service and versions') {
           steps {
                 script {
+                echo "Working on ${it} environment"
 		sh "ls -ltrh configdata.json"
 		def exists = fileExists "configdata_${params['ENVIRONMENT']}.json"
 		echo "-------------------------------------------------------"
