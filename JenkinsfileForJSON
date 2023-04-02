@@ -14,7 +14,7 @@ list.each {
 env.clientname = it.clientname
 env.releasenumber = it.releasenumber
 //env.VMmemory = it.memory
-env.clientname_count = ${params['clientname']}_count
+def clientname_count = ${params['clientname']}_count
 echo "Executing on Environment $environment. Values of Application = ${clientname} +++++++++++++++++++++" 
 echo "Executing on Environment $environment. Values of Application = ${clientname} and count is ${clientname_count}"
 
