@@ -25,12 +25,12 @@ echo "Executing on Environment $environment. Values of Application = ${clientnam
 import groovy.json.JsonSlurper
 pipeline {
     agent any
-//parameters {
+parameters {
 //    string(name: 'sso', defaultValue: '', description: 'which SSO we want to execute')
  //   choice(name: 'environment', choices: ['dev1', 'dev2', 'dev3', 'prod', 'imp1', 'conv'], description: 'on which environment to execute')
 //    booleanParam(name: 'executefunctionstep', defaultValue: true, description: 'execute only if true')
 	string(name: 'dc_cocc_bankgloucester_count', defaultValue: '0', description: 'Count for dc_cocc_bankgloucester value')
-//}
+}
 
 
     stages {
