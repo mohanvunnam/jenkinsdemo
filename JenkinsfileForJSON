@@ -1,6 +1,6 @@
 //import groovy.json.JsonSlurper
 def putaws() {
-    //echo "Hello environment ${environment} from putaws function. Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
+//    echo "Hello environment ${environment} from putaws function. Executing on the $environment branch. Values of ${} = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
     //echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/httpq_image --value {accountid}.dkr.ecr.us-east-1.amazonaws.com/httpq:${httpq1} --overwrite  --type String"
    // sh "yamllint services.yml"
     //println "config.vm.ip = ${config.vm.ip}"
@@ -8,14 +8,16 @@ def putaws() {
     sh "ls -ltrh configdata_${params['environment']}.json"
 
 
+
 list.each {
 //env.dc_cocc_bankgloucester = it.dc_cocc_bankgloucester
 env.clientname = it.clientname
 env.releasenumber = it.releasenumber
 //env.VMmemory = it.memory
-echo "Executing on Environment $environment. Values of Application = ${clientname} and Release number is ${releasenumber}"
-//echo "Executing on Environment $environment. Values of Application = ${dc_cocc_bankgloucester}"
+env.clientname_count = ${clientname}_count
+echo "Executing on Environment $environment. Values of Application = ${clientname} and count is ${clientname_Count}"
 
+//echo "Executing on Environment $environment. Values of Application = ${dc_cocc_bankgloucester}"
 }
 }
 
@@ -27,6 +29,7 @@ pipeline {
 //    string(name: 'sso', defaultValue: '', description: 'which SSO we want to execute')
  //   choice(name: 'environment', choices: ['dev1', 'dev2', 'dev3', 'prod', 'imp1', 'conv'], description: 'on which environment to execute')
 //    booleanParam(name: 'executefunctionstep', defaultValue: true, description: 'execute only if true')
+	string(name: 'dc_cocc_bankgloucester_count', defaultValue: '0', description: 'Count for dc_cocc_bankgloucester value')
 //}
 
 
