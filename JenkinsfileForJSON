@@ -20,7 +20,7 @@ env.releasenumber = it.releasenumber
 env clientname_count = sh(script:'echo "${clientname}_count"', returnStdout: true)
 echo "Executing on Environment $environment. Values of Application = ${clientname} +++++++++++++++++++++" 
 //echo "Executing on Environment $environment. Values of Application = ${clientname} and count is ${${params['clientname']}_count}"
-echo "Executing on Environment $environment. Values of Application = ${clientname} and count is ${${clientname}_count}"
+echo "Executing on Environment $environment. Values of Application = ${clientname} and count is ${'${clientname}'_count}"
 //echo "Executing on Environment $environment. Values of Application = ${dc_cocc_bankgloucester}"
 }
 }
