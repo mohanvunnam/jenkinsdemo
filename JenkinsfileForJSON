@@ -1,64 +1,35 @@
-//import groovy.json.JsonSlurper
 def putaws() {
-//    echo "Hello environment ${environment} from putaws function. Executing on the $environment branch. Values of ${} = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
-    //echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/httpq_image --value {accountid}.dkr.ecr.us-east-1.amazonaws.com/httpq:${httpq1} --overwrite  --type String"
-   // sh "yamllint services.yml"
-    //println "config.vm.ip = ${config.vm.ip}"
-//    echo "config.vm.ip = ${config.vm.ip}"
+    echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/httpq_image --value {accountid}.dkr.ecr.us-east-1.amazonaws.com/httpq:${httpq1} --overwrite  --type String"
     sh "ls -ltrh configdata_${params['environment']}.json"
 
 
 
 list.each {
-//env.dc_cocc_bankgloucester = it.dc_cocc_bankgloucester
 env.clientname = it.clientname
 env.releasenumber = it.releasenumber
-//env.clientnamecount = it.clientnamecount
-//env.VMmemory = it.memory
-//env clientname_count = it.clientname
-//env clientname_count = echo "${clientname}_count"
 
 script {
-clientname_count = sh(script:'echo "${clientname}_count"', returnStdout: true)
-echo "First  ${clientname}_count"
 if (clientname == 'dc_cocc_bankgloucester'){
 clientnamecount = dc_cocc_bankgloucester_count
 } else if  (clientname == 'dc_cocc_baycoast'){
 clientnamecount = dc_cocc_baycoast_count
-//clientnamecount = ${dc_cocc_baycoast_count}
 }
 
-
-echo "Second  ${clientname_count}"
-}
-//def clientname_count = ${clientname_count}
-//env.clientname_count = it.${clientname_count}
-
-//def clientname_count1 = sh(script:'echo "${clientname}_count"', returnStdout: true)
-//env clientname_count = clientname_count1
-//env clientname_count = sh(script:'echo "${clientname}_count"', returnStdout: true)
-//echo "Executing on Environment $environment. Values of Application = ${clientname} +++++++++++++++++++++" 
-//echo "Executing on Environment $environment. Values of Application = ${clientname} and count is ${${params['clientname']}_count}"
-echo "Environment $environment. Values of Application = ${clientname} and count is ${params['clientname_count']}"
-echo "Executing on Environment $environment. Values of Application = ${clientname} and count is ${clientname_count}"
-echo "Executing on Environment $environment. Values of Application = ${clientname} and count Hardcode is ${dc_cocc_bankgloucester_count}"
-echo "Executing on Environment $environment. Values of Application = ${clientname} and count from if loop is ${clientnamecount}"
-//echo "Executing on Environment $environment. Values of Application = ${clientname} and count is ${clientnamecount}"
-//echo "Executing on Environment $environment. Values of Application = ${dc_cocc_bankgloucester}"
-}
-}
+}// End of Script function
+echo "Executing on Environment $environment. Values of Application = ${clientname} and count is ${clientnamecount}"
+}// End of list.each
+}// End of put aws
 
 
 import groovy.json.JsonSlurper
 pipeline {
     agent any
-parameters {
-//    string(name: 'sso', defaultValue: '', description: 'which SSO we want to execute')
+//parameters {
  //   choice(name: 'environment', choices: ['dev1', 'dev2', 'dev3', 'prod', 'imp1', 'conv'], description: 'on which environment to execute')
 //    booleanParam(name: 'executefunctionstep', defaultValue: true, description: 'execute only if true')
-	string(name: 'dc_cocc_bankgloucester_count', defaultValue: '0', description: 'Count for dc_cocc_bankgloucester value')
-	string(name: 'dc_cocc_baycoast_count', defaultValue: '0', description: 'Count for dc_cocc_baycoast value')
-}
+//	string(name: 'dc_cocc_bankgloucester_count', defaultValue: '0', description: 'Count for dc_cocc_bankgloucester value')
+//	string(name: 'dc_cocc_baycoast_count', defaultValue: '0', description: 'Count for dc_cocc_baycoast value')
+//}
 
 
     stages {
