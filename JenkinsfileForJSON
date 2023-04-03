@@ -13,6 +13,7 @@ list.each {
 //env.dc_cocc_bankgloucester = it.dc_cocc_bankgloucester
 env.clientname = it.clientname
 env.releasenumber = it.releasenumber
+//env.clientname_count = it.clientnamecount
 //env.VMmemory = it.memory
 //env clientname_count = it.clientname
 //env clientname_count = echo "${clientname}_count"
@@ -23,8 +24,8 @@ echo "First  ${clientname}_count"
 }
 echo "Second  ${clientname_count}"
 
-def clientname_count = ${clientname_count}
-env clientname_count = it.clientname_count
+//def clientname_count = ${clientname_count}
+env.clientname_count = it.clientname_count
 
 //def clientname_count1 = sh(script:'echo "${clientname}_count"', returnStdout: true)
 //env clientname_count = clientname_count1
