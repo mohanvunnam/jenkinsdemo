@@ -14,7 +14,7 @@ list.each {
 env.clientname = it.clientname
 env.releasenumber = it.releasenumber
 //env.VMmemory = it.memory
-env clientname_count = it.clientname"_count"
+env clientname_count = it.clientname_"count"
 //env clientname_count = echo "${clientname}_count"
 //env clientname_count = echo "${clientname}_count"
 env clientname_count = sh(script:'echo "${clientname}_count"', returnStdout: true)
