@@ -36,6 +36,7 @@ echo "Second  ${clientname_count}"
 //echo "Executing on Environment $environment. Values of Application = ${clientname} and count is ${${params['clientname']}_count}"
 echo "Environment $environment. Values of Application = ${clientname} and count is ${params['clientname_count']}"
 echo "Executing on Environment $environment. Values of Application = ${clientname} and count is ${clientname_count}"
+echo "Executing on Environment $environment. Values of Application = ${clientname} and count Hardcode is ${dc_cocc_bankgloucester_count}"
 //echo "Executing on Environment $environment. Values of Application = ${clientname} and count is ${clientnamecount}"
 //echo "Executing on Environment $environment. Values of Application = ${dc_cocc_bankgloucester}"
 }
