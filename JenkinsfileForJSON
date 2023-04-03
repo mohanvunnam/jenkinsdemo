@@ -1,6 +1,5 @@
 def putaws() {
-    echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/httpq_image --value {accountid}.dkr.ecr.us-east-1.amazonaws.com/httpq:${httpq1} --overwrite  --type String"
-    sh "ls -ltrh configdata_${params['environment']}.json"
+
 
 
 
@@ -13,10 +12,15 @@ if (clientname == 'dc_cocc_bankgloucester'){
 clientnamecount = dc_cocc_bankgloucester_count
 } else if  (clientname == 'dc_cocc_baycoast'){
 clientnamecount = dc_cocc_baycoast_count
-}
+}// End of if statments
 
 }// End of Script function
+
 echo "Executing on Environment $environment. Values of Application = ${clientname} and count is ${clientnamecount}"
+echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/${clientname} --value ${clientnamecount} --overwrite  --type String"
+sh "ls -ltrh configdata_${params['environment']}.json"
+
+
 }// End of list.each
 }// End of put aws
 
