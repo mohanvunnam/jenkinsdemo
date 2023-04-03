@@ -17,9 +17,10 @@ env.releasenumber = it.releasenumber
 //env clientname_count = it.clientname
 //env clientname_count = echo "${clientname}_count"
 //env clientname_count = echo "${clientname}_count"
+echo "${clientname}_count"
 def clientname_count1 = sh(script:'echo "${clientname}_count"', returnStdout: true)
 env clientname_count = clientname_count1
-env clientname_count = sh(script:'echo "${clientname}_count"', returnStdout: true)
+//env clientname_count = sh(script:'echo "${clientname}_count"', returnStdout: true)
 echo "Executing on Environment $environment. Values of Application = ${clientname} +++++++++++++++++++++" 
 //echo "Executing on Environment $environment. Values of Application = ${clientname} and count is ${${params['clientname']}_count}"
 echo "Executing on Environment $environment. Values of Application = ${clientname} and count is ${clientname_count}"
