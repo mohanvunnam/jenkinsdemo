@@ -22,9 +22,10 @@ script {
 clientname_count = sh(script:'echo "${clientname}_count"', returnStdout: true)
 echo "First  ${clientname}_count"
 if (clientname == 'dc_cocc_bankgloucester'){
-clientnamecount = ${dc_cocc_bankgloucester_count}
+clientnamecount = dc_cocc_bankgloucester_count
 } else if  (clientname == 'dc_cocc_baycoast'){
-clientnamecount = ${dc_cocc_baycoast_count}
+clientnamecount = dc_cocc_baycoast_count
+//clientnamecount = ${dc_cocc_baycoast_count}
 }
 
 
