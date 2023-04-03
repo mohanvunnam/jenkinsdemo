@@ -1,28 +1,27 @@
 def putaws() {
 
-
-
-
 list.each {
 env.clientname = it.clientname
 env.releasenumber = it.releasenumber
 
 script {
-if (clientname == 'dc_cocc_bankgloucester'){
-clientnamecount = dc_cocc_bankgloucester_count
-} else if  (clientname == 'dc_cocc_baycoast'){
-clientnamecount = dc_cocc_baycoast_count
-}// End of if statments
+	// If condition to check the client name a assign proper variable value.
+	// if any new client is coming, then dd the client name in the below If condition 
+	if (clientname == 'dc_cocc_bankgloucester'){
+		clientnamecount = dc_cocc_bankgloucester_count
+	} else if  (clientname == 'dc_cocc_baycoast'){
+		clientnamecount = dc_cocc_baycoast_count
+	}// End of if statments
 
-}// End of Script function
+	}// End of Script function
 
 echo "Executing on Environment $environment. Values of Application = ${clientname} and count is ${clientnamecount}"
 echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/${clientname} --value ${clientnamecount} --overwrite  --type String"
 sh "ls -ltrh configdata_${params['environment']}.json"
 
 
-}// End of list.each
-}// End of put aws
+		}// End of list.each
+	}// End of put aws
 
 
 pipeline {
@@ -32,73 +31,31 @@ pipeline {
        stage('Read the variables of service and versions') {
           steps {
                 script {
-        echo "Hello from Environment ${environment}"
+        echo "List of all Environments selected ${environment}"
+     // If we select multiple environments at same time, then we get the benifit of env.list loop
       def envlist = environment.split(',').collect{it as String}
-        envlist.each {
+        envlist.each { 
                 echo "Working on ${it} environment"
                 env.environment = it
-                echo "Working on ${it} environment"
-		sh "ls -ltrh configdata.json"
+		//Verify the JSOn file for particular environment is available or not.
 		def exists = fileExists "configdata_${params['environment']}.json"
-		//def exists = fileExists "configdata_${environment}.json"
 		echo "-------------------------------------------------------"
-	        //echo "Looking for configdata_${params['environment']}.json:"
 	        echo "Looking for configdata_${environment}.json:"
         	if (exists) {
-	            //echo "configdata_${params['environment']}.json found"
 	            echo "configdata_${environment}.json found"
         	} else {
-	            // sendErrorMessageToHipchat("Cannot find configdata_${params['environment']}.json file.")
-        	    //error("configdata_${params['environment']}.json cannot be found")
         	    error("configdata_${environment}.json cannot be found")
-         	}
+         	}// End of if condition to verify the JSON file
           echo "-------------------------------------------------------"
 
-
-
-//		def config = readJSON file: "configdata.json"
                 def config = readJSON file: "configdata_${params['environment']}.json"
-//    		echo "config.vm.ip = ${config.vm.ip}"
-		echo "going into list function"
+		//Read the clinets from JSON file and keep the clients in a lis
 		list=config.deploy
+		putaws()
+			}// End of envlist.each loop
+                       }// End of script
+                }// End of Steps
+				
+}// End of stage
+}// End of stages
 
-//		def jsonSlurper = new JsonSlurper()
-//		def config = jsonSlurper.parse(new File('configdata.json'))
-//		def datas = readYaml file: 'services.yml'
-//		httpq1=datas."${environment}".httpq
-//		webhook1=datas."${environment}".webhook003
-//		apimgr1=datas."${environment}".apimgr
-                //echo "Got  httpq ${httpq1} from ${environment} environment"
-                //echo "Got  webhook as ${webhook1} from ${environment} environment"
-                //echo "Got  apimgr as ${apimgr1} from ${environment} environment"
-}
-                       }
-                }
-                                                                }
-       stage('Execute based on Environment') {
-          steps {
-                script {
-			if (environment == 'prod' || environment == 'imp1' || environment == 'conv') {
-//                        	echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
-				putaws()
-
-	                    } else if (environment == 'dev1' || environment == 'dev2' ||  environment == 'dev3' || environment == 'qa1' ) {
-//                                echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
-				putaws()
-                            } else if (environment == 'pref' || environment == 'qa2') {
-//                                echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
-				putaws()
-                            } else if (environment == 'uat1') {
-//                                echo "Executing on the $environment branch. Values of httpq = ${httpq1}, webhook = ${webhook1} and apimgr = ${apimgr1}"
-				putaws()
-                            } else {
-        	                echo 'No Matching environment found....... '
-                	    	   }
-                       }
-                }
-                                                                }
-
-
-// End
-}
-}
