@@ -16,11 +16,12 @@ env.releasenumber = it.releasenumber
 //env.VMmemory = it.memory
 //env clientname_count = it.clientname
 //env clientname_count = echo "${clientname}_count"
-//env clientname_count = echo "${clientname}_count"
+
 script {
 clientname_count = sh(script:'echo "${clientname}_count"', returnStdout: true)
 echo "First  ${clientname}_count"
 }
+env clientname_count = it.${clientname_count}
 echo "Second  ${clientname_count}"
 //def clientname_count1 = sh(script:'echo "${clientname}_count"', returnStdout: true)
 //env clientname_count = clientname_count1
