@@ -11,6 +11,91 @@ script {
 		clientnamecount = dc_cocc_bankgloucester_count
 	} else if  (clientname == 'dc_cocc_baycoast'){
 		clientnamecount = dc_cocc_baycoast_count
+	} else if (clientname == 'dc_cocc_libertybank'){
+                clientnamecount = dc_cocc_libertybank_count
+        } else if (clientname == 'dc_cocc_owners'){
+                clientnamecount = dc_cocc_owners_count
+        } else if (clientname == 'dc_cocc_reading'){
+                clientnamecount = dc_cocc_reading_count
+        } else if (clientname == 'dc_cunify_cleanenergy'){
+                clientnamecount = dc_cunify_cleanenergy_count
+        } else if (clientname == 'dc_cunify_downeast'){
+                clientnamecount = dc_cunify_downeast_count
+        } else if (clientname == 'dc_dna_allegacy'){
+                clientnamecount = dc_dna_allegacy_count
+        } else if (clientname == 'dc_dna_cfcu'){
+                clientnamecount = dc_dna_cfcu_count
+        } else if (clientname == 'dc_dna_columbiacom'){
+                clientnamecount = dc_dna_columbiacom_count
+        } else if (clientname == 'dc_dna_figfcu'){
+                clientnamecount = dc_dna_figfcu_count
+        } else if (clientname == 'dc_dna_libertyfcu'){
+                clientnamecount = dc_dna_libertyfcu_count
+        } else if (clientname == 'dc_dna_mecu'){
+                clientnamecount = dc_dna_mecu_count
+        } else if (clientname == 'dc_dna_membersplus'){
+                clientnamecount = dc_dna_membersplus_count
+        } else if (clientname == 'dc_dna_minnco'){
+                clientnamecount = dc_dna_minnco_count
+        } else if (clientname == 'dc_dna_purdue'){
+                clientnamecount = dc_dna_purdue_count
+        } else if (clientname == 'dc_dna_safefcu'){
+                clientnamecount = dc_dna_safefcu_count
+        } else if (clientname == 'dc_dna_vermontfcu'){
+                clientnamecount = dc_dna_vermontfcu_count
+        } else if (clientname == 'dc_episys_alliant'){
+                clientnamecount = dc_episys_alliant_count
+        } else if (clientname == 'dc_episys_eecu'){
+                clientnamecount = dc_episys_eecu_count
+        } else if (clientname == 'dc_episys_georgiaunited'){
+                clientnamecount = dc_episys_georgiaunited_count
+        } else if (clientname == 'dc_episys_hudsonvalley'){
+                clientnamecount = dc_episys_hudsonvalley_count
+        } else if (clientname == 'dc_episys_kirtland'){
+                clientnamecount = dc_episys_kirtland_count
+        } else if (clientname == 'dc_episys_membersfirst'){
+                clientnamecount = dc_episys_membersfirst_count
+        } else if (clientname == 'dc_episys_michiganstate'){
+                clientnamecount = dc_episys_michiganstate_count
+        } else if (clientname == 'dc_episys_phillycu'){
+                clientnamecount = dc_episys_phillycu_count
+        } else if (clientname == 'dc_episys_riverland'){
+                clientnamecount = dc_episys_riverland_count
+        } else if (clientname == 'dc_episys_soundcu'){
+                clientnamecount = dc_episys_soundcu_count
+        } else if (clientname == 'dc_episys_suneast'){
+                clientnamecount = dc_episys_suneast_count
+        } else if (clientname == 'dc_episys_universityfcu'){
+                clientnamecount = dc_episys_universityfcu_count
+        } else if (clientname == 'dc_episys_westreet'){
+                clientnamecount = dc_episys_westreet_count
+        } else if (clientname == 'dc_jxchange_banksouth'){
+                clientnamecount = dc_jxchange_banksouth_count
+        } else if (clientname == 'dc_jxchange_firststate'){
+                clientnamecount = dc_jxchange_firststate_count
+        } else if (clientname == 'dc_keystone_cenwill'){
+                clientnamecount = dc_keystone_cenwill_count
+        } else if (clientname == 'dc_keystone_expedition'){
+                clientnamecount = dc_keystone_expedition_count
+        } else if (clientname == 'dc_keystone_frontwave'){
+                clientnamecount = dc_keystone_frontwave_count
+        } else if (clientname == 'dc_keystone_longbeachcity'){
+                clientnamecount = dc_keystone_longbeachcity_count
+        } else if (clientname == 'dc_keystone_parkview'){
+                clientnamecount = dc_keystone_parkview_count
+        } else if (clientname == 'dc_keystone_primeway'){
+                clientnamecount = dc_keystone_primeway_count
+        } else if (clientname == 'dc_keystone_princeton'){
+                clientnamecount = dc_keystone_princeton_count
+        } else if (clientname == 'dc_keystone_togethercu'){
+                clientnamecount = dc_keystone_togethercu_count
+        } else if (clientname == 'dc_pathways_massmutual'){
+                clientnamecount = dc_pathways_massmutual_count
+        } else if (clientname == 'dc_q2_apgfcu'){
+                clientnamecount = dc_q2_apgfcu_count
+        } else if (clientname == 'dc_vantage'){
+		clientnamecount = dc_vantage_count
+
 	}// End of if statments
 
 	}// End of Script function
