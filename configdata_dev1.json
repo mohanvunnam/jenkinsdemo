@@ -2,8 +2,49 @@
   "deploy": [
     
 	{clientname: 'dc_cocc_bankgloucester', releasenumber: 'release-550'},
-	{clientname: 'dc_cocc_baycoast', releasenumber: 'release-549'}]
+	{clientname: 'dc_cocc_baycoast', releasenumber: 'release-549'}
+        {clientname: 'dc_cocc_libertybank', releasenumber: 'release-548', clientnamecount: 'dc_cocc_libertybank_count'}
+        {clientname: 'dc_cocc_owners', releasenumber: 'release-551'},
+        {clientname: 'dc_cocc_reading', releasenumber: 'release-552'},
+        {clientname: 'dc_cunify_cleanenergy', releasenumber: 'release-154'},
+        {clientname: 'dc_cunify_downeast', releasenumber: 'release-134'},
+        {clientname: 'dc_dna_allegacy', releasenumber: 'release-286'},
+        {clientname: 'dc_dna_cfcu', releasenumber: 'release-129'},
+        {clientname: 'dc_dna_columbiacom', releasenumber: 'develop-476'},
+        {clientname: 'dc_dna_figfcu', releasenumber: 'release-230'},
+        {clientname: 'dc_dna_libertyfcu', releasenumber: 'release-287'},
+        {clientname: 'dc_dna_mecu', releasenumber: 'develop-504'},
+        {clientname: 'dc_dna_membersplus', releasenumber: 'release-288'},
+        {clientname: 'dc_dna_minnco', releasenumber: 'release-150'},
+        {clientname: 'dc_dna_purdue', releasenumber: 'release-229'},
+        {clientname: 'dc_dna_safefcu', releasenumber: 'release-369'},
+        {clientname: 'dc_dna_vermontfcu', releasenumber: 'release-371'},
+        {clientname: 'dc_episys_alliant', releasenumber: 'release-162'},
+        {clientname: 'dc_episys_eecu', releasenumber: 'release-289'},
+        {clientname: 'dc_episys_georgiaunited', releasenumber: 'release-163'},
+        {clientname: 'dc_episys_hudsonvalley', releasenumber: 'package-release-2.2.10.0-303'},
+        {clientname: 'dc_episys_kirtland', releasenumber: 'release-157'},
+        {clientname: 'dc_episys_membersfirst', releasenumber: 'release-461'},
+        {clientname: 'dc_episys_michiganstate', releasenumber: 'release-161'},
+        {clientname: 'dc_episys_phillycu', releasenumber: 'release-462'},
+        {clientname: 'dc_episys_riverland', releasenumber: 'release-158'},
+        {clientname: 'dc_episys_soundcu', releasenumber: 'develop-505'},
+        {clientname: 'dc_episys_suneast', releasenumber: 'release-153'},
+        {clientname: 'dc_episys_universityfcu', releasenumber: 'master-449'},
+        {clientname: 'dc_episys_westreet', releasenumber: 'release-392'},
+        {clientname: 'dc_jxchange_banksouth', releasenumber: 'patch-15-297'},
+        {clientname: 'dc_jxchange_firststate', releasenumber: 'release-393'},
+        {clientname: 'dc_keystone_cenwill', releasenumber: 'release-406'},
+        {clientname: 'dc_keystone_expedition', releasenumber: 'release-407'},
+        {clientname: 'dc_keystone_frontwave', releasenumber: 'release-416'},
+        {clientname: 'dc_keystone_longbeachcity', releasenumber: 'release-417'},
+        {clientname: 'dc_keystone_parkview', releasenumber: 'release-421'},
+        {clientname: 'dc_keystone_primeway', releasenumber: 'release-413'},
+        {clientname: 'dc_keystone_princeton', releasenumber: 'release-405'},
+        {clientname: 'dc_keystone_togethercu', releasenumber: 'release-419'},
+        {clientname: 'dc_pathways_massmutual', releasenumber: 'release-242'},
+        {clientname: 'dc_q2_apgfcu', releasenumber: 'release-323'},
+        {clientname: 'dc_vantage', releasenumber: 'release-209'}
 
+    ]   
     }
-  ]
-}
