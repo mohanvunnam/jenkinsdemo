@@ -2,8 +2,8 @@
   "deploy": [
     
 	{clientname: 'dc_cocc_bankgloucester', releasenumber: 'release-550'},
-	{clientname: 'dc_cocc_baycoast', releasenumber: 'release-549'}
-        {clientname: 'dc_cocc_libertybank', releasenumber: 'release-548', clientnamecount: 'dc_cocc_libertybank_count'}
+	{clientname: 'dc_cocc_baycoast', releasenumber: 'release-549'},
+        {clientname: 'dc_cocc_libertybank', releasenumber: 'release-548'},
         {clientname: 'dc_cocc_owners', releasenumber: 'release-551'},
         {clientname: 'dc_cocc_reading', releasenumber: 'release-552'},
         {clientname: 'dc_cunify_cleanenergy', releasenumber: 'release-154'},
