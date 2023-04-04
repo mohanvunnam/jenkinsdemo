@@ -100,8 +100,9 @@ script {
 
 	}// End of Script function
 
-echo "Executing on Environment $environment. Values of Application = ${clientname} and count is ${clientnamecount}"
+
 if (clientnamecount != 'NULL'){
+echo "Executing on Environment $environment. Values of Application = ${clientname} and count is ${clientnamecount}"
 echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/${clientname} --value ${clientnamecount} --overwrite  --type String"
 //sh "ls -ltrh configdata_${params['environment']}.json"
 }
