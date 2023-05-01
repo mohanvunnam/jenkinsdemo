@@ -103,7 +103,7 @@ script {
 
         }// End of Script function
 
-
+echo "Verify clientnamecount with NULL"
 if (clientnamecount != 'NULL'){
 echo "Executing on Environment $environment. Values of Application = ${clientname} and count is ${clientnamecount}"
 echo "aws ssm put-parameter --name /${environment}/terraform/docker_images/${clientname} --value ${clientnamecount} --overwrite  --type String"
