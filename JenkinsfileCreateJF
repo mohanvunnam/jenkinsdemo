@@ -7,9 +7,8 @@ env.releasenumber = it.releasenumber
 script {
         // If condition to check the client name a assign proper variable value.
         // if any new client is coming, then dd the client name in the below If condition
-        if (a == b){
+        if ('a' == 'b'){
                 dummyvalue = testing
-
 } else if (clientname == 'dc_cocc_bankgloucester'){
             clientnamecount = dc_cocc_bankgloucester
 } else if (clientname == 'dc_cocc_baycoast'){
