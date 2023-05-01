@@ -117,7 +117,7 @@ pipeline {
     agent any
 
 parameters {
-
+choice(name: 'environment', choices: ['dev1', 'dev2', 'dev3', 'pref'], description: 'on which environment to execute')
 string(name: 'dc_cocc_bankgloucester', defaultValue: '', description: 'Count for dc_cocc_bankgloucester value')
 string(name: 'dc_cocc_baycoast', defaultValue: '', description: 'Count for dc_cocc_baycoast value')
 string(name: 'dc_cocc_libertybank', defaultValue: '', description: 'Count for dc_cocc_libertybank value')
